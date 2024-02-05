@@ -1,0 +1,44 @@
+{
+    "tableRows":"tbody",
+    "tr1":"tbody tr:nth-child(1)",
+    "tr1td2":"tbody tr:nth-child(1) td:nth-child(2)",
+
+    "tr2":"tbody tr:nth-child(2)",
+    "tr2td2":"tbody tr:nth-child(2) td:nth-child(2)",
+
+    "tr3":"tbody tr:nth-child(3)",
+    "tr3td2":"tbody tr:nth-child(3) td:nth-child(2)",
+
+    "tr4":"tbody tr:nth-child(4)",
+    "tr4td2":"tbody tr:nth-child(4) td:nth-child(2)",
+
+    "tr5":"tbody tr:nth-child(5)",
+    "tr5td2":"tbody tr:nth-child(5) td:nth-child(2)",
+
+    "tr6":"tbody tr:nth-child(6)",
+    "tr6td2":"tbody tr:nth-child(6) td:nth-child(2)",
+
+    "tr7":"tbody tr:nth-child(7)",
+    "tr7td2":"tbody tr:nth-child(7) td:nth-child(2)",
+
+    "tr8":"tbody tr:nth-child(8)",
+    "tr8td2":"tbody tr:nth-child(8) td:nth-child(2)",
+
+    "tr9":"tbody tr:nth-child(9)",
+    "tr9td2":"tbody tr:nth-child(9) td:nth-child(2)",
+
+    "tr10":"tbody tr:nth-child(10)",
+    "tr10td2":"tbody tr:nth-child(10) td:nth-child(2)",
+
+    "tr11":"tbody tr:nth-child(11)",
+    "tr11td2":"tbody tr:nth-child(11) td:nth-child(2)",
+
+    "tr12":"tbody tr:nth-child(12)",
+    "tr12td2":"tbody tr:nth-child(12) td:nth-child(2)",
+
+    "tr13":"tbody tr:nth-child(13)",
+    "tr13td2":"tbody tr:nth-child(13) td:nth-child(2)",
+
+    "tr14":"tbody tr:nth-child(14)",
+    "tr14td2":"tbody tr:nth-child(14) td:nth-child(2)"
+}

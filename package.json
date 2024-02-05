@@ -1,0 +1,14 @@
+{
+  "name": "cypresframework",
+  "version": "1.0.0",
+  "description": "Testing framework for github repository",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Umer Ehsan",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.6.3"
+  }
+}
