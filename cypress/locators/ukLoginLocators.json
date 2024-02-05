@@ -1,0 +1,6 @@
+{
+    "email":"#loginEmail",
+    "password":"#loginPassword",
+    "loginBtn" : "#submit"
+
+}
