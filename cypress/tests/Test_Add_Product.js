@@ -14,7 +14,7 @@ describe('Add Invoice', () => {
       return false
     })
   })
-
+  
   beforeEach(() => {
 
     cy.UK_LOGIN_MEMBER();
