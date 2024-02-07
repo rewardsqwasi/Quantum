@@ -1,0 +1,10 @@
+{
+    "questoin1":"#question-1",
+    "answer" : "[for='answer-7'] > .text-lg",
+    "btnContinue" : "#sendFormBtn > span",
+    "datePicker" : ".input-button > .fa",
+    "date" : ".today",
+    "acceptTerms" : "#terms",
+    "btnFinish" : ".z-4",
+    "textAddProduct" : "(//span[contains(text(),'Add Purchase')])[1]"
+}

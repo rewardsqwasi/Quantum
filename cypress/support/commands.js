@@ -1,20 +1,20 @@
 /// <reference types="Cypress" />
+import 'cypress-xpath';
+import 'cypress-file-upload';
+import ukLoginData from "../fixtures/ukLoginData.json"
+import ukLoginLocators from "../locators/ukLoginLocators.json"
 
-//import loginData from "../fixtures/loginData.json"
-//const login = require("../business logic/login")
+Cypress.Commands.add('UK_LOGIN_MEMBER', () => {
+    cy.visit("https://stage.memberportal.velux.qwasi.com/uk/login");
 
+    cy.viewport(1280, 720);
+    
+    cy.get(ukLoginLocators.email).type(ukLoginData.email);
+    cy.get(ukLoginLocators.password).type(ukLoginData.password);
+    cy.get(ukLoginLocators.loginBtn).click({ force: true });
 
-/* ------------------------------- Technical helper functions ------------------------------- */
-
-/*
-    All technical helper functions goes here. These are tool/framework focused e.g.
-
-    clickButton()
-    assertTextContent()
-    assertElementValueOnChange()
-    selectDropdown()
-    ...
-*/
+    cy.url().should('include', 'uk/home');
+})
 
 Cypress.Commands.add("clickButton", (selector, isForced, index) => {
     index = index || 0
