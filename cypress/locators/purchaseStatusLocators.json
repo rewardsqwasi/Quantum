@@ -1,0 +1,5 @@
+{
+    "statusDropdown":"#FilterStatus",
+    "editButtonOnStatus": ":nth-child(2) > .md\\:table-cell",
+    "submittButtonOfInnvoice":".px-5 > .w-full"
+}

@@ -15,6 +15,7 @@ describe('UK Member Portal Login Test', () => {
     })
 
     beforeEach(() => {
+        
         // Visit the page containing the login form
         cy.visit('https://stage.memberportal.velux.qwasi.com/uk/login');
     });
