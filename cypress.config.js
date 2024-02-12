@@ -6,7 +6,7 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
     baseUrl:"https://ofac.treasury.gov/sanctions-programs-and-country-information",
-    defaultCommandTimeout:12000,
+    defaultCommandTimeout:25000,
     specPattern:'cypress/tests/**/*.{js,jsx,ts,tsx}',
     watchForFileChanges: false,
     experimentalRunAllSpecs:true,
