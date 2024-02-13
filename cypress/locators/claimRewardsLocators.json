@@ -1,0 +1,20 @@
+{
+    "rewardShop":":nth-child(3) > .w-full > .lg\\:mt-9 > .clamp > a > b",
+    "retailers": ":nth-child(5) > .w-full > .lg\\:mt-9 > .clamp > a > b",
+    "chasingDayLight":":nth-child(7) > .w-full > .lg\\:mt-9 > .clamp > a > b",
+    "selectButton1":":nth-child(3) > .cols-span-12 > .md\\:ml-auto",
+    "gridViewOfShop":".tippy-grid > .bi",
+    "listViewofShop":".tippy-list > .bi",
+    "searchBarinShop":".input",
+    "filterSelect1":".see-more-content > :nth-child(2)",
+    "filterSelect2":":nth-child(5) > .checkbox",
+    "filterButton":".flex-col > :nth-child(4) > div.flex > :nth-child(1)",
+    "resetButton":"#refreshIcon",
+    "productSelect1":":nth-child(1) > .card-container",
+    "incrementBtn":".increment-btn > .fas",
+    "decrementBtn":".decrement-btn > .fas",
+    "basketBtn":".col-start-5 > .btn-effect"
+    
+
+
+}
