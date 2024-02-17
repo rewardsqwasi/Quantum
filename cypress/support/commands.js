@@ -16,6 +16,19 @@ Cypress.Commands.add('UK_LOGIN_MEMBER', () => {
     cy.url().should('include', 'uk/home');
 })
 
+
+Cypress.Commands.add('UK_LOGIN_Primary', () => {
+    cy.visit("https://stage.memberportal.velux.qwasi.com/uk/login");
+
+    cy.viewport(1280, 720);
+    
+    cy.get(ukLoginLocators.email).type(ukLoginData.email2);
+    cy.get(ukLoginLocators.password).type(ukLoginData.password2);
+    cy.get(ukLoginLocators.loginBtn).click({ force: true });
+
+    cy.url().should('include', 'uk/home');
+})
+
 Cypress.Commands.add("clickButton", (selector, isForced, index) => {
     index = index || 0
     if (isForced)

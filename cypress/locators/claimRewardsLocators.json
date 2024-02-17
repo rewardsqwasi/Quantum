@@ -13,8 +13,10 @@
     "productSelect1":":nth-child(1) > .card-container",
     "incrementBtn":".increment-btn > .fas",
     "decrementBtn":".decrement-btn > .fas",
-    "basketBtn":".col-start-5 > .btn-effect"
-    
+    "basketBtn":".col-start-5 > .btn-effect",
+    "backToProductsBtn":".w-64 > .btn-effect",
+    "goToBasketBtn":".lg\\:col-span-3 > .btn-effect",
+    "productselect2":":nth-child(6) > .card-container"
 
 
 }

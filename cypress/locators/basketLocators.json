@@ -1,0 +1,6 @@
+{
+    "basketBtnHome":".flex > .fa",
+    "miniDashboard":".swiper-slide-visible > .bg-\\[\\#B71C1C\\]",
+    "area1Productdetails":"form > .p-3",
+    "basketName":"#quantityInput"
+}

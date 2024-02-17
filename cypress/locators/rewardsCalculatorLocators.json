@@ -1,0 +1,14 @@
+{
+    "rewardsCalculatorMenu":".menu > :nth-child(4) > .flex > span",
+    "incrementofQuantity":".incrementNumber > .bi",
+    "decrementofQuantity":".decrementNumber > .bi",
+    "pointsTable":".order-6 > .w-full",
+    "pointsText":".order-3 > .m-0",
+    "addRow":"#add-row",
+    "enterProductCode1":".select2-selection__placeholder",
+    "enter2Productcode":".select2-selection__placeholder",
+    "deleteRow2":":nth-child(2) > td.w-full > .grid > .order-7 > .tippy-remove-rewards-calculator",
+    "addInvoiceBtn":".py-5 > .btn-effect",
+    "contactUsBtn":".w-full > .btn-effect",
+    "quantityBox":".flex-none > .w-full"
+}
