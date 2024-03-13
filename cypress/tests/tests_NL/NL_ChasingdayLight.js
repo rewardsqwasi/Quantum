@@ -1,4 +1,4 @@
-import chasingDaylightLocators from "../locators/chasingDaylight.json"
+
 
 
 describe('Chasing Daylight', () => {
