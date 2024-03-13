@@ -16,7 +16,10 @@
     "basketBtn":".col-start-5 > .btn-effect",
     "backToProductsBtn":".w-64 > .btn-effect",
     "goToBasketBtn":".lg\\:col-span-3 > .btn-effect",
-    "productselect2":":nth-child(6) > .card-container"
+    "productselect2":":nth-child(6) > .card-container",
+    "productSelect3":":nth-child(7) > .card-container",
+    "productSelect4":":nth-child(5) > .card-container",
+    "privacypolicyCheckbox":"#terms-input"
 
 
 }

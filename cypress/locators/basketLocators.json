@@ -2,5 +2,13 @@
     "basketBtnHome":".flex > .fa",
     "miniDashboard":".swiper-slide-visible > .bg-\\[\\#B71C1C\\]",
     "area1Productdetails":"form > .p-3",
-    "basketName":"#quantityInput"
+    "basketName":"#quantityInput",
+    "deleteBtnofProBaket":".mt-3.md\\:pr-5 > .mt-3 > .flex",
+    "shippingName":"#shipping_name",
+    "address1":"#shipping_address_1",
+    "address2":"#shipping_address_2",
+    "cityShipping":"#shipping_city",
+    "completeOrderBtn":"#complete-order",
+    "tradeConditionsPage":"#open_term_modal_btn",
+    "closeTradeCondition":"#close-dialog-btn"
 }

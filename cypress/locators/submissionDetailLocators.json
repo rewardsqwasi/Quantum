@@ -1,0 +1,25 @@
+{
+    "editButton":":nth-child(2) > .md\\:table-cell > a > .fa",
+    "headerBanner":".swiper-slide-visible > .bg-\\[\\#B71C1C\\]",
+    "miniDashboard":".swiper-slide-visible > .h-full > a > .object-fill",
+    "submissionStatus":".p-4 > .py-2\\.5",
+    "dateSubmittedText":"#content1 > .font-semibold > :nth-child(1)",
+    "submittedDate":".font-semibold > .text-right",
+    "id":"#content1 > :nth-child(2)",
+    "invoiceNumberText":"#content1 > :nth-child(2)",
+    "invoiceNumber":":nth-child(3) > .text-right",
+    "invoiceDateText":":nth-child(4) > .capitalize",
+    "invoiceDate":":nth-child(4) > .text-right",
+    "supplierText":":nth-child(5) > .capitalize",
+    "supplier":"#content1 > :nth-child(5)",
+    "pointsAwardedText":":nth-child(6) > .capitalize",
+    "pointsAwarded":":nth-child(6) > .text-right",
+    "feedBackBox":".outline-none",
+    "firstAnswer":"#answer-3",
+    "room":"#answer-21",
+    "chooseFile":"#uploaded_file"
+   
+    
+
+    
+}

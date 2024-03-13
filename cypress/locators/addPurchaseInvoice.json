@@ -1,0 +1,18 @@
+{
+    "calendar":".input-button",
+    "checkbox":"#terms",
+    "cancel":"#cancel",
+    "Finish":"#finish",
+    "terms":".text-sm > :nth-child(1) > a",
+    "PromotionalTerms":".text-sm > :nth-child(2) > a",
+    "privacyPolicy":".text-sm > :nth-child(1) > a",
+    "altaterraPrivacyPolicy":".text-sm > :nth-child(3) > a",
+    "contactUs":".text-sm > :nth-child(4) > a",
+    "FAQ":".text-sm > :nth-child(5) > a",
+    "earnPoints":".text-sm > :nth-child(6) > a",
+    "facebook":":nth-child(1) > .h-8 > .flex",
+    "twitter":":nth-child(2) > :nth-child(2) > .h-8 > .flex",
+    "youtube":":nth-child(3) > .h-8 > .flex",
+    "pinterest":":nth-child(2) > :nth-child(4) > .h-8 > .flex",
+    "email":":nth-child(2) > :nth-child(2) > :nth-child(1) > .break-all"
+}

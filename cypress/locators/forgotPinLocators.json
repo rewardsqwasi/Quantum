@@ -1,0 +1,7 @@
+{
+    "sendEmail":"#submit",
+    "facebook":":nth-child(3) > #social-icons > .facebook",
+    "twitter":".twitter",
+    "youtube":":nth-child(3) > #social-icons > .youtube",
+    "pinterest":".pinterest"
+}

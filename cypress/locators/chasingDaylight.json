@@ -1,0 +1,32 @@
+{
+    "selectButton":":nth-child(7) > .cols-span-12 > .md\\:ml-auto > .font-bold",
+    "logo":".inline",
+    "main":".menu > :nth-child(1) > .flex > span",
+    "addPurchase":":nth-child(2) > .underlined-animated > span",
+    "spendPoints":":nth-child(3) > .underlined-animated > span",
+    "rewardsCalculator":".menu > :nth-child(4) > .flex > span",
+    "dashboard":".menu > :nth-child(5) > .flex > span",
+    "banner":".swiper-slide-visible > .bg-\\[\\#B71C1C\\]",
+    "miniDashboard":".swiper-slide-visible > .h-full > a > .object-fill",
+    "pageContent":"#reward-details",
+    "numberBox":"#quantityInput",
+    "plusButton":".increment-btn",
+    "minusButton":".decrement-btn",
+    "claim":"#claim",
+    "cancel":".flex-col-reverse > :nth-child(1) > .w-full",
+    "infoPanel":".info-panel-text-columnn-background > .w-full",
+    "terms":".text-sm > :nth-child(1) > a",
+    "PromotionalTerms":".text-sm > :nth-child(2) > a",
+    "privacyPolicy":".text-sm > :nth-child(1) > a",
+    "altaterraPrivacyPolicy":".text-sm > :nth-child(3) > a",
+    "contactUs":".text-sm > :nth-child(4) > a",
+    "FAQ":".text-sm > :nth-child(5) > a",
+    "earnPoints":".text-sm > :nth-child(6) > a",
+    "facebook":":nth-child(1) > .h-8 > .flex",
+    "twitter":":nth-child(2) > :nth-child(2) > .h-8 > .flex",
+    "youtube":":nth-child(3) > .h-8 > .flex",
+    "pinterest":":nth-child(2) > :nth-child(4) > .h-8 > .flex",
+    "email":":nth-child(2) > :nth-child(2) > :nth-child(1) > .break-all"
+
+
+}

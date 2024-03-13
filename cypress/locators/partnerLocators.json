@@ -1,0 +1,11 @@
+{
+    "listView":".hidden > .bi",
+    "gridView":".tippy-grid > .bi",
+    "choose1":"#charityAmount0",
+    "claim1Btn":":nth-child(1) > .card-container > :nth-child(2) > .inline-flex > #charityForm > .items-center > .charityButton",
+    "view1Details":":nth-child(1) > .card-container > :nth-child(2) > :nth-child(4) > .btn-effect",
+    "claim1inDetails":"#claim",
+    "choose1inDetails":"#amount",
+    "cancelBtninDetails":".justify-between > :nth-child(1) > .text-white"
+    
+}

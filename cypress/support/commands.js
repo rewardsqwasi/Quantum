@@ -3,6 +3,9 @@ import 'cypress-xpath';
 import 'cypress-file-upload';
 import ukLoginData from "../fixtures/ukLoginData.json"
 import ukLoginLocators from "../locators/ukLoginLocators.json"
+import ukAdminLoginLocators from "../locators/ukAminLoginLocators.json"
+import ukAdminLoginData from "../fixtures/ukAdminLoginData.json"
+
 
 Cypress.Commands.add('UK_LOGIN_MEMBER', () => {
     cy.visit("https://stage.memberportal.velux.qwasi.com/uk/login");
@@ -27,6 +30,31 @@ Cypress.Commands.add('UK_LOGIN_Primary', () => {
     cy.get(ukLoginLocators.loginBtn).click({ force: true });
 
     cy.url().should('include', 'uk/home');
+})
+
+
+Cypress.Commands.add('UK_LOGIN_Admin', () => {
+    cy.visit("https://stage.velux.qwasi.com/Loyalty/admin/index.php");
+
+    cy.viewport(1280, 720);
+    
+    
+    cy.get(ukAdminLoginLocators.username).type(ukAdminLoginData.username);
+    cy.get(ukAdminLoginLocators.password).type(ukAdminLoginData.password);
+    cy.get(ukAdminLoginLocators.submitbtn).click();
+
+    
+})
+Cypress.Commands.add('NL_LOGIN_MEMBER', () => {
+    cy.visit("https://stage.memberportal.velux.qwasi.com/nl");
+
+    cy.viewport(1280, 720);
+    
+    cy.get(ukLoginLocators.email).type(ukLoginData.email);
+    cy.get(ukLoginLocators.password).type(ukLoginData.password);
+    cy.get(ukLoginLocators.loginBtn).click({ force: true });
+
+    cy.url().should('include', 'nl/home');
 })
 
 Cypress.Commands.add("clickButton", (selector, isForced, index) => {

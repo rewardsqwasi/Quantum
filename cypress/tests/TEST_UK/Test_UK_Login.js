@@ -1,11 +1,11 @@
 import ukLoginData from "../fixtures/ukLoginData.json"
 import ukLoginLocators from "../locators/ukLoginLocators.json"
-import addProductLocators from "../locators/addProductLocators.json"
+
 
 describe('UK Member Portal Login Test', () => {
 
     before(() => {
-
+        
         Cypress.on('uncaught:exception', (err, runnable) => {
 
             console.error('Uncaught Exception:', err.message)
@@ -14,12 +14,24 @@ describe('UK Member Portal Login Test', () => {
         })
     })
 
-    beforeEach(() => {
+    beforeEach(async () => {
         
         // Visit the page containing the login form
-        cy.visit('https://stage.memberportal.velux.qwasi.com/uk/login');
+        await cy.visit('https://stage.memberportal.velux.qwasi.com/uk/login');
+        var submitButton = document.getElementById("submit");
+        const loginEmail = document.getElementById('loginEmail')
+        const loginPassword = document.getElementById('loginPassword')
+        if (submitButton) {
+            submitButton.removeAttribute("disabled");
+            loginEmail.removeAttribute("disabled");
+            loginPassword.removeAttribute("disabled");
+            console.log("DONE")
+        }else{
+            console.error("Login button not found");
+        }
+        
     });
-
+    
     it('should display the email field', () => {
         // Verify that the email field is present on the page
         cy.get(ukLoginLocators.email).should('exist');

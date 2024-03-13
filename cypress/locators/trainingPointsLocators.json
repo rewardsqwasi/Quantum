@@ -1,0 +1,7 @@
+{
+    "bannerSection":".banners-section",
+    "miniDashboard":".swiper-slide-visible > .bg-\\[\\#B71C1C\\]",
+    "validateInput":"#code",
+    "validateBtn":"#validateCode",
+    "signUpLink":".col-start-2 > :nth-child(7) > a"
+}

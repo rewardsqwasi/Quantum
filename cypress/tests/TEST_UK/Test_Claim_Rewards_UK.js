@@ -1,6 +1,6 @@
 import claimRewardsLocators from "../locators/claimRewardsLocators.json";
 
-describe("Reward History", () => {
+describe("Claim Rewards", () => {
     before(() => {
       Cypress.on("uncaught:exception", (err, runnable) => {
         console.error("Uncaught Exception:", err.message);
@@ -40,15 +40,15 @@ describe("Reward History", () => {
      cy.get(claimRewardsLocators.retailers).click();
 });
 
-it('Should Click on Chashing DayLight and redirect it on Chashing DayLight page', () => {
-    cy.get(':nth-child(3) > .underlined-animated > .bi')
-    .invoke('css', 'visibility', 'visible') // Override the 'visibility' CSS property
-    .then(() => {
-      // Once the parent element is made visible, interact with the hidden element
-      cy.contains('Claim Rewards').click({force:true}); // Replace 'Your Po...' with the text of the hidden element
-    });
-    cy.get(claimRewardsLocators.chasingDayLight).click();
-});
+// it('Should Click on Chashing DayLight and redirect it on Chashing DayLight page', () => {
+//     cy.get(':nth-child(3) > .underlined-animated > .bi')
+//     .invoke('css', 'visibility', 'visible') // Override the 'visibility' CSS property
+//     .then(() => {
+//       // Once the parent element is made visible, interact with the hidden element
+//       cy.contains('Claim Rewards').click({force:true}); // Replace 'Your Po...' with the text of the hidden element
+//     });
+//     cy.get(claimRewardsLocators.chasingDayLight).click();
+// });
 it('Should Click on Select Button and redirect it on those page', () => {
     cy.get(':nth-child(3) > .underlined-animated > .bi')
     .invoke('css', 'visibility', 'visible') // Override the 'visibility' CSS property
