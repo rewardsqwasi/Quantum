@@ -9,14 +9,14 @@ describe("Reward History", () => {
       });
     });
     beforeEach(() => {
-        cy.UK_LOGIN_MEMBER();
+        cy.NL_LOGIN_MEMBER();
       });
       it('Should select an option from the status dropdown and responsiveness on desktop', () => {
         cy.get(':nth-child(3) > .underlined-animated > .bi')
         .invoke('css', 'visibility', 'visible') // Override the 'visibility' CSS property
         .then(() => {
           // Once the parent element is made visible, interact with the hidden element
-          cy.contains('Rewards History').click({force:true}); // Replace 'Your Po...' with the text of the hidden element
+          cy.contains('Rewards historie').click({force:true}); // Replace 'Your Po...' with the text of the hidden element
         });
     cy.viewport(1366, 768); // Example: Standard laptop resolution
   });
@@ -25,7 +25,7 @@ describe("Reward History", () => {
         .invoke('css', 'visibility', 'visible') // Override the 'visibility' CSS property
         .then(() => {
           // Once the parent element is made visible, interact with the hidden element
-          cy.contains('Rewards History').click({force:true}); // Replace 'Your Po...' with the text of the hidden element
+          cy.contains('Rewards historie').click({force:true}); // Replace 'Your Po...' with the text of the hidden element
         });
         cy.get(rewardHistoryLocators.gridView).click();
         
@@ -35,7 +35,7 @@ describe("Reward History", () => {
         .invoke('css', 'visibility', 'visible') // Override the 'visibility' CSS property
         .then(() => {
           // Once the parent element is made visible, interact with the hidden element
-          cy.contains('Rewards History').click({force:true}); // Replace 'Your Po...' with the text of the hidden element
+          cy.contains('Rewards historie').click({force:true}); // Replace 'Your Po...' with the text of the hidden element
         });
         cy.get(rewardHistoryLocators.listView).click();
         
@@ -45,7 +45,7 @@ describe("Reward History", () => {
         .invoke('css', 'visibility', 'visible') // Override the 'visibility' CSS property
         .then(() => {
           // Once the parent element is made visible, interact with the hidden element
-          cy.contains('Rewards History').click({force:true}); // Replace 'Your Po...' with the text of the hidden element
+          cy.contains('Rewards historie').click({force:true}); // Replace 'Your Po...' with the text of the hidden element
         });
         cy.get(rewardHistoryLocators.searchFilter3).click();
         
@@ -56,7 +56,7 @@ describe("Reward History", () => {
     .invoke('css', 'visibility', 'visible') // Override the 'visibility' CSS property
     .then(() => {
       // Once the parent element is made visible, interact with the hidden element
-      cy.contains('Rewards History').click({force:true}); // Replace 'Your Po...' with the text of the hidden element
+      cy.contains('Rewards historie').click({force:true}); // Replace 'Your Po...' with the text of the hidden element
     });
     cy.get(rewardHistoryLocators.searchFilter1).click();
 });
