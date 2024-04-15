@@ -50,8 +50,8 @@ Cypress.Commands.add('NL_LOGIN_MEMBER', () => {
 
     cy.viewport(1280, 720);
     
-    cy.get(ukLoginLocators.email).type(ukLoginData.email);
-    cy.get(ukLoginLocators.password).type(ukLoginData.password);
+    cy.get(ukLoginLocators.email).type(ukLoginData.email3);
+    cy.get(ukLoginLocators.password).type(ukLoginData.password3);
     cy.get(ukLoginLocators.loginBtn).click({ force: true });
 
     cy.url().should('include', 'nl/home');

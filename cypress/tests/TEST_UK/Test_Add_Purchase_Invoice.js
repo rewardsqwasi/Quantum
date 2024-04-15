@@ -1,4 +1,4 @@
-import addPurchaseInvoiceLocators from "../locators/addPurchaseInvoice.json"
+import addPurchaseInvoiceLocators from "../../locators/addPurchaseInvoice.json"
  import 'cypress-file-upload'
 
 describe('Add Purchase Invoice', () => {

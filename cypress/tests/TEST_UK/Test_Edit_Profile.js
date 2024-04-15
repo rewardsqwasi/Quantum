@@ -1,5 +1,5 @@
-import editProfileLocators from "../locators/editProfileLocators.json";
-
+import editProfileLocators from "../../locators/editProfileLocators.json";
+import addPurchaseInvoiceLocators from "../../locators/addPurchaseInvoice.json"
 describe("Edit Profile", () => {
     before(() => {
       Cypress.on("uncaught:exception", (err, runnable) => {
@@ -21,7 +21,7 @@ describe("Edit Profile", () => {
         });
     //   cy.visit('https://stage.memberportal.velux.qwasi.com/uk/edit-profile')
     });
-    it('should Verify Home menu working from header.', () => {
+    it('should Verify header, footer and social links are visible and clickable.', () => {
         cy.get('.order-2')
         .invoke('css', 'visibility', 'visible') // Override the 'visibility' CSS property
         .then(() => {
@@ -31,6 +31,29 @@ describe("Edit Profile", () => {
         });
         
     cy.get('.font-velux > .breadcrumb-section > .flex > .hover\\3Atext-primary-color > a').click()
+    cy.go('back');
+    cy.get(addPurchaseInvoiceLocators.terms).click({multiple: true });
+    cy.go('back');
+    cy.get(addPurchaseInvoiceLocators.PromotionalTerms).click({multiple: true });
+    cy.go('back');
+    cy.get(addPurchaseInvoiceLocators.privacyPolicy).click();
+    cy.go('back');
+    cy.get(addPurchaseInvoiceLocators.contactUs).click();
+    cy.go('back');
+    cy.get(addPurchaseInvoiceLocators.FAQ).click();
+    cy.go('back');
+    cy.get(addPurchaseInvoiceLocators.earnPoints).click();
+    cy.go('back');
+    cy.get(addPurchaseInvoiceLocators.facebook).click();
+    cy.go('back');
+    cy.get(addPurchaseInvoiceLocators.twitter).click();
+    cy.go('back');
+    cy.get(addPurchaseInvoiceLocators.youtube).click();
+    cy.go('back');
+    cy.get(addPurchaseInvoiceLocators.pinterest).click();
+
+
+
     });
     it('should Verify the answers are pre-populated when the edit profile page is accessed.', () => {
         cy.get('.order-2')

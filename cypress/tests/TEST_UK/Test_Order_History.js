@@ -1,4 +1,4 @@
-import orderHistoryLocators from "../locators/orderHistoryLocators.json"
+import orderHistoryLocators from "../../locators/orderHistoryLocators.json"
 
 describe('Order History', () => {
 
@@ -15,21 +15,19 @@ describe('Order History', () => {
     beforeEach(() => {
   
       cy.UK_LOGIN_MEMBER();
+
+      cy.get(':nth-child(3) > .underlined-animated > .bi')
+      .invoke('css', 'visibility', 'visible') 
+  
+      .then(() => {
+        
+        cy.contains('Order History').click({force:true}); 
+  
+      });
   
     })
 
-    it('should load the order history page successfully', () => {
 
-        cy.get(':nth-child(3) > .underlined-animated > .bi')
-    .invoke('css', 'visibility', 'visible') 
-
-    .then(() => {
-      
-      cy.contains('Order History').click({force:true}); 
-
-    });
-
-});
 
     it('should display mini dashboard ', () => {
         cy.get(orderHistoryLocators.minidashboard).should('be.visible');
@@ -43,8 +41,6 @@ describe('Order History', () => {
     });
 
     it('should load the order detail page successfully', () => {
-
-      cy.visit("https://stage.memberportal.velux.qwasi.com/uk/new_shop/orders-history");
       
       cy.get(orderHistoryLocators.order1).click();
 
@@ -58,8 +54,6 @@ describe('Order History', () => {
 
 
     it('should load the order detail page successfully', () => {
-
-      cy.visit("https://stage.memberportal.velux.qwasi.com/uk/new_shop/orders-history");
       
       cy.get(orderHistoryLocators.order2).click();
 
@@ -72,88 +66,70 @@ describe('Order History', () => {
 
     it('should display the requested orders', () => {
 
-      cy.visit("https://stage.memberportal.velux.qwasi.com/uk/new_shop/orders-history");
-
       cy.get('#FilterStatus').select('Requested')
 
 
-  });
+    });
 
-  it('should display the in progress orders', () => {
+    it('should display the in progress orders', () => {
 
-    cy.visit("https://stage.memberportal.velux.qwasi.com/uk/new_shop/orders-history");
-
-    cy.get('#FilterStatus').select('In Progress')
+      cy.get('#FilterStatus').select('In Progress')
 
 
-});
+    });
 
-it('should display the delivered orders', () => {
+    it('should display the delivered orders', () => {
 
-  cy.visit("https://stage.memberportal.velux.qwasi.com/uk/new_shop/orders-history");
-
-  cy.get('#FilterStatus').select('Delivered')
+      cy.get('#FilterStatus').select('Delivered')
 
 
-});
+    });
 
-it('should display the cancelled orders', () => {
+    it('should display the cancelled orders', () => {
+
+      cy.get('#FilterStatus').select('Cancelled')
+
+
+    });
+
+    it('should display the 50 orders on that page', () => {
+
+      cy.get('#pagination').select('50')
+
+
+    });
+
+    it('should load the search filter page successfully', () => {
+
+     cy.get(orderHistoryLocators.checkbox).click();
   
-  cy.visit("https://stage.memberportal.velux.qwasi.com/uk/new_shop/orders-history");
+    });
 
-  cy.get('#FilterStatus').select('Cancelled')
+    it('should load the search filter page successfully', () => {
 
-
-});
-
-it('should display the 50 orders on that page', () => {
-  
-  cy.visit("https://stage.memberportal.velux.qwasi.com/uk/new_shop/orders-history");
-
-  cy.get('#pagination').select('50')
-
-
-});
-
-it('should load the search filter page successfully', () => {
-
-        cy.visit("https://stage.memberportal.velux.qwasi.com/uk/new_shop/orders-history");
-        
-        cy.get(orderHistoryLocators.checkbox).click();
-  
-
-            
-          
-      });
-
-      it('should load the search filter page successfully', () => {
-
-        cy.visit("https://stage.memberportal.velux.qwasi.com/uk/new_shop/orders-history");
-        
-        cy.get(orderHistoryLocators.filterButton).click();
+      cy.get(orderHistoryLocators.filterButton).click();
   
             
-          
+    });
+
+
+
+
+
+
+
+      it('Should test responsiveness on desktop', () => {
+  
+        cy.viewport(1366, 768); // Example: Standard laptop resolution
+  
+  
+  
+        // You can also simulate other desktop resolutions as needed
+        // cy.viewport(1920, 1080); // Example: Full HD resolution
+        // cy.viewport(2560, 1440); // Example: 2K resolution
+
+
       });
-
-
-
-
-
-
-
-it('Should test responsiveness on desktop', () => {
-  
-  cy.viewport(1366, 768); // Example: Standard laptop resolution
-  
-  
-  
-  // You can also simulate other desktop resolutions as needed
-  // cy.viewport(1920, 1080); // Example: Full HD resolution
-  // cy.viewport(2560, 1440); // Example: 2K resolution
-
-
-});
 
 
 

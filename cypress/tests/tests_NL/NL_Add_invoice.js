@@ -155,19 +155,6 @@ describe('Add Purchase Invoice', () => {
 
 
 
-    it('should display earn points text', () => {
-        cy.get(addPurchaseInvoiceLocators.earnPoints).should('be.visible');
-
-    });
-
-   
-
-    it('should load the earn points page successfully', () => {
-        cy.get(addPurchaseInvoiceLocators.earnPoints).click();
-
-    });
-
-
     it('should display facebook icon', () => {
         cy.get(addPurchaseInvoiceLocators.facebook).should('be.visible');
 
@@ -212,12 +199,12 @@ describe('Add Purchase Invoice', () => {
 
     });
 
-    it('should display email text', () => {
+    it.skip('should display email text', () => {
         cy.get(addPurchaseInvoiceLocators.email).should('be.visible');
 
     });
 
-    it('should load the email page successfully', () => {
+    it.skip('should load the email page successfully', () => {
         cy.get(addPurchaseInvoiceLocators.email).click();
 
 

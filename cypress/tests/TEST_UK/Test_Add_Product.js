@@ -1,6 +1,6 @@
-import ukLoginData from "../fixtures/ukLoginData.json"
-import ukLoginLocators from "../locators/ukLoginLocators.json"
-import addProductLocators from "../locators/addProductLocators.json"
+import ukLoginData from "../../fixtures/ukLoginData.json"
+import ukLoginLocators from "../../locators/ukLoginLocators.json"
+import addProductLocators from "../../locators/addProductLocators.json"
 
 
 describe('Add Invoice', () => {

@@ -3,6 +3,7 @@
     "retailers": ":nth-child(5) > .w-full > .lg\\:mt-9 > .clamp > a > b",
     "chasingDayLight":":nth-child(7) > .w-full > .lg\\:mt-9 > .clamp > a > b",
     "selectButton1":":nth-child(3) > .cols-span-12 > .md\\:ml-auto",
+    "selectButton2":":nth-child(5) > .cols-span-12 > .md\\:ml-auto",
     "gridViewOfShop":".tippy-grid > .bi",
     "listViewofShop":".tippy-list > .bi",
     "searchBarinShop":".input",

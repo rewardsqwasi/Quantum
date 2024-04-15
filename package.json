@@ -4,13 +4,17 @@
   "description": "Testing framework for github repository",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "delete:reports:run": "rm -rf cypress/results/* && npx cypress run --spec cypress/tests/tests_NL --browser chrome"
+
   },
   "author": "Muhammed Bari",
   "license": "ISC",
   "devDependencies": {
     "cypress": "^13.6.6",
     "cypress-file-upload": "^5.0.8",
-    "cypress-xpath": "^2.0.1"
+    "cypress-mochawesome-reporter": "^3.8.2",
+    "cypress-xpath": "^2.0.1",
+    "mochawesome-merge": "^4.3.0"
   }
 }
