@@ -1,4 +1,4 @@
-import submissionDetailLocators from "../locators/submissionDetailLocators.json"
+import submissionDetailLocators from "../../locators/submissionDetailLocators.json"
 import 'cypress-file-upload';
 
 describe('Submission Detail', () => {

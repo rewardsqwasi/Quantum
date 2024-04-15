@@ -1,4 +1,4 @@
-import purchaseStatusLocators from "../../locators/purchaseStatusLocators.json";
+import purchaseStatusLocators from "../locators/purchaseStatusLocators.json";
 
 describe("Purchase Status", () => {
   before(() => {
@@ -10,7 +10,7 @@ describe("Purchase Status", () => {
   });
 
   beforeEach(() => {
-    cy.UK_LOGIN_MEMBER();
+    cy.FR_LOGIN_MEMBER();
     
 
  

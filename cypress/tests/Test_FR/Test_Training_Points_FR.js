@@ -10,7 +10,7 @@ describe("Training Points", () => {
       });
     });
     beforeEach(() => {
-        cy.UK_LOGIN_MEMBER();
+        cy.FR_LOGIN_MEMBER();
       });
       it("should Verify that all the header links are present and clickable.", () => {
 
@@ -18,7 +18,7 @@ describe("Training Points", () => {
           .invoke('css', 'visibility', 'visible') // Override the 'visibility' CSS property
           .then(() => {
             // Once the parent element is made visible, interact with the hidden element
-            cy.contains('Training Points').click(); // Replace 'Your Po...' with the text of the hidden element
+            cy.contains('Trainingspunten').click(); // Replace 'Your Po...' with the text of the hidden element
           });
 
       });
@@ -28,7 +28,7 @@ describe("Training Points", () => {
           .invoke('css', 'visibility', 'visible') // Override the 'visibility' CSS property
           .then(() => {
             // Once the parent element is made visible, interact with the hidden element
-            cy.contains('Training Points').click(); // Replace 'Your Po...' with the text of the hidden element
+            cy.contains('Trainingspunten').click(); // Replace 'Your Po...' with the text of the hidden element
           });
           cy.get(trainingPointsLocators.bannerSection).should('be.visible');
       });
@@ -38,7 +38,7 @@ describe("Training Points", () => {
           .invoke('css', 'visibility', 'visible') // Override the 'visibility' CSS property
           .then(() => {
             // Once the parent element is made visible, interact with the hidden element
-            cy.contains('Training Points').click(); // Replace 'Your Po...' with the text of the hidden element
+            cy.contains('Trainingspunten').click(); // Replace 'Your Po...' with the text of the hidden element
           });
           cy.get(trainingPointsLocators.miniDashboard).should('be.visible');
       });
@@ -47,16 +47,16 @@ describe("Training Points", () => {
           .invoke('css', 'visibility', 'visible') // Override the 'visibility' CSS property
           .then(() => {
             // Once the parent element is made visible, interact with the hidden element
-            cy.contains('Training Points').click(); // Replace 'Your Po...' with the text of the hidden element
+            cy.contains('Trainingspunten').click(); // Replace 'Your Po...' with the text of the hidden element
           });
-          cy.get('.breadcrumb-section').should('be.visible').contains('Training Points');
+          cy.get('.breadcrumb-section').should('be.visible').contains('Trainingspunten');
       });
       it('Should Verify that the "Claim your training workshop points" section is displayed', () => { 
         cy.get('a.flex.gap-2.items-center.p-2')
           .invoke('css', 'visibility', 'visible') // Override the 'visibility' CSS property
           .then(() => {
             // Once the parent element is made visible, interact with the hidden element
-            cy.contains('Training Points').click(); // Replace 'Your Po...' with the text of the hidden element
+            cy.contains('Trainingspunten').click(); // Replace 'Your Po...' with the text of the hidden element
           });
           cy.get('.col-start-2 > :nth-child(2)').should('be.visible');
       });
@@ -65,7 +65,7 @@ describe("Training Points", () => {
           .invoke('css', 'visibility', 'visible') // Override the 'visibility' CSS property
           .then(() => {
             // Once the parent element is made visible, interact with the hidden element
-            cy.contains('Training Points').click(); // Replace 'Your Po...' with the text of the hidden element
+            cy.contains('Trainingspunten').click(); // Replace 'Your Po...' with the text of the hidden element
           });
           cy.get(trainingPointsLocators.validateInput).click();
           cy.get(trainingPointsLocators.validateBtn).click();
@@ -75,7 +75,7 @@ describe("Training Points", () => {
           .invoke('css', 'visibility', 'visible') // Override the 'visibility' CSS property
           .then(() => {
             // Once the parent element is made visible, interact with the hidden element
-            cy.contains('Training Points').click(); // Replace 'Your Po...' with the text of the hidden element
+            cy.contains('Trainingspunten').click(); // Replace 'Your Po...' with the text of the hidden element
           });
           cy.get(trainingPointsLocators.signUpLink).click();
       });
@@ -84,7 +84,7 @@ describe("Training Points", () => {
           .invoke('css', 'visibility', 'visible') // Override the 'visibility' CSS property
           .then(() => {
             // Once the parent element is made visible, interact with the hidden element
-            cy.contains('Training Points').click(); // Replace 'Your Po...' with the text of the hidden element
+            cy.contains('Trainingspunten').click(); // Replace 'Your Po...' with the text of the hidden element
           });
           cy.get(trainingPointsLocators.signUpLink).should('be.visible');
       });
@@ -93,7 +93,7 @@ describe("Training Points", () => {
           .invoke('css', 'visibility', 'visible') // Override the 'visibility' CSS property
           .then(() => {
             // Once the parent element is made visible, interact with the hidden element
-            cy.contains('Training Points').click(); // Replace 'Your Po...' with the text of the hidden element
+            cy.contains('Trainingspunten').click(); // Replace 'Your Po...' with the text of the hidden element
           });
           cy.get(trainingPointsLocators.signUpLink).should('be.visible');
       });
@@ -102,11 +102,17 @@ describe("Training Points", () => {
           .invoke('css', 'visibility', 'visible') // Override the 'visibility' CSS property
           .then(() => {
             // Once the parent element is made visible, interact with the hidden element
-            cy.contains('Training Points').click(); // Replace 'Your Po...' with the text of the hidden element
+            cy.contains('Trainingspunten').click(); // Replace 'Your Po...' with the text of the hidden element
           });
-          cy.get(homePageLocators.terms).click();
-          cy.get(homePageLocators.privacyPolicy).click();
-          cy.get(homePageLocators.earnPoints).click();
-          cy.get(homePageLocators.contactUs).click();
+          cy.get('.text-sm > :nth-child(1)').click({multiple: true });
+    cy.go('back');
+    cy.get('.text-sm > :nth-child(2) > a').click({multiple: true });
+    cy.go('back');
+    cy.get('.text-sm > :nth-child(4) > a').click();
+    cy.go('back');
+    cy.get('.text-sm > :nth-child(5) > a').click();
+    cy.go('back');
+    cy.get('.text-sm > :nth-child(3) > a').click();
+     
       });
     });

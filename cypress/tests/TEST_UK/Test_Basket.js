@@ -1,5 +1,5 @@
-import claimRewardsLocators from "../locators/claimRewardsLocators.json";
-import basketLocators from "../locators/basketLocators.json";
+import claimRewardsLocators from "../../locators/claimRewardsLocators.json";
+import basketLocators from "../../locators/basketLocators.json";
 
 describe("Basket", () => {
     before(() => {

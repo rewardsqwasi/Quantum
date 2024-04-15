@@ -1,5 +1,5 @@
-import ukLoginData from "../fixtures/ukLoginData.json"
-import ukLoginLocators from "../locators/ukLoginLocators.json"
+import ukLoginData from "../../fixtures/ukLoginData.json"
+import ukLoginLocators from "../../locators/ukLoginLocators.json"
 
 
 describe('UK Member Portal Login Test', () => {

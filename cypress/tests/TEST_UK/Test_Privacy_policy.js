@@ -1,7 +1,7 @@
-import earnPointsLocators from "../locators/earnPointsLocators.json";
-import homePageLocators from "../locators/homePageLocators.json";
+import earnPointsLocators from "../../locators/earnPointsLocators.json";
+import homePageLocators from "../../locators/homePageLocators.json";
 
-describe("Reward History", () => {
+describe("Privacy Policy", () => {
     before(() => {
       Cypress.on("uncaught:exception", (err, runnable) => {
         console.error("Uncaught Exception:", err.message);

@@ -1,8 +1,8 @@
-import homePageLocators from "../locators/homePageLocators.json";
-import dashboardLocators from "../locators/dashboardLocators.json";
-import claimRewardsLocators from "../locators/claimRewardsLocators.json";
-import basketLocators from "../locators/basketLocators.json";
-import addPurchaseInvoiceLocators from "../locators/addPurchaseInvoice.json"
+import homePageLocators from "../../locators/homePageLocators.json";
+import dashboardLocators from "../../locators/dashboardLocators.json";
+import claimRewardsLocators from "../../locators/claimRewardsLocators.json";
+import basketLocators from "../../locators/basketLocators.json";
+import addPurchaseInvoiceLocators from "../../locators/addPurchaseInvoice.json"
  import 'cypress-file-upload'
 
 

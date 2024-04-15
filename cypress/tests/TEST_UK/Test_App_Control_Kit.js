@@ -1,4 +1,4 @@
-import appControlKitLocators from "../locators/appControlKit.json"
+import appControlKitLocators from "../../locators/appControlKit.json"
 
 describe('App Control Kit', () => {
 

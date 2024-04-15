@@ -1,4 +1,4 @@
-import rewardsCalculatorLocators from "../locators/rewardsCalculatorLocators.json"
+import rewardsCalculatorLocators from "../../locators/rewardsCalculatorLocators.json"
 
 describe('Rewards Calculator', () => {
 

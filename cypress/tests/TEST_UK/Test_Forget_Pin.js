@@ -1,4 +1,4 @@
-import forgotPinLocators from "../locators/forgotPinLocators.json"
+import forgotPinLocators from "../../locators/forgotPinLocators.json"
 
 
 describe('Forgot Pin', () => {

@@ -1,5 +1,5 @@
-import ukAdminLoginData from "../fixtures/ukAdminLoginData.json"
-import ukAdminLoginLocators from "../locators/ukAminLoginLocators.json"
+import ukAdminLoginData from "../../fixtures/ukAdminLoginData.json"
+import ukAdminLoginLocators from "../../locators/ukAminLoginLocators.json"
 
 describe('UK Admin Portal', () => {
   

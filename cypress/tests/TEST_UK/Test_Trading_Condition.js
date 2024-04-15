@@ -1,5 +1,5 @@
-import tradingConditinLocators from "../locators/tradingConditionLocators.json";
-import homePageLocators from "../locators/homePageLocators.json";
+import tradingConditinLocators from "../../locators/tradingConditionLocators.json";
+import homePageLocators from "../../locators/homePageLocators.json";
 
 describe("Trade Condition", () => {
     before(() => {

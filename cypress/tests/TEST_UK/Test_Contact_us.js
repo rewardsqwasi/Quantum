@@ -1,4 +1,4 @@
-import homePageLocators from "../locators/homePageLocators.json";
+import homePageLocators from "../../locators/homePageLocators.json";
 
 describe("Contact Us", () => {
     before(() => {

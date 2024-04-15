@@ -10,7 +10,7 @@ describe("Purchase Status", () => {
   });
 
   beforeEach(() => {
-    cy.UK_LOGIN_MEMBER();
+    cy.NL_LOGIN_MEMBER();
     
 
  
@@ -22,10 +22,10 @@ describe("Purchase Status", () => {
       .invoke('css', 'visibility', 'visible') // Override the 'visibility' CSS property
       .then(() => {
         // Once the parent element is made visible, interact with the hidden element
-        cy.contains('Your Points History').click(); // Replace 'Your Po...' with the text of the hidden element
+        cy.contains('Jouw puntengeschiedenis').click(); // Replace 'Your Po...' with the text of the hidden element
       });
    
-     cy.get('.font-poppins > .breadcrumb-section > .flex > .hover\\3Atext-primary-color:nth-child(3)').contains('VELUX Rewards - Purchase Status');
+     cy.get('.font-poppins > .breadcrumb-section > .flex > .hover\\3Atext-primary-color:nth-child(3)').contains('VELUX Rewards - Controleer aankopen');
  
     
      
@@ -37,7 +37,7 @@ describe("Purchase Status", () => {
     .invoke('css', 'visibility', 'visible') // Override the 'visibility' CSS property
     .then(() => {
       // Once the parent element is made visible, interact with the hidden element
-      cy.contains('Your Points History').click(); // Replace 'Your Po...' with the text of the hidden element
+      cy.contains('Jouw puntengeschiedenis').click(); // Replace 'Your Po...' with the text of the hidden element
     });
 
     try {
@@ -56,7 +56,7 @@ describe("Purchase Status", () => {
     .invoke('css', 'visibility', 'visible') // Override the 'visibility' CSS property
     .then(() => {
       // Once the parent element is made visible, interact with the hidden element
-      cy.contains('Your Points History').click(); // Replace 'Your Po...' with the text of the hidden element
+      cy.contains('Jouw puntengeschiedenis').click(); // Replace 'Your Po...' with the text of the hidden element
     });
    cy.get(purchaseStatusLocators.editButtonOnStatus).click();
 });
@@ -65,7 +65,7 @@ it('Submitt Button should be clickable and submitting it', () => {
   .invoke('css', 'visibility', 'visible') // Override the 'visibility' CSS property
   .then(() => {
     // Once the parent element is made visible, interact with the hidden element
-    cy.contains('Your Points History').click(); // Replace 'Your Po...' with the text of the hidden element
+    cy.contains('Jouw puntengeschiedenis').click(); // Replace 'Your Po...' with the text of the hidden element
   });
   cy.get(purchaseStatusLocators.editButtonOnStatus).click();
   cy.get(purchaseStatusLocators.submittButtonOfInnvoice).click();

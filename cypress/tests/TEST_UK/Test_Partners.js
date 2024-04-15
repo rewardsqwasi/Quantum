@@ -1,5 +1,5 @@
-import claimRewardsLocators from "../locators/claimRewardsLocators.json";
-import partnersLocators from "../locators/partnerLocators.json";
+import claimRewardsLocators from "../../locators/claimRewardsLocators.json";
+import partnersLocators from "../../locators/partnerLocators.json";
 
 describe("Reward History", () => {
     before(() => {
