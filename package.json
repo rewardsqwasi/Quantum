@@ -1,14 +1,22 @@
 {
-  "name": "cypresframework",
+  "name": "rewards",
   "version": "1.0.0",
-  "description": "Testing framework for github repository",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx cypress run --browser chrome",
+    "test_parallel": "npx cypress run --browser chrome --record --parallel",
+    "test_headed": "npx cypress run --headed --browser chrome",
+    "cypress:open": "cypress open"
   },
-  "author": "Umer Ehsan",
+  "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^13.6.4"
+    "cypress": "^13.6.6",
+    "cypress-mochawesome-reporter": "^3.8.2",
+    "cypress-xpath": "^2.0.1",
+    "dotenv": "^16.3.1",
+    "typescript": "^5.1.6",
+    "@types/node": "^20.6.5"
   }
 }
