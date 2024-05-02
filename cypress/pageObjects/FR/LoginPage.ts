@@ -1,11 +1,11 @@
-import BasePage from "./BasePage";
+import BasePage from "../BasePage";
 
 export default class LoginPage extends BasePage {
 
   private email_field = '#loginEmail';
   private password_field = '#loginPassword';
   private login_btn = '#submit';
-  private url = '/uk/login';
+  private url = '/login';
   private header_links_section = '#top-menu';
   private footer_links_section = '//footer//h6[text()="Links"]/parent::div';
   private home_btn_header = '//ul[@id="top-menu"]//span[text()="Home"]/parent::a';
@@ -98,7 +98,8 @@ export default class LoginPage extends BasePage {
     return this.element(this.forgot_pass_btn);
   }
 
-  open(){
+  open(region: string){
+    this.url = '/'+region+this.url;
     this.goToUrl(this.url);
   }
 

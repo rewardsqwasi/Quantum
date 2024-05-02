@@ -1,4 +1,5 @@
 import 'cypress-xpath';
+import { createHistogram } from 'perf_hooks';
 
 export default class BasePage {
 
@@ -14,6 +15,30 @@ export default class BasePage {
 
     click(locator: string) {
         this.element(locator).click({ force: true });
+    }
+
+    click2(locator: string) {
+        this.element(locator).click();
+    }
+
+    
+    select(locator: string, option) {
+        this.element(locator).select(option, { force: true });
+    }
+
+    check(locator: string) {
+        this.element(locator).check({ force: true });
+    }
+
+    selectFile(locator: string, file: string) {
+        cy.fixture(file).as('file')
+        this.element(locator).selectFile('@file',{
+            action: 'drag-drop'
+          });
+    }
+
+    selectFile2(locator: string, file: string) {
+        this.element(locator).attachFile(file);
     }
 
     forceClick(locator: string) {
@@ -50,6 +75,10 @@ export default class BasePage {
 
     getURL(){
         return cy.url();
+    }
+
+    getPageTitle(){
+        return cy.title();
     }
 
     wait(time: number){

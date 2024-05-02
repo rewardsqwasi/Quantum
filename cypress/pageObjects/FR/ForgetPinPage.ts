@@ -1,8 +1,8 @@
-import BasePage from "./BasePage";
+import BasePage from "../BasePage";
 
 export default class ForgetPinPage extends BasePage {
 
-  private url = '/uk/forget-pin';
+  private url = '/forget-pin';
   private captcha_div = '.g-recaptcha';
   private captcha_error_div = '#g-recaptcha-error';
   private reset_password_heading = '//h1[text()="Reset Password"]';
@@ -54,7 +54,8 @@ export default class ForgetPinPage extends BasePage {
     return this.inner_text(this.toastMessage);
   }
 
-  open(){
+  open(region: string){
+    this.url = '/'+region+this.url;
     this.goToUrl(this.url);
   }
 

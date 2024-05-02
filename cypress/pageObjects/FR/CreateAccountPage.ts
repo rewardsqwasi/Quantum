@@ -1,8 +1,8 @@
-import BasePage from "./BasePage";
+import BasePage from "../BasePage";
 
 export default class CreateAccountPage extends BasePage {
 
-  private url = '/uk/create-account';
+  private url = '/create-account';
   private profile_detail_heading = '//h2[text()=" Your profile details"]/parent::div';
   private first_name_field = '#firstName';
   private last_name_field = '#lastName';
@@ -190,7 +190,8 @@ export default class CreateAccountPage extends BasePage {
     return this.element(this.create_account_btn);
   }
 
-  open(){
+  open(region: string){
+    this.url = '/'+region+this.url;
     this.goToUrl(this.url);
   }
 

@@ -1,5 +1,5 @@
 
-import App from '../../pageObjects/AppPage';
+import App from '../../pageObjects/UK/AppPage';
 
 const IS_PROD = Cypress.env('IS_PROD');
 const member = {
@@ -13,13 +13,13 @@ describe('UK Region - Forget Pin Tests', () => {
 
   if(IS_PROD==="true"){
     before(() => {
-      app.loginPage.open();
+      app.loginPage.open(region);
       app.loginPage.allowCookie();
     });
   }
 
   it('Forgot Your Password Button Should Present in Login Page', () => {
-    app.loginPage.open();
+    app.loginPage.open(region);
     app.loginPage.forgotPassBtnElement().should('be.visible');
   });
 
@@ -46,11 +46,11 @@ describe('UK Region - Forget Pin Tests', () => {
     let url = Cypress.env('BASE_URL') + '/'+region+'/login';
     app.getURL().should('contain', url);
   });
-
+/*
   xit('Verify Reset Password Email', () => {
     let email = app.emailPage.getLatestEmail('testkhizervelux@restmail.net');
     app.emailPage.renderEmail(email.html);
     app.wait(1000);
   });
-
+*/
 })

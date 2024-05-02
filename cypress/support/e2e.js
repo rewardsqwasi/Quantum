@@ -14,6 +14,7 @@
 // ***********************************************************
 require('cypress-xpath');
 import 'cypress-mochawesome-reporter/register';
+import 'cypress-file-upload';
 // Import commands.js using ES2015 syntax:
 import './commands'
 

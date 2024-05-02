@@ -1,17 +1,8 @@
-import BasePage from "./BasePage";
+import BasePage from "../BasePage";
 
-export default class AddPurchasePage extends BasePage {
+export default class ForgetPinPage extends BasePage {
 
-  private url = '/uk/add-purchase';
-  private add_purchase_section = '//section';
-  private heading = '//section//h4[contains(text(),"Add Purchase")]';
-  private headline_text = '//section//label[contains(text(),"Upload your invoices here to earn your Rewards. Submit your details and fill in the questionnaire below.")]';
-  private form_heading = '//section//h1[contains(text(),"Add Purchase")]';
-  private form_section = '//form[@id="formQuestionsAnswers"]';
-  private cancel_btn = '//span[text()="Cancel"]/parent::a';
-  private continue_btn = '//span[text()="Continue"]/parent::button';
-
-
+  private url = '/forget-pin';
   private captcha_div = '.g-recaptcha';
   private captcha_error_div = '#g-recaptcha-error';
   private reset_password_heading = '//h1[text()="Reset Password"]';
@@ -63,7 +54,8 @@ export default class AddPurchasePage extends BasePage {
     return this.inner_text(this.toastMessage);
   }
 
-  open(){
+  open(region: string){
+    this.url = '/'+region+this.url;
     this.goToUrl(this.url);
   }
 

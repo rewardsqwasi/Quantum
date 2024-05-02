@@ -1,4 +1,4 @@
-import App from '../../pageObjects/AppPage';
+import App from '../../pageObjects/UK/AppPage';
 
 const IS_PROD = Cypress.env('IS_PROD');
 let app = new App();
@@ -8,13 +8,13 @@ describe('UK Region - Create Account Tests', () => {
 
   if(IS_PROD==="true"){
     before(() => {
-      app.loginPage.open();
+      app.loginPage.open(region);
       app.loginPage.allowCookie();
     });
   }
 
   it('Create Account Button Should Present in Login Page', () => {
-    app.loginPage.open();
+    app.loginPage.open(region);
     app.loginPage.createAccountBtnElement().should('be.visible');
   });
 

@@ -1,5 +1,5 @@
-import BasePage from "./BasePage";
-import { Email } from '../util/types';
+import BasePage from "../BasePage";
+import { Email } from '../../util/types';
 
 export default class EmailPage extends BasePage {
 

@@ -1,10 +1,10 @@
-import BasePage from "./BasePage";
+import BasePage from "../BasePage";
 
 export default class HomePage extends BasePage {
  
-  private url = '/uk/home';
+  private url = '/home';
   private main_btn = '(//span[contains(text(),"Main")]/parent::a)[1]';
-  private add_purchase_btn = '//span[contains(text(),"Add Purchase")]/parent::a';
+  private add_purchase_btn = '//span[contains(text(),"Add Purchase") or contains(text(),"Earn Points")]/parent::a';
   private dsp_btn = '//span[contains(text(),"DSP")]/parent::a';
   private add_replace_btn = '//span[contains(text(),"Add Replacement")]/parent::a';
   private upload_invoice_btn = '//span[contains(text(),"Upload Invoice")]/parent::a';
@@ -18,7 +18,7 @@ export default class HomePage extends BasePage {
   private dashboard_btn = '(//span[contains(text(),"Dashboard")]/parent::a)[1]';
   private basket_btn = '//i[contains(@class,"fa-shopping-cart")]/parent::a';
   private banner_section_div = '//div[contains(@class,"banners-section")]';
-  private swiper_banner_dev = '//div[contains(@class,"banners-section")]//div[contains(@class,"swiper-banner")]';
+  private swiper_banner_dev = '//div[contains(@class,"banners-section")]//div[contains(@class,"swiper-container")]';
   private mini_dashboard_banner_div = '//div[contains(@onclick,"/store-mini-dashboard-click")]';
   private goto_mini_dashboard_slide = '//div[contains(@onclick,"/store-mini-dashboard-click")]//following::span[contains(@class,"swiper-pagination-bullet") and @aria-label="Go to slide 2"]';
   private goto_mini_dashboard_slide2 = '(//div[contains(@onclick,"/store-mini-dashboard-click")]/following::div[@aria-label="Next slide"])[1]';
@@ -27,9 +27,9 @@ export default class HomePage extends BasePage {
   private points_spent_div = '(//div[contains(@onclick,"/store-mini-dashboard-click")]//div[text()="Points spent"])[1]';
   private total_points_div = '(//div[contains(@onclick,"/store-mini-dashboard-click")]//div[contains(text(),"Total Points")])[1]';
   private bonus_level_chart = '(//canvas[@id="bonusLevelChart"])[1]';
-  private add_purchase_CTA = '//h6[contains(text(),"Add Purchase")]//ancestor::a';
-  private spend_points_CTA = '//h6[contains(text(),"Spend Points")]//ancestor::a';
-  private reward_calculator_CTA = '//h6[contains(text(),"Reward Calculator")]//ancestor::a';
+  private add_purchase_CTA = '//h6[contains(text(),"Add Purchase") or contains(text(),"Earn points")]//ancestor::a';
+  private spend_points_CTA = '//h6[contains(text(),"Spend Points") or contains(text(),"Spend points")]//ancestor::a';
+  private reward_calculator_CTA = '//h6[contains(text(),"Reward Calculator") or contains(text(),"Reward calculator")]//ancestor::a';
   private claim_rewards_div = '(//h1[contains(text(),"Claim Rewards")]/parent::div//following-sibling::div[contains(@class,"grid")])[1]';
   private stay_informed_div = '(//h1[contains(text(),"Stay Informed")]/parent::div//following-sibling::div[contains(@class,"grid")])[1]';
   private services_div = '(//h1[contains(text(),"Services")]/parent::div//following-sibling::div[contains(@class,"grid")])[1]';
@@ -54,14 +54,15 @@ export default class HomePage extends BasePage {
   private earn_points_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[3]//a[contains(text(),"How to Earn Points")]';
   private velux_privacy_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[3]//a[contains(text(),"VELUX Privacy Policy")]';
   private velux_facebook_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[4]//a[contains(@href,"facebook.com/VELUXGBI")]';
-  private velux_twitter_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[4]//a[contains(@href,"twitter.com/veluxgbi")]';
-  private velux_pinterest_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[4]//a[contains(@href,"pinterest.com/VELUXGroup")]';
-  private velux_youtube_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[4]//a[contains(@href,"www.youtube.com/channel/UC57bJX1nvVM94JR66LoXhJQ")]';
+  private velux_twitter_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[4]//a[contains(@href,"twitter.com/veluxgbi") or contains(@href,"twitter.com/VELUXGBI")]';
+  private velux_pinterest_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[4]//a[contains(@href,"pinterest.com/VELUXGroup") or contains(@href,"pinterest.com/veluxgbi")]';
+  private velux_youtube_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[4]//a[contains(@href,"www.youtube.com/channel/UC57bJX1nvVM94JR66LoXhJQ") or contains(@href,"http://www.youtube.com/user/VeluxGBI")]';
   private dakea_facebook_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[4]//a[contains(@href,"facebook.com/HelloDakea")]';
   private dakea_linkedin_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[4]//a[contains(@href,"linkedin.com/showcase/dakeauk")]';
   private dakea_youtube_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[4]//a[contains(@href,"youtube.com/user/DakeaChannel")]';
 
-  open(){
+  open(region: string){
+    this.url = '/'+region+this.url;
     this.goToUrl(this.url);
   }
  
@@ -175,6 +176,18 @@ export default class HomePage extends BasePage {
 
   clickRewardCalculatorCTA(){
     this.click(this.reward_calculator_CTA);
+  }
+
+  rewardCalculatorCTAElement(){
+    return this.element(this.reward_calculator_CTA);
+  }
+
+  spendPointsCTAElement(){
+    return this.element(this.spend_points_CTA);
+  }
+
+  addPurchaseCTAElement(){
+    return this.element(this.add_purchase_CTA);
   }
 
   contactUsBannerDivElement(){

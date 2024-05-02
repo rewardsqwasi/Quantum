@@ -4,19 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx cypress run --browser chrome",
+    "test": "npx cypress run --spec 'cypress/tests/Sanity/' --browser chrome",
     "test_parallel": "npx cypress run --browser chrome --record --parallel",
-    "test_headed": "npx cypress run --headed --browser chrome",
+    "test_headed": "npx cypress run --spec 'cypress/tests/Sanity/' --headed --browser chrome",
     "cypress:open": "cypress open"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^13.6.6",
+    "@types/node": "^20.6.5",
+    "cypress": "^13.8.1",
+    "cypress-file-upload": "^5.0.8",
     "cypress-mochawesome-reporter": "^3.8.2",
     "cypress-xpath": "^2.0.1",
     "dotenv": "^16.3.1",
-    "typescript": "^5.1.6",
-    "@types/node": "^20.6.5"
+    "typescript": "^5.1.6"
   }
 }

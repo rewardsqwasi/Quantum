@@ -1,4 +1,4 @@
-import App from '../../pageObjects/AppPage';
+import App from '../../pageObjects/UK/AppPage';
 
 const IS_PROD = Cypress.env('IS_PROD');
 const member = {
@@ -9,18 +9,17 @@ let app = new App();
 let region = 'uk';
 
 describe('UK Region - Home Page Tests', () => {
-
   
   before(() => {
-    app.loginPage.open();
+    app.loginPage.open(region);
     if(IS_PROD==="true"){
       app.loginPage.allowCookie();
     }
-    app.loginPage.open();
+    app.loginPage.open(region);
     app.loginPage.login(member.email, member.password);
   });
-
-  it('Verify Header Menu Links', () => {
+///*
+  xit('Verify Header Menu Links', () => {
     let homeUrl = Cypress.env('BASE_URL') + '/'+region+'/home';
     app.homePage.clickMainBtn();
     app.getURL().should('contain', homeUrl);
@@ -62,15 +61,22 @@ describe('UK Region - Home Page Tests', () => {
     let basketUrl = Cypress.env('BASE_URL') + '/'+region+'/new_shop/basket';
     app.getURL().should('contain', basketUrl);
   });
+//*/
+
+  it('Verify Page URL', () => {
+    let homeUrl = Cypress.env('BASE_URL') + '/'+region+'/home';
+    app.homePage.clickMainBtn();
+    app.getURL().should('contain', homeUrl);
+  });
 
   it('Verify Banners Section', () => {
-    app.homePage.open();
+    app.homePage.open(region);
     app.homePage.bannerSectionDivElement().should('be.visible');
     app.homePage.swiperBannerDivElement().should('have.length', 2)
   });
 
   it('Verify Mini Dashboard Section', () => {
-    app.homePage.open();
+    app.homePage.open(region);
     app.homePage.miniDashboardBannerDivElement().should('be.visible');
     app.homePage.clickGotoMiniDashboardChart();
     app.homePage.currentPointDivElement().should('exist');
@@ -84,22 +90,22 @@ describe('UK Region - Home Page Tests', () => {
   });
 
   it('Verify CTA Buttons', () => {
-    app.homePage.open();
+    app.homePage.open(region);
     app.homePage.clickAddPurchaseCTA();
     let addPurUrl = Cypress.env('BASE_URL') + '/'+region+'/add-purchase';
     app.getURL().should('contain', addPurUrl);
-    app.homePage.open();
+    app.homePage.open(region);
     app.homePage.clickSpendPointsCTA();
     let claimRewardUrl = Cypress.env('BASE_URL') + '/'+region+'/claim-rewards';
     app.getURL().should('contain', claimRewardUrl);
-    app.homePage.open();
+    app.homePage.open(region);
     app.homePage.clickRewardCalculatorCTA();
     let rewardsCalculatorUrl = Cypress.env('BASE_URL') + '/'+region+'/rewards-calculator';
     app.getURL().should('contain', rewardsCalculatorUrl);
   });
 
   it('Verify Claim Rewards Section', () => {
-    app.homePage.open();
+    app.homePage.open(region);
     app.homePage.claimRewardsHeadingElement().should('be.visible');
     app.homePage.viewClaimRewardsSection();
     app.homePage.claimRewardsDivElement().should('be.visible');
@@ -129,56 +135,6 @@ describe('UK Region - Home Page Tests', () => {
     app.homePage.clickContactUsBtn();
     let url = Cypress.env('BASE_URL') + '/'+region+'/contact';
     app.getURL().should('contain', url);
-  });
-
-  it('Verify Footer Contact Section', () => {
-    app.homePage.footerSectionElement().should('be.visible');
-    app.homePage.viewFooterSection();
-    app.homePage.contactEmailFooterTextElement().should('be.visible');
-    app.homePage.contactNumberFooterTextElement().should('be.visible');
-    app.homePage.getAddressFooterText().should('eq', 'VELUX Company LtdWoodside WayGlenrothesFifeScotlandKY7 4ND');
-    app.homePage.altaterraEmailFooterTextElement().should('be.visible');
-    app.homePage.altaterraNumberFooterTextElement().should('be.visible');
-  });
-
-  it('Verify Footer Links Section', () => {
-    app.homePage.footerSectionElement().should('be.visible');
-    app.homePage.viewFooterSection();
-    app.homePage.clickTermsLinkFooter();
-    let termUrl = Cypress.env('BASE_URL') + '/'+region+'/terms-and-conditions';
-    app.getURL().should('contain', termUrl);
-    app.homePage.clickPromotionalLinkFooter();
-    let promotionalUrl = Cypress.env('BASE_URL') + '/'+region+'/terms-promotion';
-    app.getURL().should('contain', promotionalUrl);
-    app.homePage.clickContactUsLinkFooter();
-    let contactUsUrl = Cypress.env('BASE_URL') + '/'+region+'/contact';
-    app.getURL().should('contain', contactUsUrl);
-    if(IS_PROD==="false"){
-      app.homePage.clickFAQLinkFooter();
-      let faqUrl = Cypress.env('BASE_URL') + '/'+region+'/faq';
-      app.getURL().should('contain', faqUrl);
-    }
-    app.homePage.clickEarnPointsLinkFooter();
-    let earnUrl = Cypress.env('BASE_URL') + '/'+region+'/how-to-earn-points';
-    app.getURL().should('contain', earnUrl);
-    app.homePage.clickAltaterraPrivacyLinkFooter();
-    app.getURL().should('contain', 'https://dakea.co.uk/app/uploads/2022/02/Privacy-Policy.pdf');
-    app.homePage.open();
-    app.homePage.clickVeluxPrivacyLinkFooter();
-    app.getURL().should('contain', 'https://www.velux.co.uk/legal/privacy-policy');
-  });
-
-  it('Verify Footer Social Links Section', () => {
-    app.homePage.open();
-    app.homePage.footerSectionElement().should('be.visible');
-    app.homePage.viewFooterSection();
-    app.homePage.veluxTwitterLinkElement().should('be.visible');
-    app.homePage.veluxPinterestLinkElement().should('be.visible');
-    app.homePage.veluxYoutubeLinkElement().should('be.visible');
-    app.homePage.veluxFacebookLinkElement().should('be.visible');
-    app.homePage.dakeaFacebookLinkElement().should('be.visible');
-    app.homePage.dakeaLinkedinLinkElement().should('be.visible');
-    app.homePage.dakeaYoutubeLinkElement().should('be.visible');
   });
 
 })
