@@ -14,13 +14,8 @@ export default class BasePage {
     }
 
     click(locator: string) {
-        this.element(locator).click({ force: true });
+        this.element(locator).first().click({ force: true });
     }
-
-    click2(locator: string) {
-        this.element(locator).click();
-    }
-
     
     select(locator: string, option) {
         this.element(locator).select(option, { force: true });
