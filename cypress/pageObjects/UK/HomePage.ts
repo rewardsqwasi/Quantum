@@ -29,12 +29,12 @@ export default class HomePage extends BasePage {
   private bonus_level_chart = '(//canvas[@id="bonusLevelChart"])[1]';
   private add_purchase_CTA = '//h6[contains(text(),"Add Purchase") or contains(text(),"Earn points")]//ancestor::a';
   private spend_points_CTA = '//h6[contains(text(),"Spend Points") or contains(text(),"Spend points")]//ancestor::a';
-  private reward_calculator_CTA = '//h6[contains(text(),"Reward Calculator") or contains(text(),"Reward calculator")]//ancestor::a';
-  private claim_rewards_div = '(//h1[contains(text(),"Claim Rewards")]/parent::div//following-sibling::div[contains(@class,"grid")])[1]';
+  private reward_calculator_CTA = '//h6[contains(text(),"Reward Calculator") or contains(text(),"Reward calculator") or contains(text(),"Rewards Calculator") or contains(text(),"Rewards calculator")]//ancestor::a';
+  private claim_rewards_div = '(//h1[contains(text(),"Claim Rewards") or contains(text(),"Claim Your Rewards")]/parent::div//following-sibling::div[contains(@class,"grid")])[1]';
   private stay_informed_div = '(//h1[contains(text(),"Stay Informed")]/parent::div//following-sibling::div[contains(@class,"grid")])[1]';
   private services_div = '(//h1[contains(text(),"Services")]/parent::div//following-sibling::div[contains(@class,"grid")])[1]';
   private velux_tips_div = '(//h1[contains(text(),"VELUX Tips & Tricks Videos")]/parent::div//following-sibling::div[contains(@class,"grid")])[1]';
-  private claim_rewards_heading = '//h1[contains(text(),"Claim Rewards")]/parent::div';
+  private claim_rewards_heading = '(//h1[contains(text(),"Claim Rewards") or contains(text(),"Claim Your Rewards")]/parent::div)[1]';
   private stay_informed_heading = '//h1[contains(text(),"Stay Informed")]/parent::div';
   private services_heading = '//h1[contains(text(),"Services")]/parent::div';
   private velux_tips_heading = '//h1[contains(text(),"VELUX Tips & Tricks Videos")]/parent::div';
@@ -56,7 +56,7 @@ export default class HomePage extends BasePage {
   private velux_facebook_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[4]//a[contains(@href,"facebook.com/VELUXGBI")]';
   private velux_twitter_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[4]//a[contains(@href,"twitter.com/veluxgbi") or contains(@href,"twitter.com/VELUXGBI")]';
   private velux_pinterest_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[4]//a[contains(@href,"pinterest.com/VELUXGroup") or contains(@href,"pinterest.com/veluxgbi")]';
-  private velux_youtube_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[4]//a[contains(@href,"www.youtube.com/channel/UC57bJX1nvVM94JR66LoXhJQ") or contains(@href,"http://www.youtube.com/user/VeluxGBI")]';
+  private velux_youtube_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[4]//a[contains(@href,"www.youtube.com/channel/UC57bJX1nvVM94JR66LoXhJQ") or contains(@href,"www.youtube.com/user/VeluxGBI")]';
   private dakea_facebook_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[4]//a[contains(@href,"facebook.com/HelloDakea")]';
   private dakea_linkedin_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[4]//a[contains(@href,"linkedin.com/showcase/dakeauk")]';
   private dakea_youtube_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[4]//a[contains(@href,"youtube.com/user/DakeaChannel")]';
@@ -239,11 +239,11 @@ export default class HomePage extends BasePage {
   }
 
   viewServicesSection(){
-    this.inView(this.stay_informed_heading);
+    this.inView(this.services_heading);
   }
 
   viewStayInformedSection(){
-    this.inView(this.services_heading);
+    this.inView(this.stay_informed_heading);
   }
 
   viewVeluxTipsSection(){
