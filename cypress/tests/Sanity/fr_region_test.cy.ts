@@ -8,9 +8,9 @@ const member = {
 let app = new App();
 let region = 'fr';
 
-describe('Sanity Test FR Region', () => {
+describe('Sanity Test France Region', () => {
   
-  it('Sanity Test FR Region', () => {
+  it('Sanity Test France Region', () => {
     app.loginPage.open(region);
     if(IS_PROD==="true"){
       app.loginPage.allowCookie();
