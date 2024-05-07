@@ -32,6 +32,8 @@ module.exports = defineConfig({
       "cypress/tests/**/be_region_test.cy.{js,jsx,ts,tsx}",
       "cypress/tests/**/es_region_test.cy.{js,jsx,ts,tsx}",
       "cypress/tests/**/it_region_test.cy.{js,jsx,ts,tsx}",
+      "cypress/tests/**/se_region_test.cy.{js,jsx,ts,tsx}",
+      "cypress/tests/**/pt_region_test.cy.{js,jsx,ts,tsx}",
       "cypress/tests/**/login_tests.cy.{js,jsx,ts,tsx}",
       "cypress/tests/**/forget_pin_tests.cy.{js,jsx,ts,tsx}",
       "cypress/tests/**/create_account_tests.cy.{js,jsx,ts,tsx}",
