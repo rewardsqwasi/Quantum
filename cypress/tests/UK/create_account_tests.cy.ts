@@ -10,6 +10,7 @@ describe('UK Region - Create Account Tests', () => {
     before(() => {
       app.loginPage.open(region);
       app.loginPage.allowCookie();
+      app.getURL().should('contain', '?consent=preferences,statistics,marketing&ref-original=');
     });
   }
 

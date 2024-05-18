@@ -1,3 +1,4 @@
+import { Helper } from 'cypress/util/helper';
 import App from '../../pageObjects/UK/AppPage';
 
 const dataFiles = '../../fixtures/';
@@ -15,6 +16,7 @@ describe('UK Region - Add Purchase Tests', () => {
     app.loginPage.open(region);
     if(IS_PROD==="true"){
       app.loginPage.allowCookie();
+      app.getURL().should('contain', '?consent=preferences,statistics,marketing&ref-original=');
     }
     app.loginPage.open(region);
     app.loginPage.login(member.email, member.password);
@@ -24,6 +26,10 @@ describe('UK Region - Add Purchase Tests', () => {
     app.homePage.clickAddPurchseBtn();
     let addPurUrl = Cypress.env('BASE_URL') + '/'+region+'/add-purchase';
     app.getURL().should('contain', addPurUrl);
+  });
+
+  it('Verify Page Title', () => {
+    app.getPageTitle().should('eq','VELUX Rewards - Add Purchase');
   });
 
   it('Verify Add Purchase Section', () => {
@@ -49,6 +55,11 @@ describe('UK Region - Add Purchase Tests', () => {
     app.addPurchasePage.clickFinishBtn();
     app.addPurchasePage.successPurchaseToastElement().should('be.visible');
     app.addPurchasePage.getHeadingText().should('contain', "Thanks for uploading your invoice!");
+    app.homePage.clickPointsHistoryBtn();
+    //app.purchaseStatusPage.dateOfPurchase().should('eq', Helper.currentDate());
+    app.purchaseStatusPage.dateOfPurchase().should('be.oneOf', Helper.currentDate());
+    app.purchaseStatusPage.refOfPurchase().should('match',/^\n\d+\n$/);
+    app.purchaseStatusPage.statusOfPurchase().should('eq', 'Pending');
   });
 
   it('Verify 1 Property, Replacing existing roof windows and Hall room Installation Invoice Purchase', () => {
@@ -66,6 +77,11 @@ describe('UK Region - Add Purchase Tests', () => {
     app.addPurchasePage.clickFinishBtn();
     app.addPurchasePage.successPurchaseToastElement().should('be.visible');
     app.addPurchasePage.getHeadingText().should('contain', "Thanks for uploading your invoice!");
+    app.homePage.clickPointsHistoryBtn();
+    //app.purchaseStatusPage.dateOfPurchase().should('eq', Helper.currentDate());
+    app.purchaseStatusPage.dateOfPurchase().should('be.oneOf', Helper.currentDate());
+    app.purchaseStatusPage.refOfPurchase().should('match',/^\n\d+\n$/);
+    app.purchaseStatusPage.statusOfPurchase().should('eq', 'Pending');
   });
 
   it('Verify 2 Property & Dont Know Installation Invoice Purchase', () => {
@@ -81,6 +97,11 @@ describe('UK Region - Add Purchase Tests', () => {
     app.addPurchasePage.clickFinishBtn();
     app.addPurchasePage.successPurchaseToastElement().should('be.visible');
     app.addPurchasePage.getHeadingText().should('contain', "Thanks for uploading your invoice!");
+    app.homePage.clickPointsHistoryBtn();
+    //app.purchaseStatusPage.dateOfPurchase().should('eq', Helper.currentDate());
+    app.purchaseStatusPage.dateOfPurchase().should('be.oneOf', Helper.currentDate());
+    app.purchaseStatusPage.refOfPurchase().should('match',/^\n\d+\n$/);
+    app.purchaseStatusPage.statusOfPurchase().should('eq', 'Pending');
   });
 
 })

@@ -15,6 +15,7 @@ describe('UK Region - Forget Pin Tests', () => {
     before(() => {
       app.loginPage.open(region);
       app.loginPage.allowCookie();
+      app.getURL().should('contain', '?consent=preferences,statistics,marketing&ref-original=');
     });
   }
 

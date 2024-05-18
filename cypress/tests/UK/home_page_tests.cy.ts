@@ -14,12 +14,13 @@ describe('UK Region - Home Page Tests', () => {
     app.loginPage.open(region);
     if(IS_PROD==="true"){
       app.loginPage.allowCookie();
+      app.getURL().should('contain', '?consent=preferences,statistics,marketing&ref-original=');
     }
     app.loginPage.open(region);
     app.loginPage.login(member.email, member.password);
   });
-///*
-  xit('Verify Header Menu Links', () => {
+
+  it('Verify Header Menu Links', () => {
     let homeUrl = Cypress.env('BASE_URL') + '/'+region+'/home';
     app.homePage.clickMainBtn();
     app.getURL().should('contain', homeUrl);
@@ -61,7 +62,7 @@ describe('UK Region - Home Page Tests', () => {
     let basketUrl = Cypress.env('BASE_URL') + '/'+region+'/new_shop/basket';
     app.getURL().should('contain', basketUrl);
   });
-//*/
+
 
   it('Verify Page URL', () => {
     let homeUrl = Cypress.env('BASE_URL') + '/'+region+'/home';
