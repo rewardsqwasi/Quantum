@@ -16,6 +16,10 @@ export default class BasePage {
     click(locator: string) {
         this.element(locator).first().click({ force: true });
     }
+
+    click2(locator: string) {
+        this.element(locator).first().click();
+    }
     
     select(locator: string, option) {
         this.element(locator).select(option, { force: true });
@@ -30,6 +34,16 @@ export default class BasePage {
         this.element(locator).selectFile('@file',{
             action: 'drag-drop'
           });
+    }
+
+    readFixture(path: string){
+        return cy.fixture(path).then((data)=>{
+            return data;
+        });
+    }
+
+    loadFixture(path: string){
+        return cy.fixture(path);
     }
 
     selectFile2(locator: string, file: string) {
