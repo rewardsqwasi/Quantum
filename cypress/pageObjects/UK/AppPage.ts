@@ -11,6 +11,12 @@ import AddReplacementPage from './AddReplacementPage';
 import PurchaseStatusPage from './PurchaseStatusPage';
 import TrainingPointsPage from './TrainingPointsPage';
 import ClaimRewardsPage from './ClaimRewardsPage';
+import RewardsHistoryPage from './RewardsHistoryPage';
+import OrdersHistoryPage from './OrdersHistoryPage';
+import RewardsCalculatorPage from './RewardsCalculatorPage';
+import DashboardPage from './DashboardPage';
+import BasketPage from './BasketPage';
+import ProfilePage from './ProfilePage';
 
 export default class App extends BasePage {
    
@@ -56,6 +62,30 @@ export default class App extends BasePage {
 
     public get claimRewardsPage(): ClaimRewardsPage {
         return new ClaimRewardsPage();
+    }
+
+    public get ordersHistoryPage(): OrdersHistoryPage {
+        return new OrdersHistoryPage();
+    }
+
+    public get rewardsHistoryPage(): RewardsHistoryPage {
+        return new RewardsHistoryPage();
+    }
+
+    public get rewardsCalculatorPage(): RewardsCalculatorPage {
+        return new RewardsCalculatorPage();
+    }
+
+    public get dashboardPage(): DashboardPage {
+        return new DashboardPage();
+    }
+
+    public get basketPage(): BasketPage {
+        return new BasketPage();
+    }
+
+    public get profilePage(): ProfilePage {
+        return new ProfilePage();
     }
 
     
