@@ -7,6 +7,8 @@
     "test": "npx cypress run --spec 'cypress/tests/Sanity/' --browser chrome",
     "test_parallel": "npx cypress run --browser chrome --record --parallel",
     "test_headed": "npx cypress run --spec 'cypress/tests/Sanity/' --headed --browser chrome",
+    "test_uk_headed": "npx cypress run --spec 'cypress/tests/UK/' --headed --browser chrome",
+    "test_uk": "npx cypress run --spec 'cypress/tests/UK/' --browser chrome",
     "cypress:open": "cypress open"
   },
   "author": "",
