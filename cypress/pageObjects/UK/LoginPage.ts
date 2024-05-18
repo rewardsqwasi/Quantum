@@ -23,6 +23,8 @@ export default class LoginPage extends BasePage {
   private create_account_btn = '//a[text()="Create an account"]';
   private forgot_pass_btn = '//a[text()="Forgot your password?"]';
   private allow_cookie_btn = '#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll';
+  private allow_cookie_btn2 = '#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll_2';
+  private cookie_show_detail = '//div[@class="cookiebot__details"]/a';
 
   login(email: string, password: string){
     if(email==undefined) email = " ";
@@ -104,7 +106,8 @@ export default class LoginPage extends BasePage {
   }
 
   allowCookie(){
-    this.click(this.allow_cookie_btn);
+    this.click2(this.cookie_show_detail);
+    this.click2(this.allow_cookie_btn2);
   }
 
 }

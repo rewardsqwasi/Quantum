@@ -60,10 +60,20 @@ export default class HomePage extends BasePage {
   private dakea_facebook_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[4]//a[contains(@href,"facebook.com/HelloDakea")]';
   private dakea_linkedin_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[4]//a[contains(@href,"linkedin.com/showcase/dakeauk")]';
   private dakea_youtube_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[4]//a[contains(@href,"youtube.com/user/DakeaChannel")]';
+  private logout_btn = '//span[text()="Logout"]/parent::div/parent::a';
+  private profile_btn = '//span[text()="Profile"]/parent::div/parent::a';
 
   open(region: string){
     this.url = '/'+region+this.url;
     this.goToUrl(this.url);
+  }
+
+  clickProfile(){
+    this.forceClick(this.profile_btn);
+  }
+
+  clickLogout(){
+    this.forceClick(this.logout_btn);
   }
  
   mainTabBtnElement(){

@@ -9,11 +9,28 @@ export default class PurchaseStatusPage extends BasePage {
   private table_heading = '//section//p[text()="Your Points History"]';
   private filterStatusSelect = '//select[@id="FilterStatus"]';
   private paginationSelect = '//select[@id="pagination"]';
+  private firstDataDate = '//section//table//tr[2]/td[1]';
+  private firstDataRef = '//section//table//tr[2]/td[2]/a';
+  private firstDataPoints = '//section//table//tr[2]/td[3]';
+  private firstDataStatus = '//section//table//tr[2]/td[4]/span';
+  private firstDataInvNumber = '//section//table//tr[2]/td[5]';
+
+  dateOfPurchase(){
+    return this.inner_text(this.firstDataDate);
+  }
+
+  refOfPurchase(){
+    return this.inner_text(this.firstDataRef);
+  }
+
+  statusOfPurchase(){
+    return this.inner_text(this.firstDataStatus);
+  }
 
   sectionElement(){
     return this.element(this.section);
   }
-
+  
   tableElement(){
     return this.element(this.table);
   }
