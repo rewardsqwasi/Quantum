@@ -94,6 +94,10 @@ export default class BasketPage extends BasePage {
     return this.element(this.back_to_products_btn);
   }
 
+  clickBackToProductsBtn(){
+    this.click(this.back_to_products_btn);
+  }
+
   viewSection(){
     this.inView(this.section);
   }
