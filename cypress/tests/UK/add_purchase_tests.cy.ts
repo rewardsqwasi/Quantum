@@ -56,7 +56,6 @@ describe('UK Region - Add Purchase Tests', () => {
     app.addPurchasePage.successPurchaseToastElement().should('be.visible');
     app.addPurchasePage.getHeadingText().should('contain', "Thanks for uploading your invoice!");
     app.homePage.clickPointsHistoryBtn();
-    //app.purchaseStatusPage.dateOfPurchase().should('eq', Helper.currentDate());
     app.purchaseStatusPage.dateOfPurchase().should('be.oneOf', Helper.currentDate());
     app.purchaseStatusPage.refOfPurchase().should('match',/^\n\d+\n$/);
     app.purchaseStatusPage.statusOfPurchase().should('eq', 'Pending');
@@ -78,7 +77,6 @@ describe('UK Region - Add Purchase Tests', () => {
     app.addPurchasePage.successPurchaseToastElement().should('be.visible');
     app.addPurchasePage.getHeadingText().should('contain', "Thanks for uploading your invoice!");
     app.homePage.clickPointsHistoryBtn();
-    //app.purchaseStatusPage.dateOfPurchase().should('eq', Helper.currentDate());
     app.purchaseStatusPage.dateOfPurchase().should('be.oneOf', Helper.currentDate());
     app.purchaseStatusPage.refOfPurchase().should('match',/^\n\d+\n$/);
     app.purchaseStatusPage.statusOfPurchase().should('eq', 'Pending');
@@ -98,7 +96,6 @@ describe('UK Region - Add Purchase Tests', () => {
     app.addPurchasePage.successPurchaseToastElement().should('be.visible');
     app.addPurchasePage.getHeadingText().should('contain', "Thanks for uploading your invoice!");
     app.homePage.clickPointsHistoryBtn();
-    //app.purchaseStatusPage.dateOfPurchase().should('eq', Helper.currentDate());
     app.purchaseStatusPage.dateOfPurchase().should('be.oneOf', Helper.currentDate());
     app.purchaseStatusPage.refOfPurchase().should('match',/^\n\d+\n$/);
     app.purchaseStatusPage.statusOfPurchase().should('eq', 'Pending');
