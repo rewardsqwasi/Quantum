@@ -90,7 +90,7 @@ export default class BasePage {
         return cy.title();
     }
 
-    wait(time: number){
+    wait(time: any){
         cy.wait(time);
     }
 
@@ -148,6 +148,16 @@ export default class BasePage {
 
     log(any: any){
         cy.log(any);
+    }
+
+    interceptRequest(path: string, a: string){
+        cy.intercept(path).as(a);
+        return a;
+    }
+
+    waitForRequest(a: string){
+        let alias = '@'+a;
+        cy.wait(alias).its('response.statusCode').should('eq', 200)
     }
 
 }
