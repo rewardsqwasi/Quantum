@@ -17,6 +17,8 @@ import RewardsCalculatorPage from './RewardsCalculatorPage';
 import DashboardPage from './DashboardPage';
 import BasketPage from './BasketPage';
 import ProfilePage from './ProfilePage';
+import ShopPage from './ShopPage';
+import AddUserPage from './AddUserPage';
 
 export default class App extends BasePage {
    
@@ -88,6 +90,12 @@ export default class App extends BasePage {
         return new ProfilePage();
     }
 
-    
+    public get shopPage(): ShopPage {
+        return new ShopPage();
+    }
+
+    public get addUserPage(): AddUserPage {
+        return new AddUserPage();
+    }
     
 }
