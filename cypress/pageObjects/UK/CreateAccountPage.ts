@@ -34,9 +34,103 @@ export default class CreateAccountPage extends BasePage {
   private verify_email_field = '#verifyEmail';
   private password_field = '#password';
   private terms_checkbox = '#terms';
+  private optin_sms_checkbox = '#optinsms';
   private email_promotion_checkbox = '#optinMarketing';
   private sms_promotion_checkbox = '#optinsms';
   private create_account_btn = '#register';
+  private label_mobile_field = '//label[@for="mobile"]';
+  private label_verify_mobile_field = '//label[@for="mobileVerify"]';
+  private label_how_many_people_ques = '//label[@for="q3Core"]';
+  private label_working_time_ques = '//label[@for="q9Core"]';
+  private label_how_many_roof_ques = '//label[@for="q5Core"]';
+  private label_how_many_velux_ques = '//label[@for="q6Core"]';
+  private label_how_many_dakea_ques = '//label[@for="q10Core"]';
+  private label_describe_yourself_ques = '//label[@for="q7Core"]';
+  private label_velux_rewards_ques = '//label[@for="q8Core"]';
+  private label_recommend_velux_ques = '//label[@for="q2Core"]';
+  private label_recommend_dakea_ques = '//label[@for="q11Core"]';
+  private enter_email_error = '//span[@id="emailStatus" and text()="Please enter a valid email address"]';
+  private enter_verify_email_error = '#verifyEmailStatus';
+
+  enterEmailErrorElement(){
+    return this.element(this.enter_email_error);
+  }
+
+  enterVerifyEmailErrorElement(){
+    return this.element(this.enter_verify_email_error);
+  }
+
+  submitCreateAccountForm(email: string, password: string){
+    this.type(this.first_name_field,'test first name');
+    this.type(this.last_name_field,'test last name');
+    this.type(this.company_name_field,'test company name');
+    this.type(this.company_number_field,'123456');
+    this.type(this.address_1_field,'test address 1');
+    this.type(this.address_2_field,'test address 2');
+    this.type(this.postcode_field,'test123');
+    this.type(this.town_field,'test town');
+    this.type(this.mobile_field,'07400123564');
+    this.type(this.verify_mobile_field,'07400123564');
+    this.select(this.how_many_people_ques,1);
+    this.select(this.working_time_ques,1);
+    this.type(this.how_many_roof_ques,"1");
+    this.select(this.how_many_velux_ques,1);
+    this.select(this.how_many_dakea_ques,1);
+    this.select(this.describe_yourself_ques,1);
+    this.select(this.velux_rewards_ques,1);
+    this.select(this.recommend_velux_ques,1);
+    this.select(this.recommend_dakea_ques,1);
+    this.type(this.email_field, email);
+    this.type(this.verify_email_field, email);
+    this.type(this.password_field, password);
+    this.check(this.terms_checkbox);
+    this.check(this.optin_sms_checkbox);
+    this.click(this.create_account_btn);
+  }
+
+  mobileFieldLabel(){
+    return this.inner_text(this.label_mobile_field);
+  }
+
+  verifyMobileFieldLabel(){
+    return this.inner_text(this.label_verify_mobile_field);
+  }
+
+  howManyPeopleQuesLabel(){
+    return this.inner_text(this.label_how_many_people_ques);
+  }
+
+  workingTimeQuesLabel(){
+    return this.inner_text(this.label_working_time_ques);
+  }
+
+  howManyRoofQuesLabel(){
+    return this.inner_text(this.label_how_many_roof_ques);
+  }
+
+  howManyVeluxQuesLabel(){
+    return this.inner_text(this.label_how_many_velux_ques);
+  }
+
+  howManyDakeaQuesLabel(){
+    return this.inner_text(this.label_how_many_dakea_ques);
+  }
+
+  describeYourselfQuesLabel(){
+    return this.inner_text(this.label_describe_yourself_ques);
+  }
+
+  veluxRewardQuesLabel(){
+    return this.inner_text(this.label_velux_rewards_ques);
+  }
+
+  recommendVeluxQuesLabel(){
+    return this.inner_text(this.label_recommend_velux_ques);
+  }
+
+  recommendDakeaQuesLabel(){
+    return this.inner_text(this.label_recommend_dakea_ques);
+  }
 
   profileDetailHeadingElement(){
     return this.element(this.profile_detail_heading);

@@ -11,10 +11,24 @@ export default class ForgetPinPage extends BasePage {
   private info_text_two = '//p[text()="The SMS will also contain a verification code."]';
   private request_new_pass_btn = '#submit';
   private toastMessage = '.toast-message';
+  private enter_email_error = '//span[@id="emailStatus" and text()="Please enter your email address"]';
+  private re_captcha_error = '//div[@id="g-recaptcha-error" and ./span[text()="reCaptcha is required."]]';
+
+  enterEmailErrorElement(){
+    return this.element(this.enter_email_error);
+  }
+
+  reCaptchaErrorElement(){
+    return this.element(this.re_captcha_error);
+  }
 
   removeCaptchaDiv(){
     this.removeFromDom(this.captcha_div);
     this.removeFromDom(this.captcha_error_div);
+  }
+
+  captchaDivElement(){
+    return this.element(this.captcha_div);
   }
 
   resetPasswordHeadingElement(){
@@ -41,8 +55,13 @@ export default class ForgetPinPage extends BasePage {
     return this.element(this.request_new_pass_btn);
   }
 
-  enterEmail(email: string){
+  reqNewPassword(email: string){
     this.removeCaptchaDiv();
+    this.type(this.email_field, email);
+    this.click(this.request_new_pass_btn);
+  }
+
+  enterEmail(email: string){
     this.type(this.email_field, email);
   }
 

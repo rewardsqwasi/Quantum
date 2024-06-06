@@ -21,6 +21,41 @@ export default class BasketPage extends BasePage {
   private shipping_notes_field = '(//div[contains(@class,"intro-y")])[3]//textarea[@id="shipping_notes"]';
   private terms_checkbox = '(//div[contains(@class,"intro-y")])[3]//input[@id="terms-input"]';
   private complete_order_btn = '(//div[contains(@class,"intro-y")])[3]//button/span[contains(text(),"Complete Order")]';
+  private product_name = '//h2[@class="text-xl md:text-2xl"]';
+  private product_points = '//h2[contains(text(),"Points")]';
+  private product_code = '//div[contains(text(),"Product code:")]/following-sibling::div';
+  private quanity_input = '//input[@id="quantityInput"]';
+  private total_points = '//div[contains(text(),"Total points:")]/following-sibling::div';
+  private remove_cart_btn = '//a[contains(@href,"cart/remove/")]';
+  private basket_empty_text = '//h2[text()="Your basket is empty"]';
+
+  basketEmptyTextElement(){
+    return this.element(this.basket_empty_text);
+  }
+
+  emptyCart(){
+    this.click(this.remove_cart_btn);
+  }
+
+  totalPointsElement(){
+    return this.element(this.total_points);
+  }
+
+  quanityInputElement(){
+    return this.element(this.quanity_input);
+  }
+
+  productCodeElement(){
+    return this.element(this.product_code);
+  }
+
+  productPointsElement(){
+    return this.element(this.product_points);
+  }
+
+  productNameElement(){
+    return this.element(this.product_name);
+  }
 
   completeOrderBtnElement(){
     return this.element(this.complete_order_btn);
