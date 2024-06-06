@@ -104,7 +104,10 @@ export default class LoginPage extends BasePage {
   }
 
   allowCookie(){
-    this.click(this.allow_cookie_btn);
+    //this.click(this.allow_cookie_btn);
+    const cookieName = 'CookieConsent';
+    const val = '{stamp:%27sHS+T32djoU4M1YJEZjeZximyN7zE+WPBluvck9j91xBY55T+JF6YQ==%27%2Cnecessary:true%2Cpreferences:true%2Cstatistics:true%2Cmarketing:true%2Cmethod:%27explicit%27%2Cver:1%2Cutc:1717676239610%2Cregion:%27pk%27}';
+    this.setCookies(cookieName, val);
   }
 
 }
