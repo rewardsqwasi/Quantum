@@ -19,6 +19,8 @@ import BasketPage from './BasketPage';
 import ProfilePage from './ProfilePage';
 import ShopPage from './ShopPage';
 import AddUserPage from './AddUserPage';
+import ContactUsPage from './ContactUsPage';
+import TermsPage from './TermsPage';
 
 export default class App extends BasePage {
    
@@ -96,6 +98,14 @@ export default class App extends BasePage {
 
     public get addUserPage(): AddUserPage {
         return new AddUserPage();
+    }
+
+    public get contactUsPage(): ContactUsPage {
+        return new ContactUsPage();
+    }
+
+    public get termsPage(): TermsPage {
+        return new TermsPage();
     }
     
 }
