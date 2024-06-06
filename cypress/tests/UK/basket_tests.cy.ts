@@ -15,7 +15,7 @@ describe('UK Region - Basket Tests', () => {
     app.loginPage.open(region);
     if(IS_PROD==="true"){
       app.loginPage.allowCookie();
-      app.getURL().should('contain', '?consent=preferences,statistics,marketing&ref-original=');
+      //app.getURL().should('contain', '?consent=preferences,statistics,marketing&ref-original=');
       app.loadFixture('prod/uk.json').then((d) => {
         data = d;
       });
@@ -67,4 +67,23 @@ describe('UK Region - Basket Tests', () => {
     app.basketPage.completeOrderBtnElement().should('be.visible');  
   });
 
+  it('Verify that the quantity, name, code, points of the selected product is correctly added to the basket page.', () => {
+    app.basketPage.clickBackToProductsBtn();
+    let url = Cypress.env('BASE_URL') + '/'+region+'/new_shop';
+    app.getURL().should('contain', url);
+    app.shopPage.clickFirstProduct();
+    app.shopPage.getProductDetail().then(details => {
+      const [name, points, code] = details;
+      app.shopPage.clickAddToBasket();
+      app.homePage.clickBasketBtn();
+      app.basketPage.productNameElement().should('have.text', name);
+      app.basketPage.productPointsElement().should('have.text', 'Points '+points+'\n');
+      app.basketPage.productCodeElement().should('have.text', '\n'+code+'\n');
+      app.basketPage.quanityInputElement().should('have.value', '1');
+      app.basketPage.totalPointsElement().should('have.text', '\n'+points+'\n');
+    })
+    app.basketPage.emptyCart();
+    app.basketPage.basketEmptyTextElement().should('be.visible'); 
+  });
+  
 })

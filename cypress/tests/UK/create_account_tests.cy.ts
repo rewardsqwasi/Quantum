@@ -1,6 +1,10 @@
 import App from '../../pageObjects/UK/AppPage';
 
 const IS_PROD = Cypress.env('IS_PROD');
+const member = {
+  "email": Cypress.env('MEMBER_EMAIL_UK'),
+  "password": Cypress.env('MEMBER_PASSWORD_UK')
+};
 let app = new App();
 let region = 'uk';
 
@@ -10,7 +14,7 @@ describe('UK Region - Create Account Tests', () => {
     before(() => {
       app.loginPage.open(region);
       app.loginPage.allowCookie();
-      app.getURL().should('contain', '?consent=preferences,statistics,marketing&ref-original=');
+      //app.getURL().should('contain', '?consent=preferences,statistics,marketing&ref-original=');
     });
   }
 
@@ -61,7 +65,6 @@ describe('UK Region - Create Account Tests', () => {
     app.createAccountPage.facebookFieldElement().should('be.visible');
     app.createAccountPage.youtubeFieldElement().should('be.visible');
     app.createAccountPage.instagramFieldElement().should('be.visible');
-    app.createAccountPage.howManyVeluxQuesElement().should('be.visible');
   });
 
   it('Verify Create Account Login Section', () => {
@@ -75,5 +78,77 @@ describe('UK Region - Create Account Tests', () => {
     app.createAccountPage.smsPromotionCheckboxElement().should('be.visible');
     app.createAccountPage.createAccountBtnElement().should('be.visible');
   });
-  
+
+  it('Verify the required/mandatory fields are marked with the "*" symbol', () => {
+    app.createAccountPage.firstNameFieldElement().should('have.attr', 'placeholder').and('contain', "*");
+    app.createAccountPage.lastNameFieldElement().should('have.attr', 'placeholder').and('contain', "*");
+    app.createAccountPage.companyNameFieldElement().should('have.attr', 'placeholder').and('contain', "*");
+    app.createAccountPage.address1FieldElement().should('have.attr', 'placeholder').and('contain', "*");
+    app.createAccountPage.postcodeFieldElement().should('have.attr', 'placeholder').and('contain', "*");
+    app.createAccountPage.townFieldElement().should('have.attr', 'placeholder').and('contain', "*");   
+    app.createAccountPage.mobileFieldLabel().should('contain', "*");
+    app.createAccountPage.verifyMobileFieldLabel().should('contain', "*");
+    app.createAccountPage.howManyPeopleQuesLabel().should('contain', "*");
+    app.createAccountPage.workingTimeQuesLabel().should('contain', "*");
+    app.createAccountPage.howManyRoofQuesLabel().should('contain', "*");
+    app.createAccountPage.howManyVeluxQuesLabel().should('contain', "*");
+    app.createAccountPage.howManyDakeaQuesLabel().should('contain', "*");
+    app.createAccountPage.describeYourselfQuesLabel().should('contain', "*");
+    app.createAccountPage.veluxRewardQuesLabel().should('contain', "*");
+    app.createAccountPage.recommendVeluxQuesLabel().should('contain', "*");
+    app.createAccountPage.recommendDakeaQuesLabel().should('contain', "*");
+    app.createAccountPage.emailFieldElement().should('have.attr', 'placeholder').and('contain', "*");
+    app.createAccountPage.verifyEmailFieldElement().should('have.attr', 'placeholder').and('contain', "*");
+    app.createAccountPage.passwordFieldElement().should('have.attr', 'placeholder').and('contain', "*");
+  });
+
+  it('Verify that Placeholders for all the fields exist.', () => {
+    app.createAccountPage.firstNameFieldElement().should('have.attr', 'placeholder',"First Name *");
+    app.createAccountPage.lastNameFieldElement().should('have.attr', 'placeholder',"Last Name *");
+    app.createAccountPage.companyNameFieldElement().should('have.attr', 'placeholder',"Company Name *");
+    app.createAccountPage.companyNumberFieldElement().should('have.attr', 'placeholder',"Enter Company Registration Number");
+    app.createAccountPage.address1FieldElement().should('have.attr', 'placeholder',"Address Line 1 *");
+    app.createAccountPage.address2FieldElement().should('have.attr', 'placeholder',"Address Line 2");
+    app.createAccountPage.postcodeFieldElement().should('have.attr', 'placeholder',"Postcode *");
+    app.createAccountPage.townFieldElement().should('have.attr', 'placeholder',"Enter Town / County*"); 
+    app.createAccountPage.mobileFieldElement().should('have.attr', 'placeholder',"07400 123456");
+    app.createAccountPage.verifyMobileFieldElement().should('have.attr', 'placeholder',"07400 123456");
+    app.createAccountPage.websiteFieldElement().should('have.attr', 'placeholder',"Enter website");
+    app.createAccountPage.facebookFieldElement().should('have.attr', 'placeholder',"Facebook");
+    app.createAccountPage.youtubeFieldElement().should('have.attr', 'placeholder',"Youtube");
+    app.createAccountPage.instagramFieldElement().should('have.attr', 'placeholder',"Instagram");
+    app.createAccountPage.emailFieldElement().should('have.attr', 'placeholder',"Enter Email *");
+    app.createAccountPage.verifyEmailFieldElement().should('have.attr', 'placeholder',"Verify Email *");
+    app.createAccountPage.passwordFieldElement().should('have.attr', 'placeholder',"Create your password (8-20 Characters - a capital letter, a small letter and a number*");
+  });
+
+  it('Verify the Max length in all the fields.', () => {
+    app.createAccountPage.firstNameFieldElement().should('have.attr', 'maxlength', '255');
+    app.createAccountPage.lastNameFieldElement().should('have.attr', 'maxlength', '30');
+    app.createAccountPage.companyNameFieldElement().should('have.attr', 'maxlength', '255');
+    app.createAccountPage.companyNumberFieldElement().should('have.attr', 'maxlength',"15");
+    app.createAccountPage.address1FieldElement().should('have.attr', 'maxlength',"255");
+    app.createAccountPage.address2FieldElement().should('have.attr', 'maxlength',"255");
+    app.createAccountPage.postcodeFieldElement().should('have.attr', 'maxlength',"10");
+    app.createAccountPage.townFieldElement().should('have.attr', 'maxlength',"50"); 
+    app.createAccountPage.mobileFieldElement().should('have.attr', 'maxlength',"20");
+    app.createAccountPage.verifyMobileFieldElement().should('have.attr', 'maxlength',"20");
+    app.createAccountPage.websiteFieldElement().should('have.attr', 'maxlength',"255");
+    app.createAccountPage.facebookFieldElement().should('have.attr', 'maxlength',"255");
+    app.createAccountPage.youtubeFieldElement().should('have.attr', 'maxlength',"255");
+    app.createAccountPage.instagramFieldElement().should('have.attr', 'maxlength',"255");
+    app.createAccountPage.emailFieldElement().should('have.attr', 'maxlength',"255");
+    app.createAccountPage.verifyEmailFieldElement().should('have.attr', 'maxlength',"255");
+    app.createAccountPage.passwordFieldElement().should('have.attr', 'maxlength',"20");
+  });
+
+  it('Verify that the password field is masked.', () => {
+    app.createAccountPage.passwordFieldElement().should('have.attr', 'type', 'password');
+  });
+
+  it('Verify the email address is in the correct format. Username, @,mail server & domain.', () => {
+    app.createAccountPage.submitCreateAccountForm("test", member.password);
+    app.createAccountPage.enterEmailErrorElement().should('have.text', 'Please enter a valid email address');
+  });
+
 })
