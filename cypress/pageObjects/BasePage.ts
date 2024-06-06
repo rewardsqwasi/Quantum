@@ -5,7 +5,7 @@ export default class BasePage {
 
     element(locator: string): Cypress.Chainable<JQuery<HTMLElement>>{
         let element: Cypress.Chainable<JQuery<HTMLElement>>;
-        if (locator.startsWith('/') || locator.startsWith('(/')) {
+        if (locator.startsWith('/') || locator.startsWith('(/') || locator.startsWith('((/')) {
             element = cy.xpath(locator);
         } else {
             element = cy.get(locator);
@@ -14,24 +14,24 @@ export default class BasePage {
     }
 
     click(locator: string) {
-        this.element(locator).first().click({ force: true });
+        this.element(locator).first().scrollIntoView().click({ force: true });
     }
 
     click2(locator: string) {
-        this.element(locator).first().click();
+        this.element(locator).first().scrollIntoView().click();
     }
     
     select(locator: string, option) {
-        this.element(locator).select(option, { force: true });
+        this.element(locator).scrollIntoView().select(option, { force: true });
     }
 
     check(locator: string) {
-        this.element(locator).check({ force: true });
+        this.element(locator).scrollIntoView().check({ force: true });
     }
 
     selectFile(locator: string, file: string) {
         cy.fixture(file).as('file')
-        this.element(locator).selectFile('@file',{
+        this.element(locator).scrollIntoView().selectFile('@file',{
             action: 'drag-drop'
           });
     }
@@ -47,15 +47,15 @@ export default class BasePage {
     }
 
     selectFile2(locator: string, file: string) {
-        this.element(locator).attachFile(file);
+        this.element(locator).scrollIntoView().attachFile(file);
     }
 
     forceClick(locator: string) {
-        this.element(locator).invoke("removeAttr", "target").click({ force: true })
+        this.element(locator).scrollIntoView().invoke("removeAttr", "target").click({ force: true })
     }
 
     hover(locator: string) {
-        this.element(locator).trigger("mouseover");
+        this.element(locator).scrollIntoView().trigger("mouseover");
     }
 
     goToUrl(url: string) {
@@ -63,23 +63,31 @@ export default class BasePage {
     }
 
     type(locator: string, text: string) {
-        this.element(locator).clear().type(text);
+        this.element(locator).scrollIntoView().clear().type(text);
+    }
+
+    clear(locator: string) {
+        this.element(locator).scrollIntoView().clear();
     }
 
     pressKey(locator: string, key: string) {
-        this.element(locator).type(key);
+        this.element(locator).scrollIntoView().type(key);
     }
 
     inner_text(locator: string): Cypress.Chainable<string> {
-        return this.element(locator).invoke("text");
+        return this.element(locator).scrollIntoView().invoke("text");
     }
 
     getAttributeValue(locator: string, name: string): Cypress.Chainable<string> {
-        return this.element(locator).invoke("attr",name);
+        return this.element(locator).scrollIntoView().invoke("attr",name);
+    }
+
+    validationMessage(locator: string): Cypress.Chainable<string> {
+        return this.element(locator).scrollIntoView().invoke("prop", 'validationMessage');
     }
 
     isElementPresent(locator: string): Cypress.Chainable<boolean> {
-        return this.element(locator).then(($element) => $element.length > 0);
+        return this.element(locator).scrollIntoView().then(($element) => $element.length > 0);
     }
 
     getURL(){
@@ -159,5 +167,17 @@ export default class BasePage {
         let alias = '@'+a;
         cy.wait(alias).its('response.statusCode').should('eq', 200)
     }
+
+    clearCookies(){
+        cy.clearCookies();
+    }
+
+    wrap(option: any): any{
+        return cy.wrap(option);
+    }
+
+    setCookies(name: string, value: string){
+        cy.setCookie(name, value);
+    }    
 
 }
