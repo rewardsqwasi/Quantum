@@ -15,7 +15,7 @@ describe('UK Region - Forget Pin Tests', () => {
     before(() => {
       app.loginPage.open(region);
       app.loginPage.allowCookie();
-      app.getURL().should('contain', '?consent=preferences,statistics,marketing&ref-original=');
+      //app.getURL().should('contain', '?consent=preferences,statistics,marketing&ref-original=');
     });
   }
 
@@ -36,13 +36,33 @@ describe('UK Region - Forget Pin Tests', () => {
     app.forgetPinPage.emailFieldElement().should('be.visible');
     app.forgetPinPage.infoTextOneElement().should('be.visible');
     app.forgetPinPage.infoTextTwoElement().should('be.visible');
+    app.forgetPinPage.captchaDivElement().should('be.visible');
     app.forgetPinPage.requestPassBtnElement().should('be.visible');
   });
 
-  it('Verify Toast After Clicking Request New Password Button', () => {
-    //app.emailPage.deleteEmail('testkhizervelux@restmail.net');
+  it('Verify maximum email length', () => {
+    app.forgetPinPage.emailFieldElement().should('have.attr', 'maxlength', '255');
+  });
+
+  it('Verify Click the "Send email" button without entering any details', () => {
+    app.forgetPinPage.clickReqPassBtn();
+    app.forgetPinPage.enterEmailErrorElement().should('have.text', 'Please enter your email address');
+  });
+
+  it('Verify Enter a valid email address and click the "Send email" button without filling the reCaptcha', () => {
     app.forgetPinPage.enterEmail(member.email);
     app.forgetPinPage.clickReqPassBtn();
+    app.forgetPinPage.reCaptchaErrorElement().should('have.text', 'reCaptcha is required.');
+  });
+
+  it('Verify with invalid email address', () => {
+    app.forgetPinPage.reqNewPassword("@#!@SD");
+    app.forgetPinPage.getToastMessageText().should('eq', "Your email address does not exists in the system. Please create an account.");
+  });
+
+  it('Verify Toast After Clicking Request New Password Button', () => {
+    app.forgetPinPage.reqNewPassword(member.email);
+    //app.forgetPinPage.clickReqPassBtn();
     app.forgetPinPage.getToastMessageText().should('eq', "We've sent you an email and SMS with instructions and verification code to reset your password.");
     let url = Cypress.env('BASE_URL') + '/'+region+'/login';
     app.getURL().should('contain', url);

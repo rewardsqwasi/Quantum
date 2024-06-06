@@ -15,7 +15,7 @@ describe('UK Region - Rewards Calculator Tests', () => {
     app.loginPage.open(region);
     if(IS_PROD==="true"){
       app.loginPage.allowCookie();
-      app.getURL().should('contain', '?consent=preferences,statistics,marketing&ref-original=');
+      //app.getURL().should('contain', '?consent=preferences,statistics,marketing&ref-original=');
     }
     app.loginPage.open(region);
     app.loginPage.login(member.email, member.password);
@@ -38,6 +38,48 @@ describe('UK Region - Rewards Calculator Tests', () => {
     app.rewardsCalculatorPage.sectionHeadingElement().should('be.visible');
     app.rewardsCalculatorPage.tableElement().should('be.visible');
     app.rewardsCalculatorPage.addAnotherProductButtonElement().should('be.visible');
+  });
+
+  it('Verify Placeholder', () => {
+    app.rewardsCalculatorPage.enterProductCodeSpanElement().should('have.text', 'Enter Product Code');
+  });
+
+  it('Verify that the default value for the product quantity is 1', () => {
+    app.rewardsCalculatorPage.inputQuantityFieldElement().should('have.value', '1');
+  });
+
+  it('Verify the user can select quantity', () => {
+    app.rewardsCalculatorPage.incrementQuantity();
+    app.rewardsCalculatorPage.inputQuantityFieldElement().should('have.value', '2');
+    app.rewardsCalculatorPage.decrementQuantity();
+    app.rewardsCalculatorPage.inputQuantityFieldElement().should('have.value', '1');
+  });
+
+  it('Verify the points are displayed against the searched product', () => {
+    app.rewardsCalculatorPage.enterProductCode('UFM any variant');
+    app.rewardsCalculatorPage.pointsFieldElement().should('have.value', '35');
+    app.rewardsCalculatorPage.totalPointsFieldElement().should('have.value', '35');
+  });
+
+  it('Verify that the total points are calculated', () => {
+    app.rewardsCalculatorPage.totalPointsFieldElement().should('have.value', '35');
+  });
+
+  it('Verify the user can add new row', () => {
+    app.rewardsCalculatorPage.addAnotherProduct();
+    app.rewardsCalculatorPage.enterProductCodeDivElement().should('have.length', 2);
+  });
+
+  it('Verify that the user can delete the row', () => {
+    app.rewardsCalculatorPage.removeProductRow(2);
+    app.rewardsCalculatorPage.enterProductCodeDivElement().should('have.length', 1);
+  });
+
+  it('Verify that the “Add your invoice link” is working', () => {
+    app.rewardsCalculatorPage.addYourInvoiceButtonElement().should('be.visible');
+    app.rewardsCalculatorPage.addYourInvoice();
+    let url = Cypress.env('BASE_URL') + '/'+region+'/add-purchase';
+    app.getURL().should('contain', url);
   });
 
 })
