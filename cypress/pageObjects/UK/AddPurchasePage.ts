@@ -4,6 +4,7 @@ export default class AddPurchasePage extends BasePage {
 
   private url = '/add-purchase';
   private add_purchase_section = '//section';
+  private section_breadcrumb = '//li[contains(text(),"VELUX Rewards - Add Purchase")]/parent::ul/parent::div[contains(@class,"breadcrumb-section")]';
   private heading = '//section//h4[contains(text(),"Add Purchase")]';
   private headline_text = '//section//label[contains(text(),"Upload your invoices here to earn your Rewards. Submit your details and fill in the questionnaire below.")]';
   private form_heading = '//section//h1[contains(text(),"Add Purchase")]';
@@ -18,15 +19,16 @@ export default class AddPurchasePage extends BasePage {
   private in_which_room_installation_section = '#container-6';
   private upload_invoice_form_section = '//form[contains(@action,"/add-purchase-invoice/")]';
   private upload_invoice_input = '#uploaded_file';
-  
-  //private upload_invoice_input = '//input[@value="Choose File"]';
-  
   private add_purchase_checkbox = '#terms';
   private finish_btn = '//span[text()="Finish"]/parent::button';
   private success_purchase_toast = '//div[@class="toast-message" and text()="Your purchase has been added successfully"]';
   private page_heading = '//h1';
   private dont_know_installation_checkbox = '//span[text()="Don\'t know"]/preceding-sibling::input[contains(@name,"questions[3]")]';
   private upload_invoice_label: string;
+
+  sectionBreadcrumbElement(){
+    return this.element(this.section_breadcrumb);
+  }
 
   inWhichRoomInstallationSectionElement(){
     return this.element(this.in_which_room_installation_section);
@@ -92,6 +94,10 @@ export default class AddPurchasePage extends BasePage {
     return this.element(this.cancel_btn);
   }
 
+  clickCancelBtn(){
+    this.click(this.cancel_btn);
+  }
+
   continueBtnElement(){
     return this.element(this.continue_btn);
   }
@@ -103,6 +109,14 @@ export default class AddPurchasePage extends BasePage {
 
   selectHowManyProperty(option){
     this.select(this.how_many_property_select, option);
+  }
+
+  selectHowManyPropertyDropdown(){
+    return this.element(this.how_many_property_select);
+  }
+  
+  selectPropertyValidationMsg(){
+    return this.validationMessage(this.how_many_property_select);
   }
 
   selectDescribeInstallation(option: string){

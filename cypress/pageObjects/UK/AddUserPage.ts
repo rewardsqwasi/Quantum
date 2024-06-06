@@ -42,6 +42,10 @@ export default class AddUserPage extends BasePage {
     return this.element(this.cancel_btn);
   }
 
+  clickCancelBtn(){
+    return this.click(this.cancel_btn);
+  }
+
   sectionBreadcrumbElement(){
     return this.element(this.section_breadcrumb);
   }
