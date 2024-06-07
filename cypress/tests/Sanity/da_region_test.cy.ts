@@ -11,7 +11,7 @@ let region = 'da';
 describe('Sanity Test Dakea Region', () => {
   
   it('Sanity Test Dakea Region', () => {
-    app.loginPage.open(region);
+    //app.loginPage.open(region);
     if(IS_PROD==="true"){
       app.loginPage.allowCookie();
       //app.getURL().should('contain', '?consent=preferences,statistics,marketing&ref-original=');

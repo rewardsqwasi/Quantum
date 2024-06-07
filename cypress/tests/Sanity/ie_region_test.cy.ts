@@ -11,7 +11,7 @@ let region = 'ie';
 describe('Sanity Test Ireland Region', () => {
   
   it('Sanity Test Ireland Region', () => {
-    app.loginPage.open(region);
+    //app.loginPage.open(region);
     if(IS_PROD==="true"){
       app.loginPage.allowCookie();
       //app.getURL().should('contain', '?consent=preferences,statistics,marketing&ref-original=');
