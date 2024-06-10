@@ -1,7 +1,7 @@
 name: Sanity Tests
 on: 
   workflow_dispatch:
-  
+
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
@@ -12,9 +12,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        
       - name: Generate .env file
         run: |
-          echo "${{ secrets.PRO_ENV_FILE }}" > .env  
+          echo "BASE_URL=${{ secrets.BASE_URL }}" >> .env
+          echo "DACH_BASE_URL=${{ secrets.DACH_BASE_URL }}" >> .env
+          echo "IS_PROD=${{ secrets.IS_PROD }}" >> .env
+          echo "MEMBER_EMAIL_UK=${{ secrets.MEMBER_EMAIL_UK }}" >> .env
+          echo "MEMBER_PASSWORD_UK=${{ secrets.MEMBER_PASSWORD_UK }}" >> .env
+        
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
