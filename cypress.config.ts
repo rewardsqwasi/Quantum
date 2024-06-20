@@ -2,6 +2,7 @@ const { defineConfig } = require("cypress");
 require('dotenv').config()
 
 module.exports = defineConfig({
+  projectId: "6ngx5n",
   env: {...process.env},
   reporter: 'cypress-mochawesome-reporter',
   video: true,
