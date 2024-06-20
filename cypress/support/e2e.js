@@ -15,14 +15,28 @@
 require('cypress-xpath');
 import 'cypress-mochawesome-reporter/register';
 import 'cypress-file-upload';
+import addContext from "mochawesome/addContext";
+
 // Import commands.js using ES2015 syntax:
 import './commands'
+
+const ci = Cypress.env('ci');
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from
     // failing the test
     return false
   })
-
+  
+if(ci){
+  Cypress.on('test:after:run', (test, runnable) => {
+    if (test.state === 'failed') {
+      const screenshot = `screenshots/${Cypress.spec.name}/${runnable.parent.title} -- ${test.title} (failed).png`;
+      addContext({ test }, screenshot);
+    }
+    const video = `videos/${Cypress.spec.name}.mp4`;
+    addContext({ test }, video);
+  });
+}
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
