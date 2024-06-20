@@ -201,12 +201,10 @@ export default class LoginPage extends BasePage {
 
   clickVeluxPrivacyBtnHeader(){
     this.forceClick(this.velux_privacy_btn_header);
-    this.click(this.read_more_btn);
   }
 
   clickVeluxPrivacyBtnFooter(){
     this.forceClick(this.velux_privacy_btn_footer);
-    this.click(this.read_more_btn);
   }
 
   clickAltaterraPrivacyBtnHeader(){
