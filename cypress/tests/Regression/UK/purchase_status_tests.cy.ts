@@ -1,5 +1,5 @@
 import { Helper } from 'cypress/util/helper';
-import App from '../../pageObjects/UK/AppPage';
+import App from 'cypress/pageObjects/UK/AppPage';
 
 const dataFiles = '../../fixtures/';
 const IS_PROD = Cypress.env('IS_PROD');
