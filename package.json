@@ -9,7 +9,12 @@
     "test_headed": "npx cypress run --spec 'cypress/tests/Sanity/' --headed --browser chrome",
     "test_uk_headed": "npx cypress run --spec 'cypress/tests/UK/' --headed --browser chrome",
     "test_uk": "npx cypress run --spec 'cypress/tests/UK/' --browser chrome",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+
+    "merge": "mochawesome-merge cypress/reports/all/*.json -o cypress/reports/all/report.json",
+    "generate-report": "marge cypress/reports/all/report.json -f report -o cypress/reports/all/ --inline",
+    "final_report": "npm run merge && npm run generate-report",
+    "clean-reports": "rimraf --glob cypress/reports/*"
   },
   "author": "",
   "license": "ISC",
@@ -18,8 +23,12 @@
     "cypress": "^13.8.1",
     "cypress-file-upload": "^5.0.8",
     "cypress-mochawesome-reporter": "^3.8.2",
+    "cypress-multi-reporters": "^1.6.4",
     "cypress-xpath": "^2.0.1",
     "dotenv": "^16.3.1",
+    "marge": "^1.0.1",
+    "mochawesome-merge": "^4.3.0",
+    "rimraf": "^5.0.7",
     "typescript": "^5.1.6"
   }
 }
