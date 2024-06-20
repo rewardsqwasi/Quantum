@@ -11,14 +11,14 @@ let region = 'de';
 describe('Sanity Test Germany Region', () => {
   
   it('Sanity Test Germany Region', () => {
+    if(IS_PROD==="true"){
+      app.loginPage.allowCookie();
+      //app.getURL().should('contain', '?consent=preferences,statistics,marketing&ref-original=');
+    }
     app.loginPage.open(region);
     let loginUrl = Cypress.env('DACH_BASE_URL')+'.'+region+'/'+region+'/login';
     app.getURL().should('contain', loginUrl);
     app.getPageTitle().should('eq','VELUX PLUS - Startseite');
-    //if(IS_PROD==="true"){
-     // app.loginPage.allowCookie();
-      //app.getURL().should('contain', '?consent=preferences,statistics,marketing&ref-original=');
-   // }
     app.loginPage.login(member.email, member.password);
     let url = Cypress.env('DACH_BASE_URL')+'.'+region+'/'+region+'/home';
     app.getURL().should('contain', url);
