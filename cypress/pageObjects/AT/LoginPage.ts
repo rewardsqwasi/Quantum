@@ -106,7 +106,7 @@ export default class LoginPage extends BasePage {
   allowCookie(){
     //this.click(this.allow_cookie_btn);
     const cookieName = 'CookieConsent';
-    const val = '{stamp:%27QhzfsrxRQtq2/WIouKTtnXTlD1ngiqm0VXvYOouaHnqUZvnYaGc4OQ==%27%2Cnecessary:true%2Cpreferences:true%2Cstatistics:true%2Cmarketing:true%2Cmethod:%27explicit%27%2Cver:1%2Cutc:1717504517172%2Cregion:%27pk%27}';
+    const val = '{stamp:%27GrpML0SJsAQMkBIz+8uvtStTqJG5GlCOWfVOyAVG0uS9GrlLibMrHw==%27%2Cnecessary:true%2Cpreferences:true%2Cstatistics:true%2Cmarketing:true%2Cmethod:%27explicit%27%2Cver:1%2Cutc:1718876250437%2Cregion:%27pk%27}';
     this.setCookies(cookieName, val);
   }
 
