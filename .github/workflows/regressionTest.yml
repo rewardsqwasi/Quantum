@@ -1,0 +1,83 @@
+name: Regression Tests
+on: 
+  workflow_dispatch:
+
+jobs:
+  Regression-Tests:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [0]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Packages
+        run:  npm install
+
+      - name: Generate .env file
+        run: |
+          cat > .env <<EOF
+          ${{ secrets.PRO_ENV_FILE }}
+          EOF
+
+      - name: Cleanup reports
+        run:  npm run clean-reports
+
+      - name: Run Tests
+        run:  npx cypress run --config-file ci-cypress.config.ts --spec $(node regression-parallel.ts ${{ matrix.containers }} 1) --browser chrome
+      
+      - name: Upload Cypress Test Reports
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cypress-reports-${{ matrix.containers }}
+          path: cypress/reports/
+
+  merge-reports:
+    needs: Regression-Tests
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download Cypress Report 0
+        uses: actions/download-artifact@v4
+        with:
+          name: cypress-reports-0
+          path: cypress/reports/cypress-reports-0
+
+      - name: Collect Cypress Intermediate Reports
+        run: |
+          mkdir -p cypress/reports/all
+          for i in {0..0}; do
+            rsync -av --ignore-existing cypress/reports/cypress-reports-$i/* cypress/reports/all/
+          done
+
+      - name: Install Packages
+        run:  npm install --save-dev mochawesome-merge marge cypress-multi-reporters    
+
+      - name: Merge Cypress Reports
+        run: |
+          npm run final_report
+          echo "DATE=$(date +'%d-%B-%Y')" >> $GITHUB_ENV
+
+      - name: Cleanup Intermediate Reports
+        run: rm -rf cypress/reports/all/*.json
+
+      # Deleting Intermediate Reports Artifacts
+      - uses: geekyeggo/delete-artifact@v5
+        if: always()
+        with:
+          failOnError: false
+          name: |
+              cypress-reports-0
+
+      - name: Upload Cypress Merged Test Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Regression-Test-Report-${{ env.DATE }}
+          path: cypress/reports/all/
