@@ -4,12 +4,13 @@ export default class AddPurchasePage extends BasePage {
 
   private url = '/add-purchase';
   private add_purchase_section = '//section';
-  private heading = '//section//h4[contains(text(),"Add Purchase")]';
-  private headline_text = '//section//label[contains(text(),"Upload your invoices here to earn your Rewards. Submit your details and fill in the questionnaire below.")]';
-  private form_heading = '//section//h1[contains(text(),"Add Purchase")]';
+  private section_breadcrumb = '//li[contains(text(),"VELUX & CO - Ajouter une facture")]/parent::ul/parent::div[contains(@class,"breadcrumb-section")]';
+  private heading = '//section//h4[contains(text(),"Collecter des points")]';
+  private headline_text = '//section//label[contains(text(),"Téléchargez vos factures ici pour collecter des points. Soumettez vos coordonnées et remplissez le questionnaire ci-dessous")]';
+  private form_heading = '//section//h1[contains(text(),"Ajouter une facture")]';
   private form_section = '//form[@id="formQuestionsAnswers"]';
-  private cancel_btn = '//span[text()="Cancel"]/parent::a';
-  private continue_btn = '//span[text()="Continue"]/parent::button';
+  private cancel_btn = '//span[text()="Annuler"]/parent::a';
+  private continue_btn = '//span[text()="Continuer"]/parent::button';
   private how_many_property_select = '#question-1';
   private describe_installation_radio_btn: string;
   private in_which_room_installation_checkbox: string;
@@ -17,16 +18,18 @@ export default class AddPurchasePage extends BasePage {
   private in_which_project_type_section = '#container-3';
   private in_which_room_installation_section = '#container-6';
   private upload_invoice_form_section = '//form[contains(@action,"/add-purchase-invoice/")]';
+  private postal_code_field = '#question-7';
   private upload_invoice_input = '#uploaded_file';
-  
-  //private upload_invoice_input = '//input[@value="Choose File"]';
-  
   private add_purchase_checkbox = '#terms';
-  private finish_btn = '//span[text()="Finish"]/parent::button';
-  private success_purchase_toast = '//div[@class="toast-message" and text()="Your purchase has been added successfully"]';
+  private finish_btn = '//span[text()="Envoyer votre facture"]/parent::button';
+  private success_purchase_toast = '//div[@class="toast-message" and text()="Votre facture a été prise en compte. Elle est en cours de traitement et sera créditée à votre compte sous 7 jours ouvrés."]';
   private page_heading = '//h1';
-  private dont_know_installation_checkbox = '//span[text()="Don\'t know"]/preceding-sibling::input[contains(@name,"questions[3]")]';
+  private dont_know_installation_checkbox = '//span[text()="Je ne sais pas"]/preceding-sibling::input[contains(@name,"questions[3]")]';
   private upload_invoice_label: string;
+
+  sectionBreadcrumbElement(){
+    return this.element(this.section_breadcrumb);
+  }
 
   inWhichRoomInstallationSectionElement(){
     return this.element(this.in_which_room_installation_section);
@@ -92,6 +95,10 @@ export default class AddPurchasePage extends BasePage {
     return this.element(this.cancel_btn);
   }
 
+  clickCancelBtn(){
+    this.click(this.cancel_btn);
+  }
+
   continueBtnElement(){
     return this.element(this.continue_btn);
   }
@@ -105,6 +112,14 @@ export default class AddPurchasePage extends BasePage {
     this.select(this.how_many_property_select, option);
   }
 
+  selectHowManyPropertyDropdown(){
+    return this.element(this.how_many_property_select);
+  }
+  
+  selectPropertyValidationMsg(){
+    return this.validationMessage(this.how_many_property_select);
+  }
+
   selectDescribeInstallation(option: string){
     this.describe_installation_radio_btn = '//span[text()="'+option+'"]/preceding-sibling::input[@name="questions[2]"]';
     this.check(this.describe_installation_radio_btn);
@@ -113,6 +128,10 @@ export default class AddPurchasePage extends BasePage {
   selectWhichRoomInstallation(option: string){
     this.in_which_room_installation_checkbox = '//span[contains(text(),"'+option+'")]/preceding-sibling::input[contains(@name,"questions[6]")]';
     this.check(this.in_which_room_installation_checkbox);
+  }
+
+  enterPostalCode(code: string){
+    this.type(this.postal_code_field, code);
   }
 
   selectDontKnowInstallation(){
