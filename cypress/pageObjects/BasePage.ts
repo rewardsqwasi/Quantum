@@ -178,6 +178,6 @@ export default class BasePage {
 
     setCookies(name: string, value: string){
         cy.setCookie(name, value);
-    }    
+    }
 
 }
