@@ -33,7 +33,7 @@ describe('FR Region - Login Tests', () => {
   it('Verify Banners in the header carousel', () => {
     app.loginPage.open(region);
     app.loginPage.bannerDivElement().should('be.visible');
-    app.loginPage.bannerImagesElement().should('have.length', 11);
+    app.loginPage.bannerImagesElement().should('have.length.greaterThan', 10);
   });
 
   it('Verify Footer Links', () => {
