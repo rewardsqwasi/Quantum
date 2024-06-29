@@ -16,13 +16,21 @@ export default class ShopPage extends BasePage {
   private product_code = '//div[contains(@class,"product-details")]//span[text()="Référence article: "]/following-sibling::b';
   private product_points = '//div[contains(@class,"product-details")]//span[contains(text(),"Points")]';
   private add_to_basket_btn = '//span[contains(text(),"Ajouter au panier")]/parent::a';
+  private success_toast = '//div[@class="toast-message" and text()="Article ajouté au panier avec succès"]';
+  
+  successToastElement(){
+    return this.element(this.success_toast);
+  }
 
   clickFirstProduct(){
     this.click(this.first_product_link);
   }
 
   clickAddToBasket(){
+    let url = '/fr/cart/add';
+    let req = this.interceptRequest(url,'req1');
     this.click2(this.add_to_basket_btn);
+    this.waitForRequest(req);    
   }
 
   getProductDetail(){
