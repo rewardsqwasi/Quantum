@@ -49,10 +49,16 @@ jobs:
           name: cypress-reports-0
           path: cypress/reports/cypress-reports-0
 
+      - name: Download Cypress Report 1
+        uses: actions/download-artifact@v4
+        with:
+          name: cypress-reports-1
+          path: cypress/reports/cypress-reports-1    
+
       - name: Collect Cypress Intermediate Reports
         run: |
           mkdir -p cypress/reports/all
-          for i in {0..0}; do
+          for i in {0..1}; do
             rsync -av --ignore-existing cypress/reports/cypress-reports-$i/* cypress/reports/all/
           done
 
@@ -74,6 +80,7 @@ jobs:
           failOnError: false
           name: |
               cypress-reports-0
+              cypress-reports-1
 
       - name: Upload Cypress Merged Test Report
         uses: actions/upload-artifact@v4
