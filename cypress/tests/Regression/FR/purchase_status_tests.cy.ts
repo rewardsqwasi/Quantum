@@ -40,7 +40,7 @@ describe('FR Region - Purchase Status Tests', () => {
   });
 
   it('Verify the status selector drop-down filter is working and showing required values', () => {
-    app.purchaseStatusPage.filterStatusSelectElement().find('option').should('have.length', 6)
+    app.purchaseStatusPage.filterStatusSelectElement().find('option').should('have.length', 5)
     .each((option, index) => {
       const expectedValue = ['All', 'Pending', 'inProgress', 'Approved', 'Rejected'];
       const expectedText = ['Tout', 'En traitement', 'Inachevé\n', 'Approuvé\n', 'Rejeté\n']
