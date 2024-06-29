@@ -56,6 +56,7 @@ describe('FR Region - Basket Tests', () => {
       const [name, points, code] = details;
       app.shopPage.clickAddToBasket();
       app.homePage.clickBasketBtn();
+      app.basketPage.viewSection();
       app.basketPage.productNameElement().should('have.text', name);
       app.basketPage.productPointsElement().should('have.text', 'Points (par article): '+points+'');
     app.basketPage.productCodeElement().should('have.text', ''+code+'\n');
