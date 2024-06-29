@@ -55,11 +55,13 @@ describe('FR Region - Basket Tests', () => {
     app.shopPage.getProductDetail().then(details => {
       const [name, points, code] = details;
       app.shopPage.clickAddToBasket();
+      app.shopPage.successToastElement().should('be.visible');
+      app.shopPage.successToastElement().should('not.exist')
       app.homePage.clickBasketBtn();
       app.basketPage.viewSection();
       app.basketPage.productNameElement().should('have.text', name);
       app.basketPage.productPointsElement().should('have.text', 'Points (par article): '+points+'');
-    app.basketPage.productCodeElement().should('have.text', ''+code+'\n');
+      app.basketPage.productCodeElement().should('have.text', ''+code+'\n');
       app.basketPage.quanityInputElement().should('have.text', 'Qté: 1\n');
       app.basketPage.totalPointsElement().should('have.text', 'Points(total): '+points+'');
     })
