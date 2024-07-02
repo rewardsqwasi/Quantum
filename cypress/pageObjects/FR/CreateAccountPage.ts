@@ -219,6 +219,7 @@ export default class CreateAccountPage extends BasePage {
   }
 
   submitCreateAccountForm(email: string, password: string){
+    this.select(this.title_select, 'Monsieur');
     this.type(this.first_name_field,'test first name');
     this.type(this.last_name_field,'test last name');
     this.type(this.company_name_field,'test company name');
