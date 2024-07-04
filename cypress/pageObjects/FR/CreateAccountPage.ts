@@ -228,8 +228,8 @@ export default class CreateAccountPage extends BasePage {
     this.type(this.address_2_field,'test address 2');
     this.type(this.postcode_field,'test123');
     this.type(this.town_field,'test town');
-    this.type(this.mobile_field,'07400123564');
-    this.type(this.verify_mobile_field,'07400123564');
+    this.type(this.mobile_field,'0612345678');
+    this.type(this.verify_mobile_field,'0612345678');
     this.select(this.how_many_people_ques,1);
     this.select(this.working_time_ques,1);
     this.type(this.how_many_roof_ques,"1");
