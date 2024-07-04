@@ -20,6 +20,10 @@ import BasketPage from './BasketPage';
 import ShopPage from './ShopPage';
 import ProfilePage from './ProfilePage';
 import PartnersPage from './PartnersPage';
+import PresentoirsPage from './PresentoirsPage';
+import VisitsPage from './VisitsPage';
+import TicketsPage from './TicketsPage';
+import MyProjectPage from './MyProjectPage';
 
 export default class App extends BasePage {
    
@@ -103,6 +107,20 @@ export default class App extends BasePage {
         return new PartnersPage();
     }
 
-    
+    public get presentoirsPage(): PresentoirsPage {
+        return new PresentoirsPage();
+    }
+
+    public get visitsPage(): VisitsPage {
+        return new VisitsPage();
+    }
+
+    public get ticketsPage(): TicketsPage {
+        return new TicketsPage();
+    }
+
+    public get myProjectPage(): MyProjectPage {
+        return new MyProjectPage();
+    }
     
 }
