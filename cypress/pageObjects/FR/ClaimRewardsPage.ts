@@ -16,6 +16,11 @@ export default class ClaimRewardsPage extends BasePage {
   private visits_select_btn = '//span[contains(text(),"Choisir")]/parent::a[contains(@href,"/visit")]';
   private tickets_select_btn = '//span[contains(text(),"Choisir")]/parent::a[contains(@href,"/tickets")]';
   private my_project_select_btn = '//span[contains(text(),"Choisir")]/parent::a[contains(@href,"/mon-projet")]';
+  private chantier_select_btn = '//span[contains(text(),"Choisir")]/parent::a[contains(@href,"/assistance-chantier")]';
+
+  gotoChantier(){
+    this.click(this.chantier_select_btn);
+  }
 
   gotoMyProject(){
     this.click(this.my_project_select_btn);
