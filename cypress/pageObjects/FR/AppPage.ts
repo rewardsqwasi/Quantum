@@ -24,6 +24,8 @@ import PresentoirsPage from './PresentoirsPage';
 import VisitsPage from './VisitsPage';
 import TicketsPage from './TicketsPage';
 import MyProjectPage from './MyProjectPage';
+import ChantierPage from './ChantierPage';
+import ProjectPage from './ProjectPage';
 
 export default class App extends BasePage {
    
@@ -121,6 +123,14 @@ export default class App extends BasePage {
 
     public get myProjectPage(): MyProjectPage {
         return new MyProjectPage();
+    }
+
+    public get chantierPage(): ChantierPage {
+        return new ChantierPage();
+    }
+
+    public get projectPage(): ProjectPage {
+        return new ProjectPage();
     }
     
 }
