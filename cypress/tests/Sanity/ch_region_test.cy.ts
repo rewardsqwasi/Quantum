@@ -40,8 +40,9 @@ describe('Sanity Test Switzerland Region', () => {
 
     if(IS_PROD==="true"){
       app.homePage.clickAddPurchseBtn();
-      app.getURL().should('eq', 'https://konfigurator.velux.ch/handwerker-tool.html');
-      app.getPageTitle().should('eq','VELUX Dachfenster - seit 70 Jahren erstklassige Dachfenster | VELUX Schweiz AG');
+      let addPurUrl = Cypress.env('DACH_BASE_URL')+'.'+region+'/'+region+'/add-purchase';
+      app.getURL().should('eq', addPurUrl);
+      app.getPageTitle().should('eq','VELUX PRIMA Portal - Rechnung einreichen');
 
       app.homePage.open(region);
 
@@ -52,8 +53,9 @@ describe('Sanity Test Switzerland Region', () => {
       app.homePage.open(region);
 
       app.homePage.clickPointsHistoryBtn();
-      app.getURL().should('eq', 'https://konfigurator.velux.ch/sales/order/history');
-      app.getPageTitle().should('eq','VELUX Dachfenster - seit 70 Jahren erstklassige Dachfenster | VELUX Schweiz AG');
+      let purStatUrl = Cypress.env('DACH_BASE_URL')+'.'+region+'/'+region+'/purchase-status';
+      app.getURL().should('eq', purStatUrl);
+      app.getPageTitle().should('eq','VELUX PRIMA Portal - Status');
     }  
 
     
