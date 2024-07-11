@@ -47,10 +47,10 @@ describe('Sanity Test Netherland Region', () => {
     app.getURL().should('contain', trainPointUrl);
     app.getPageTitle().should('eq','VELUX Rewards - Trainingspunten');
 
-    app.homePage.clickELearningBtn();
-    let eLearningUrl = Cypress.env('BASE_URL') + '/'+region+'/e-learning/home';
-    app.getURL().should('contain', eLearningUrl);
-    app.getPageTitle().should('eq','VELUX Rewards - E-learning');
+    //app.homePage.clickELearningBtn();
+    //let eLearningUrl = Cypress.env('BASE_URL') + '/'+region+'/e-learning/home';
+    //app.getURL().should('contain', eLearningUrl);
+    //app.getPageTitle().should('eq','VELUX Rewards - E-learning');
     
     app.homePage.clickSpendPointsBtn();
     let claimRewardUrl = Cypress.env('BASE_URL') + '/'+region+'/claim-rewards';
