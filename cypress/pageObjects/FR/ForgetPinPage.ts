@@ -7,7 +7,7 @@ export default class ForgetPinPage extends BasePage {
   private captcha_error_div = '#g-recaptcha-error';
   private reset_password_heading = '//h1[text()="Mot de passe oublié"]';
   private email_field = '#email';
- private request_new_pass_btn = '#submit';
+  private request_new_pass_btn = '#submit';
   private toastMessage = '.toast-message';
   private enter_email_error = '//span[@id="emailStatus" and text()=" Veuillez saisir une adresse e-mail valide"]';
   private re_captcha_error = '//div[@id="g-recaptcha-error" and ./span[text()="reCaptcha est requis"]]';
