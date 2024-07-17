@@ -12,10 +12,10 @@ describe('Sanity Test France Region', () => {
   
   it('Sanity Test France Region', () => {
     //app.loginPage.open(region);
-    if(IS_PROD==="true"){
+    //if(IS_PROD==="true"){
       app.loginPage.allowCookie();
       //app.getURL().should('contain', '?consent=preferences,statistics,marketing&ref-original=');
-    }
+    //}
     app.loginPage.open(region);
     app.loginPage.login(member.email, member.password);
     let url = Cypress.env('BASE_URL') + '/'+region+'/home';

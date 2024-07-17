@@ -11,10 +11,10 @@ let region = 'at';
 describe('Sanity Test Austria Region', () => {
   
   it('Sanity Test Austria Region', () => {
-    if(IS_PROD==="true"){
+    //if(IS_PROD==="true"){
       app.loginPage.allowCookie();
       //app.getURL().should('contain', '?consent=preferences,statistics,marketing&ref-original=');
-    }
+    //}
     app.loginPage.open(region);
     let loginUrl = Cypress.env('DACH_BASE_URL')+'.'+region+'/'+region+'/login';
     app.getURL().should('contain', loginUrl);

@@ -12,10 +12,10 @@ describe('Sanity Test Ireland Region', () => {
   
   it('Sanity Test Ireland Region', () => {
     //app.loginPage.open(region);
-    if(IS_PROD==="true"){
+    //if(IS_PROD==="true"){
       app.loginPage.allowCookie();
       //app.getURL().should('contain', '?consent=preferences,statistics,marketing&ref-original=');
-    }
+    //}
     app.loginPage.open(region);
     app.loginPage.headerLinksSectionElement().should('be.visible');
     app.loginPage.footerLinksSectionElement().should('be.visible');
