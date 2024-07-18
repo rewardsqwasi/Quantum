@@ -7,7 +7,7 @@ export default class VisitsPage extends BasePage {
   private section_div = '.shop-section';
   private future_event_heading = '//h1[contains(text(),"Évènements Å Venir")]';
   private past_event_heading = '//h1[contains(text(),"Évènements Passés")]';
-  private events_div = '//div[contains(@class,"products-1-section")]//div[contains(@class,"grid")]';
+  private events_div = '//div[contains(@class,"products-1-section")]//div[contains(@class,"card-container")]';
 
   sectionBreadcrumbElement(){
     return this.element(this.section_breadcrumb);
