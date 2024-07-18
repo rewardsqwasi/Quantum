@@ -4,12 +4,13 @@ export default class AddPurchasePage extends BasePage {
 
   private url = '/add-purchase';
   private add_purchase_section = '//section';
-  private heading = '//section//h4[contains(text(),"Add Purchase")]';
-  private headline_text = '//section//label[contains(text(),"Upload your invoices here to earn your Rewards. Submit your details and fill in the questionnaire below.")]';
-  private form_heading = '//section//h1[contains(text(),"Add Purchase")]';
+  private section_breadcrumb = '//li[contains(text(),"VELUX Rewards - Factuur toevoegen")]/parent::ul/parent::div[contains(@class,"breadcrumb-section")]';
+  private heading = '//section//h4[contains(text(),"Welkom terug")]';
+  private headline_text = '//section//label[contains(text(),"Je kunt hier jouw facturen uploaden om je Rewards te verdienen. Vul jouw gegevens en onderstaande vragenlijst in.")]';
+  private form_heading = '//section//h1[contains(text(),"Factuur toevoegen")]';
   private form_section = '//form[@id="formQuestionsAnswers"]';
-  private cancel_btn = '//span[text()="Cancel"]/parent::a';
-  private continue_btn = '//span[text()="Continue"]/parent::button';
+  private cancel_btn = '//span[text()="Annuleren"]/parent::a';
+  private continue_btn = '//span[text()="Ga verder"]/parent::button';
   private how_many_property_select = '#question-1';
   private describe_installation_radio_btn: string;
   private in_which_room_installation_checkbox: string;
@@ -18,15 +19,15 @@ export default class AddPurchasePage extends BasePage {
   private in_which_room_installation_section = '#container-6';
   private upload_invoice_form_section = '//form[contains(@action,"/add-purchase-invoice/")]';
   private upload_invoice_input = '#uploaded_file';
-  
   //private upload_invoice_input = '//input[@value="Choose File"]';
-  
   private add_purchase_checkbox = '#terms';
-  private finish_btn = '//span[text()="Finish"]/parent::button';
-  private success_purchase_toast = '//div[@class="toast-message" and text()="Your purchase has been added successfully"]';
+  private finish_btn = '//span[text()="Uploaden pagina\'s afronden"]/parent::button';
+  private success_purchase_toast = '//div[@class="toast-message" and text()="Uw factuur werd in rekening genomen. U zal een e-mail krijgen zodra deze is goedgekeurd en u punten ontvangen heeft."]';
   private page_heading = '//h1';
-  private dont_know_installation_checkbox = '//span[text()="Don\'t know"]/preceding-sibling::input[contains(@name,"questions[3]")]';
+  private dont_know_installation_checkbox = '//span[text()="Weet ik niet"]/preceding-sibling::input[contains(@name,"questions[3]")]';
   private upload_invoice_label: string;
+  private postal_code_field = '#question-7';
+
 
   inWhichRoomInstallationSectionElement(){
     return this.element(this.in_which_room_installation_section);
@@ -127,6 +128,26 @@ export default class AddPurchasePage extends BasePage {
     this.selectFile2(this.upload_invoice_input, file);
     this.upload_invoice_label = '//div[@class="purchase-invoice-fileinputs"]//label[text()="'+file+'"]'
     return this.element(this.upload_invoice_label);
+  }
+
+  sectionBreadcrumbElement(){
+    return this.element(this.section_breadcrumb);
+  }
+
+  clickCancelBtn(){
+    this.click(this.cancel_btn);
+  }
+
+  selectHowManyPropertyDropdown(){
+    return this.element(this.how_many_property_select);
+  }
+  
+  selectPropertyValidationMsg(){
+    return this.validationMessage(this.how_many_property_select);
+  }
+
+  enterPostalCode(code: string){
+    this.type(this.postal_code_field, code);
   }
 
 }
