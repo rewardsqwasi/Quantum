@@ -8,7 +8,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        containers: [0, 1]
+        containers: [0, 1, 2]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -53,12 +53,18 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: cypress-reports-1
-          path: cypress/reports/cypress-reports-1    
+          path: cypress/reports/cypress-reports-1
+
+      - name: Download Cypress Report 2
+        uses: actions/download-artifact@v4
+        with:
+          name: cypress-reports-2
+          path: cypress/reports/cypress-reports-2    
 
       - name: Collect Cypress Intermediate Reports
         run: |
           mkdir -p cypress/reports/all
-          for i in {0..1}; do
+          for i in {0..2}; do
             rsync -av --ignore-existing cypress/reports/cypress-reports-$i/* cypress/reports/all/
           done
 
@@ -81,6 +87,7 @@ jobs:
           name: |
               cypress-reports-0
               cypress-reports-1
+              cypress-reports-2
 
       - name: Upload Cypress Merged Test Report
         uses: actions/upload-artifact@v4
