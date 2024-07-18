@@ -61,8 +61,8 @@ describe('FR Region - Partners Tests', () => {
             cy.wrap(option).should('have.attr', 'disabled');
           }
           else {
-            const expectedValue = ['10','25', '50', '100'];
-            const expectedText = ['€10', '€25', '€50', '€100'];
+            const expectedValue = ['10','25', '50', '100', '250'];
+            const expectedText = ['€10', '€25', '€50', '€100', '€250'];
             app.wrap(option).invoke('attr', 'value').should('be.oneOf', expectedValue);
             app.wrap(option).invoke('text').should('be.oneOf', expectedText);
           }
