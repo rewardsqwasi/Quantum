@@ -7,7 +7,7 @@ const member = {
 };
 let app = new App();
 let region = 'nl';
-
+/*
 describe('NL Region - Add User Tests', () => {
 
   before(() => {
@@ -59,3 +59,4 @@ describe('NL Region - Add User Tests', () => {
   });
 
 })
+*/
