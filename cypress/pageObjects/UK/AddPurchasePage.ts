@@ -4,7 +4,7 @@ export default class AddPurchasePage extends BasePage {
 
   private url = '/add-purchase';
   private add_purchase_section = '//section';
-  private section_breadcrumb = '//li[contains(text(),"VELUX Rewards - Add Purchase")]/parent::ul/parent::div[contains(@class,"breadcrumb-section")]';
+  private section_breadcrumb = '//li[contains(text(),"VELUX Rewards - Add Purchase") or contains(text(),"VELUX Rewards - Earn Points")]/parent::ul/parent::div[contains(@class,"breadcrumb-section")]';
   private heading = '//section//h4[contains(text(),"Add Purchase")]';
   private headline_text = '//section//label[contains(text(),"Upload your invoices here to earn your Rewards. Submit your details and fill in the questionnaire below.")]';
   private form_heading = '//section//h1[contains(text(),"Add Purchase")]';
