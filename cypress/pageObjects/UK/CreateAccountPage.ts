@@ -88,6 +88,32 @@ export default class CreateAccountPage extends BasePage {
     this.click(this.create_account_btn);
   }
 
+  submitCreateAccountFormIE(email: string, password: string){
+    this.type(this.first_name_field,'test first name');
+    this.type(this.last_name_field,'test last name');
+    this.type(this.company_name_field,'test company name');
+    this.type(this.company_number_field,'123456');
+    this.type(this.address_1_field,'test address 1');
+    this.type(this.address_2_field,'test address 2');
+    this.type(this.postcode_field,'test123');
+    this.select(this.town_field,'CARLOW');
+    this.type(this.mobile_field,'0850123456');
+    this.type(this.verify_mobile_field,'0850123456');
+    this.select(this.how_many_people_ques,1);
+    this.select(this.working_time_ques,1);
+    this.type(this.how_many_roof_ques,"1");
+    this.select(this.how_many_velux_ques,1);
+    this.select(this.describe_yourself_ques,1);
+    this.select(this.velux_rewards_ques,1);
+    this.select(this.recommend_velux_ques,1);
+    this.type(this.email_field, email);
+    this.type(this.verify_email_field, email);
+    this.type(this.password_field, password);
+    this.check(this.terms_checkbox);
+    this.check(this.optin_sms_checkbox);
+    this.click(this.create_account_btn);
+  }
+
   mobileFieldLabel(){
     return this.inner_text(this.label_mobile_field);
   }
