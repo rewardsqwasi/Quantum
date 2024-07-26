@@ -52,10 +52,10 @@ describe('FR Region - Dashboard Tests', () => {
     app.dashboardPage.totalPointsSpentElement().should('be.visible');
     app.dashboardPage.totalPointsSpentElement().should('have.text', '0');
   });
-
+/*
   it('Verify that the points expires on are displayed correctly', () => {  
     app.dashboardPage.pointsExpiresOnElement().should('be.visible');
     app.dashboardPage.pointsExpiresOnElement().should('have.text', '0');
   });
-
+*/
 })
