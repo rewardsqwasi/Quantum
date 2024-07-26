@@ -22,6 +22,7 @@ import AddUserPage from './AddUserPage';
 import ContactUsPage from './ContactUsPage';
 import TermsPage from './TermsPage';
 import PartnersPage from './PartnersPage';
+import IEBasketPage from './IEBasketPage';
 
 export default class App extends BasePage {
    
@@ -87,6 +88,10 @@ export default class App extends BasePage {
 
     public get basketPage(): BasketPage {
         return new BasketPage();
+    }
+
+    public get ieBasketPage(): IEBasketPage {
+        return new IEBasketPage();
     }
 
     public get profilePage(): ProfilePage {
