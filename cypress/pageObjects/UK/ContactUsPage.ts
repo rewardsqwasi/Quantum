@@ -6,7 +6,7 @@ export default class ContactUsPage extends BasePage {
   private email = '//a[contains(@href,"mailto")]';
   private section_breadcrumb = '//li[contains(text(),"VELUX Rewards - Contact")]/parent::ul/parent::div[contains(@class,"breadcrumb-section")]';
   private section = '//section';
-  private image = '//div[contains(@class,"pageBlockCustom")]//img';
+  private image = '//div[contains(@class,"pageBlockCustom")]//*[contains(@style,"/page-blocks/") or contains(@src,"/page-blocks/")]';
   private heading = '//h2';
 
   headingElement(){
