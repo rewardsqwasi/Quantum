@@ -13,9 +13,10 @@ export default class LoginPage extends BasePage {
   private home_btn_footer = '//footer//h6[text()="Links"]/parent::div//span[text()="Home"]/parent::a';
   private terms_btn_header = '//ul[@id="top-menu"]//span[not(contains(text(),"General")) and contains(text(),"Terms") and contains(text(),"Conditions")]/parent::a';
   private terms_btn_footer = '//footer//h6[text()="Links"]/parent::div//span[text()="Terms & Conditions"]/parent::a';
-  private privacy_btn_header = '//ul[@id="top-menu"]//span[text()="Privacy Policy"]/parent::a/parent::div';
   private velux_privacy_btn_header = '//ul[@id="top-menu"]//span[text()="VELUX Privacy Policy"]/parent::a';
+  private privacy_btn_header = '//ul[@id="top-menu"]//span[text()="Privacy Policy"]/parent::a';
   private velux_privacy_btn_footer = '//footer//h6[text()="Links"]/parent::div//span[contains(text(),"VELUX") and contains(text(),"Privacy Policy")]/parent::a';
+  private privacy_btn_footer = '//footer//h6[text()="Links"]/parent::div//span[contains(text(),"Privacy Policy")]/parent::a';
   private altaterra_privacy_btn_header = '//ul[@id="top-menu"]//span[text()="Altaterra Privacy Policy"]/parent::a';
   private altaterra_privacy_btn_footer = '//footer//h6[text()="Links"]/parent::div//span[text()="Altaterra Privacy Policy"]/parent::a';
   private read_more_btn = '//span[text()="Read more"]';
@@ -203,8 +204,16 @@ export default class LoginPage extends BasePage {
     this.forceClick(this.velux_privacy_btn_header);
   }
 
+  clickPrivacyBtnHeader(){
+    this.forceClick(this.privacy_btn_header);
+  }
+
   clickVeluxPrivacyBtnFooter(){
     this.forceClick(this.velux_privacy_btn_footer);
+  }
+
+  clickPrivacyBtnFooter(){
+    this.forceClick(this.privacy_btn_footer);
   }
 
   clickAltaterraPrivacyBtnHeader(){
