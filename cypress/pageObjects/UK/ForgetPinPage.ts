@@ -12,7 +12,7 @@ export default class ForgetPinPage extends BasePage {
   private request_new_pass_btn = '#submit';
   private toastMessage = '.toast-message';
   private enter_email_error = '//span[@id="emailStatus" and text()="Please enter your email address"]';
-  private re_captcha_error = '//div[@id="g-recaptcha-error" and ./span[text()="reCaptcha is required."]]';
+  private re_captcha_error = '//div[@id="g-recaptcha-error" and ./span[contains(text(),"reCaptcha is required")]]';
 
   enterEmailErrorElement(){
     return this.element(this.enter_email_error);
