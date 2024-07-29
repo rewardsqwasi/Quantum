@@ -3,6 +3,7 @@ import BasePage from "../BasePage";
 export default class CreateAccountPage extends BasePage {
 
   private url = '/create-account';
+  private signup_form = '//form[contains(@action,"/create-account")]';
   private profile_detail_heading = '//h2[text()=" Your profile details"]/parent::div';
   private first_name_field = '#firstName';
   private last_name_field = '#lastName';
@@ -25,11 +26,13 @@ export default class CreateAccountPage extends BasePage {
   private recommend_velux_ques = '//div[@id="q2CoreWrapper"]/select';
   private recommend_dakea_ques = '//div[@id="q11CoreWrapper"]/select';
   private social_media_info_heading = '//h2[text()=" Social media information"]/parent::div';
+  private social_media_info_heading_2 = '//h3[text()="Social media information"]';
   private website_field = '#website';
   private facebook_field = '#facebook';
   private youtube_field = '#youtube';
   private instagram_field = '//input[@name="instagram"]';
   private create_account_login_heading = '//h2[text()=" Create account login"]/parent::div';
+  private create_account_login_heading_2 = '//h3[text()="Create Account Login"]';
   private email_field = '#email';
   private verify_email_field = '#verifyEmail';
   private password_field = '#password';
@@ -162,6 +165,14 @@ export default class CreateAccountPage extends BasePage {
     return this.element(this.profile_detail_heading);
   }
 
+  signupFormElement(){
+    return this.element(this.signup_form);
+  }
+
+  viewSignupFormElement(){
+    this.inView(this.signup_form);
+  }
+
   viewProfileDetailHeading(){
     this.inView(this.profile_detail_heading);
   }
@@ -258,6 +269,14 @@ export default class CreateAccountPage extends BasePage {
     this.inView(this.social_media_info_heading);
   }
 
+  socialMediaInfoHeading2Element(){
+    return this.element(this.social_media_info_heading_2);
+  }
+
+  viewSocialMediaInfoHeading2(){
+    this.inView(this.social_media_info_heading_2);
+  }  
+
   websiteFieldElement(){
     return this.element(this.website_field);
   }
@@ -280,6 +299,14 @@ export default class CreateAccountPage extends BasePage {
 
   viewCreateAccountLoginHeading(){
     this.inView(this.create_account_login_heading);
+  }
+
+  createAccountLoginHeading2Element(){
+    return this.element(this.create_account_login_heading_2);
+  }
+
+  viewCreateAccountLoginHeading2(){
+    this.inView(this.create_account_login_heading_2);
   }
 
   emailFieldElement(){
