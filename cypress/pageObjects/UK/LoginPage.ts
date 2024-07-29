@@ -16,7 +16,7 @@ export default class LoginPage extends BasePage {
   private velux_privacy_btn_header = '//ul[@id="top-menu"]//span[text()="VELUX Privacy Policy"]/parent::a';
   private privacy_btn_header = '//ul[@id="top-menu"]//span[text()="Privacy Policy"]/parent::a';
   private velux_privacy_btn_footer = '//footer//h6[text()="Links"]/parent::div//span[contains(text(),"VELUX") and contains(text(),"Privacy Policy")]/parent::a';
-  private privacy_btn_footer = '//footer//h6[text()="Links"]/parent::div//span[contains(text(),"Privacy Policy")]/parent::a';
+  private privacy_btn_footer = '//footer//h6[text()="Links"]/parent::div//span[contains(text(),"Privacy Policy") and not(contains(text(),"Altaterra"))]/parent::a';
   private altaterra_privacy_btn_header = '//ul[@id="top-menu"]//span[text()="Altaterra Privacy Policy"]/parent::a';
   private altaterra_privacy_btn_footer = '//footer//h6[text()="Links"]/parent::div//span[text()="Altaterra Privacy Policy"]/parent::a';
   private read_more_btn = '//span[text()="Read more"]';
