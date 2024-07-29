@@ -8,7 +8,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        containers: [0, 1, 2, 3]
+        containers: [0, 1, 2, 3, 4]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -26,7 +26,7 @@ jobs:
         run:  npm run clean-reports
 
       - name: Run Tests
-        run:  npx cypress run --config-file ci-cypress.config.ts --spec $(node regression-parallel.ts ${{ matrix.containers }} 4) --browser chrome
+        run:  npx cypress run --config-file ci-cypress.config.ts --spec $(node regression-parallel.ts ${{ matrix.containers }} 5) --browser chrome
       
       - name: Upload Cypress Test Reports
         uses: actions/upload-artifact@v4
@@ -65,12 +65,18 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: cypress-reports-3
-          path: cypress/reports/cypress-reports-3    
+          path: cypress/reports/cypress-reports-3
+
+      - name: Download Cypress Report 4
+        uses: actions/download-artifact@v4
+        with:
+          name: cypress-reports-4
+          path: cypress/reports/cypress-reports-4    
 
       - name: Collect Cypress Intermediate Reports
         run: |
           mkdir -p cypress/reports/all
-          for i in {0..3}; do
+          for i in {0..4}; do
             rsync -av --ignore-existing cypress/reports/cypress-reports-$i/* cypress/reports/all/
           done
 
@@ -95,6 +101,7 @@ jobs:
               cypress-reports-1
               cypress-reports-2
               cypress-reports-3
+              cypress-reports-4
 
       - name: Upload Cypress Merged Test Report
         uses: actions/upload-artifact@v4
