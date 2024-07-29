@@ -8,6 +8,7 @@ export default class ContactUsPage extends BasePage {
   private section = '//section';
   private image = '//div[contains(@class,"pageBlockCustom")]//*[contains(@style,"/page-blocks/") or contains(@src,"/page-blocks/")]';
   private heading = '//h2';
+  private image_2 = '//div/img[@alt="header-img"]';
 
   headingElement(){
     return this.element(this.heading);
@@ -23,6 +24,10 @@ export default class ContactUsPage extends BasePage {
 
   imageElement(){
     return this.element(this.image);
+  }
+
+  image2Element(){
+    return this.element(this.image_2);
   }
 
   emailElement(){
