@@ -5,7 +5,7 @@ export default class RewardsCalculatorPage extends BasePage {
   private url = '/rewards-calculator';
   private section_breadcrumb = '//li[contains(text(),"VELUX Rewards - Rewards Calculator")]/parent::ul/parent::div[contains(@class,"breadcrumb-section")]';
   private section = '//div[contains(@class,"rewardPageSection1Text")]/parent::div';
-  private sectionHeading = '//h1[text()="How rewards are calculated."]';
+  private sectionHeading = '//h1[contains(text(),"How rewards are calculated")]';
   private section2Heading = '//h2[text()="How rewards are calculated"]';
   private table = '//table[@id="table-data"]';
   private add_another_product_button = '//span[contains(text(),"Add another product")]/parent::a';
