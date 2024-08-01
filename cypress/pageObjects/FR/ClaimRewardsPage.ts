@@ -8,7 +8,7 @@ export default class ClaimRewardsPage extends BasePage {
   private displays_div = '//div[contains(@class,"col-span-12")]//a//b[contains(text(),"Présentoirs")]';
   private my_project_div = '//div[contains(@class,"col-span-12")]//a//b[contains(text(),"Mon projet avec VELUX")]';
   private chasing_daylight_div = '//div[contains(@class,"col-span-12")]//a//b[contains(text(),"Chasing Daylight")]';
-  private velux_co_store_div = '//div[contains(@class,"col-span-12")]//a//b[contains(text(),"La Boutique VELUX & Co.")]';
+  private velux_co_store_div = '//div[contains(@class,"col-span-12")]//a//b/p[contains(text(),"La Boutique VELUX & Co.")]';
   private site_assist_div = '//div[contains(@class,"col-span-12")]//a//b[contains(text(),"Assistance Chantier")]';
   private partners_div = '//div[contains(@class,"col-span-12")]//a//b[contains(text(),"Partenaires")]';
   private partner_select_btn = '//span[contains(text(),"Choisir")]/parent::a[contains(@href,"/partner")]';
