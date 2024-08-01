@@ -35,7 +35,7 @@ describe('IE Region - Claim Rewards Tests', () => {
     app.claimRewardsPage.productSectionDivElement().should('be.visible');
     app.claimRewardsPage.viewSection();
     app.claimRewardsPage.headingElement().should('be.visible');
-    app.claimRewardsPage.veluxRewardsShopDivElement().should('be.visible');
+    app.claimRewardsPage.veluxRewardsShopDiv2Element().should('be.visible');
     app.claimRewardsPage.retailersDivElement().should('be.visible');
     app.claimRewardsPage.productSectionDivElement().should('be.visible');
   });
