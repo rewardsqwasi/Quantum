@@ -3,7 +3,7 @@ import BasePage from "../BasePage";
 export default class CreateAccountPage extends BasePage {
 
   private url = '/create-account';
-  private profile_detail_heading = '//h2[text()=" Your profile details"]/parent::div';
+  private profile_detail_heading = '//h2[text()="Crea una cuenta"]/parent::div';
   private first_name_field = '#firstName';
   private last_name_field = '#lastName';
   private company_name_field = '#companyName';
@@ -14,7 +14,6 @@ export default class CreateAccountPage extends BasePage {
   private town_field = '#town';
   private mobile_field = '#mobile';
   private verify_mobile_field = '#mobile_verify';
-  private your_company_heading = '//h2[text()=" A little bit about you and your company"]/parent::div';
   private how_many_people_ques = '//div[@id="q3CoreWrapper"]/select';
   private working_time_ques = '//div[@id="q9CoreWrapper"]/select';
   private how_many_roof_ques = '//div[@id="q5CoreWrapper"]/input';
@@ -24,19 +23,29 @@ export default class CreateAccountPage extends BasePage {
   private velux_rewards_ques = '//div[@id="q8CoreWrapper"]/select';
   private recommend_velux_ques = '//div[@id="q2CoreWrapper"]/select';
   private recommend_dakea_ques = '//div[@id="q11CoreWrapper"]/select';
-  private social_media_info_heading = '//h2[text()=" Social media information"]/parent::div';
   private website_field = '#website';
   private facebook_field = '#facebook';
   private youtube_field = '#youtube';
   private instagram_field = '//input[@name="instagram"]';
-  private create_account_login_heading = '//h2[text()=" Create account login"]/parent::div';
+  private create_account_login_heading = '//h3[text()="Crear cuenta"]';
   private email_field = '#email';
   private verify_email_field = '#verifyEmail';
   private password_field = '#password';
   private terms_checkbox = '#terms';
   private email_promotion_checkbox = '#optinMarketing';
-  private sms_promotion_checkbox = '#optinsms';
   private create_account_btn = '#register';
+  private title_select = '#title';
+  private contact_email_field = '#contactEmail';
+  private label_mobile_field = '//label[@for="mobile"]';
+  private label_verify_mobile_field = '//label[@for="mobileVerify"]';
+  private label_how_many_people_ques = '//label[@for="q3Core"]';
+  private label_working_time_ques = '//label[@for="q9Core"]';
+  private label_how_many_roof_ques = '//label[@for="q5Core"]';
+  private label_how_many_velux_ques = '//label[@for="q6Core"]';
+  private label_describe_yourself_ques = '//label[@for="q7Core"]';
+  private label_recommend_velux_ques = '//label[@for="q2Core"]';
+  private enter_email_error = '//span[@id="emailStatus" and text()="Por favor, introduce una dirección de correo electrónico válida"]';
+  private social_media_info_heading = '//h3[text()="Información de redes sociales"]';
 
   profileDetailHeadingElement(){
     return this.element(this.profile_detail_heading);
@@ -84,14 +93,6 @@ export default class CreateAccountPage extends BasePage {
 
   verifyMobileFieldElement(){
     return this.element(this.verify_mobile_field);
-  }
-
-  yourCompanyHeadingElement(){
-    return this.element(this.your_company_heading);
-  }
-
-  viewYourCompanyHeading(){
-    this.inView(this.your_company_heading);
   }
 
   howManyPeopleQuesElement(){
@@ -182,10 +183,6 @@ export default class CreateAccountPage extends BasePage {
     return this.element(this.email_promotion_checkbox);
   }
 
-  smsPromotionCheckboxElement(){
-    return this.element(this.sms_promotion_checkbox);
-  }
-
   createAccountBtnElement(){
     return this.element(this.create_account_btn);
   }
@@ -193,6 +190,75 @@ export default class CreateAccountPage extends BasePage {
   open(region: string){
     this.url = '/'+region+this.url;
     this.goToUrl(this.url);
+  }
+
+  enterEmailErrorElement(){
+    return this.element(this.enter_email_error);
+  }
+  
+  mobileFieldLabel(){
+    return this.inner_text(this.label_mobile_field);
+  }
+
+  verifyMobileFieldLabel(){
+    return this.inner_text(this.label_verify_mobile_field);
+  }
+
+  howManyPeopleQuesLabel(){
+    return this.inner_text(this.label_how_many_people_ques);
+  }
+
+  workingTimeQuesLabel(){
+    return this.inner_text(this.label_working_time_ques);
+  }
+
+  howManyRoofQuesLabel(){
+    return this.inner_text(this.label_how_many_roof_ques);
+  }
+
+  howManyVeluxQuesLabel(){
+    return this.inner_text(this.label_how_many_velux_ques);
+  }
+
+  describeYourselfQuesLabel(){
+    return this.inner_text(this.label_describe_yourself_ques);
+  }
+
+  recommendVeluxQuesLabel(){
+    return this.inner_text(this.label_recommend_velux_ques);
+  }
+
+  titleSelectElement(){
+    return this.element(this.title_select);
+  }
+
+  contactEmailFieldElement(){
+    return this.element(this.contact_email_field);
+  }
+
+  submitCreateAccountForm(email: string, password: string){
+    this.select(this.title_select, 'Señor');
+    this.type(this.first_name_field,'test first name');
+    this.type(this.last_name_field,'test last name');
+    this.type(this.company_name_field,'test company name');
+    this.type(this.company_number_field,'123456');
+    this.type(this.address_1_field,'test address 1');
+    this.type(this.address_2_field,'test address 2');
+    this.type(this.postcode_field,'test123');
+    this.type(this.town_field,'test town');
+    this.type(this.mobile_field,'612345678');
+    this.type(this.verify_mobile_field,'612345678');
+    this.select(this.how_many_people_ques,1);
+    this.select(this.working_time_ques,1);
+    this.type(this.how_many_roof_ques,"1");
+    this.select(this.how_many_velux_ques,1);
+    this.select(this.describe_yourself_ques,1);
+    this.select(this.recommend_velux_ques,1);
+    this.type(this.email_field, email);
+    this.type(this.verify_email_field, email);
+    this.type(this.password_field, password);
+    this.check(this.terms_checkbox);
+    this.click(this.create_account_btn);
   }
 
 }
