@@ -8,27 +8,102 @@ export default class LoginPage extends BasePage {
   private url = '/login';
   private header_links_section = '#top-menu';
   private footer_links_section = '//footer//h6[text()="Links"]/parent::div';
-  private home_btn_header = '//ul[@id="top-menu"]//span[text()="Home"]/parent::a';
-  private home_btn_footer = '//footer//h6[text()="Links"]/parent::div//span[text()="Home"]/parent::a';
-  private terms_btn_header = '//ul[@id="top-menu"]//span[not(contains(text(),"General")) and contains(text(),"Terms") and contains(text(),"Conditions")]/parent::a';
-  private terms_btn_footer = '//footer//h6[text()="Links"]/parent::div//span[text()="Terms & Conditions"]/parent::a';
-  private privacy_btn_header = '//ul[@id="top-menu"]//span[text()="Privacy Policy"]/parent::a/parent::div';
-  private velux_privacy_btn_header = '//ul[@id="top-menu"]//span[text()="VELUX Privacy Policy"]/parent::a';
-  private velux_privacy_btn_footer = '//footer//h6[text()="Links"]/parent::div//span[contains(text(),"VELUX") and contains(text(),"Privacy Policy")]/parent::a';
-  private altaterra_privacy_btn_header = '//ul[@id="top-menu"]//span[text()="Altaterra Privacy Policy"]/parent::a';
-  private altaterra_privacy_btn_footer = '//footer//h6[text()="Links"]/parent::div//span[text()="Altaterra Privacy Policy"]/parent::a';
-  private read_more_btn = '//span[text()="Read more"]';
-  private contact_btn_header = '//ul[@id="top-menu"]//span[text()="Contact Us"]/parent::a';
-  private contact_btn_footer = '//footer//h6[text()="Links"]/parent::div//span[text()="Contact Us"]/parent::a';
-  private create_account_btn = '//a[text()="Create an account"]';
-  private forgot_pass_btn = '//a[text()="Forgot your password?"]';
-  private allow_cookie_btn = '#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll';
+  private home_btn_header = '//ul[@id="top-menu"]//span[text()="Início"]/parent::a';
+  private home_btn_footer = '//footer//h6[text()="Links"]/parent::div//span[text()="Início"]/parent::a';
+  private faq_btn_header = '//ul[@id="top-menu"]//span[text()="Perguntas frequentes"]/parent::a';
+  private terms_btn_footer = '//footer//h6[text()="Links"]/parent::div//span[text()="Termos e Condições"]/parent::a';
+  private velux_privacy_btn_footer = '//footer//h6[text()="Links"]/parent::div//span[text()="Política de Privacidade"]/parent::a';
+  private contact_btn_header = '//ul[@id="top-menu"]//span[text()="Contacte-nos"]/parent::a';
+  private contact_btn_footer = '//footer//h6[text()="Links"]/parent::div//span[text()="Contacte-nos"]/parent::a';
+  private create_account_btn = '//a[text()="Criar uma conta"]';
+  private forgot_pass_btn = '//a[text()="Esqueceu-se do pin?"]';
+  private banner_div = '//div[@id="banner"]';
+  private banner_images = '//div[@id="banner"]//img';
+  private contact_email_footer_text = '(//footer//div[@class="grid_3"])[1]//a[text()="velux-p@velux.com"]';
+  private contact_number_footer_text = '(//footer//div[@class="grid_3"])[1]//p[text()="Suporte ao client: 218800060"]';
+  private address_footer_text = '(//footer//div[@class="grid_3"])[1]//p[1]';
+  private footer_social_link_section = '(//footer//div[@class="grid_3"])[3]';
+  private velux_facebook_link_footer = '(//footer//div[@class="grid_3"])[3]//a[contains(@href,"facebook.com/VELUXPortugal")]';
+  private signIn_tab = '//legend[text()="Registo"]';
+  private password_error = '#loginPasswordStatus';
+  private email_error = '#loginEmailStatus';
+  private toast_message = '//div[@class="toast-message"]';
+  
+  getToastMessagText(){
+    return this.inner_text(this.toast_message);
+  }
+
+  pressEnter(){
+    this.type(this.password_field, '{enter}');
+  }
+
+  getEmailFieldErrorMsg(){
+    return this.inner_text(this.email_error);
+  }
+
+  getPasswordFieldErrorMsg(){
+    return this.inner_text(this.password_error);
+  }
+
+  getEmailFieldValidationMsg(){
+    return this.validationMessage(this.email_field);
+  }
+
+  passwordFieldElement(){
+    return this.element(this.password_field);
+  }
+
+  emailFieldElement(){
+    return this.element(this.email_field);
+  }
+
+  loginBtnElement(){
+    return this.element(this.login_btn);
+  }
+
+  signInTabElement(){
+    return this.element(this.signIn_tab);
+  }
+
+  footerSocialLinkSectionElement(){
+    return this.element(this.footer_social_link_section);
+  }
+
+  viewFooterSocialLinkSection(){
+    this.inView(this.footer_social_link_section);
+  }
+
+  veluxFacebookLinkElement(){
+    return this.element(this.velux_facebook_link_footer);
+  }
+
+  contactEmailFooterTextElement(){
+    return this.element(this.contact_email_footer_text);
+  }
+
+  contactNumberFooterTextElement(){
+    return this.element(this.contact_number_footer_text);
+  }
+
+  getAddressFooterText(){
+    return this.inner_text(this.address_footer_text);
+  }
+
+  bannerDivElement(){
+    return this.element(this.banner_div);
+  }
+
+  bannerImagesElement(){
+    return this.element(this.banner_images);
+  }
 
   login(email: string, password: string){
+    this.clear(this.email_field);
+    this.clear(this.password_field);
     if(email==undefined) email = " ";
     if(password==undefined) password = " ";
-    this.type(this.email_field,email);
-    this.type(this.password_field, password);
+    if(email!="") this.type(this.email_field,email);
+    if(password!="") this.type(this.password_field, password);
     this.click(this.login_btn);
   }
 
@@ -52,30 +127,16 @@ export default class LoginPage extends BasePage {
     this.click(this.home_btn_footer);
   }
 
-  clickTermsBtnHeader(){
-    this.click(this.terms_btn_header);
+  clickFAQBtnHeader(){
+    this.click(this.faq_btn_header);
   }
 
   clickTermsBtnFooter(){
     this.click(this.terms_btn_footer);
   }
 
-  clickVeluxPrivacyBtnHeader(){
-    this.forceClick(this.velux_privacy_btn_header);
-    this.click(this.read_more_btn);
-  }
-
   clickVeluxPrivacyBtnFooter(){
     this.forceClick(this.velux_privacy_btn_footer);
-    this.click(this.read_more_btn);
-  }
-
-  clickAltaterraPrivacyBtnHeader(){
-    this.forceClick(this.altaterra_privacy_btn_header);
-  }
-
-  clickAltaterraPrivacyBtnFooter(){
-    this.forceClick(this.altaterra_privacy_btn_footer);
   }
 
   clickContactBtnHeader(){
