@@ -4,7 +4,7 @@ export default class HomePage extends BasePage {
  
   private url = '/home';
   private main_btn = '//ul[@id="menu"]//a[text()="Startseite"]';
-  private add_purchase_btn = '//ul[@id="menu"]//a[text()="Rechnung einreichen"]';
+  private add_purchase_btn = '//ul[@id="menu"]//a[text()="Bestellung erfassen"]';
   private product_catalogue_btn = '//ul[@id="menu"]//a[text()="Produktekatalog"]';
   private dsp_btn = '//span[contains(text(),"DSP")]/parent::a';
   private add_replace_btn = '//span[contains(text(),"Add Replacement")]/parent::a';
