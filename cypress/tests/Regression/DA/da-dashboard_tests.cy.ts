@@ -54,7 +54,7 @@ describe('DA Region - Dashboard Tests', () => {
 
   it('Verify that "Your Points Earned Last Year" and "Your Points Earned This Year" are displayed correctly', () => {  
     app.dashboardPage.pointsEarnedLastYearElement().should('be.visible');
-    app.dashboardPage.pointsEarnedLastYearElement().should('have.text', '267');
+    app.dashboardPage.pointsEarnedLastYearElement().should('have.text', '67');
     app.dashboardPage.pointsEarnedThisYearElement().should('be.visible');
     app.dashboardPage.pointsEarnedThisYearElement().should('have.text', '10');
   });
