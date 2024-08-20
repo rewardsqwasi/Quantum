@@ -12,7 +12,6 @@ export default class ClaimRewardsPage extends BasePage {
   private shop_select_btn = '//span[contains(text(),"Choisir")]/parent::a[contains(@href,"/velux-shop")]';
   private tickets_select_btn = '//span[contains(text(),"Choisir")]/parent::a[contains(@href,"/tickets")]';
 
-
   gotoTickets(){
     this.click(this.tickets_select_btn);
   }
