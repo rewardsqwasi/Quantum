@@ -268,4 +268,8 @@ export default class CreateAccountPage extends BasePage {
     this.click(this.create_account_btn);
   }
 
+  getEmailFieldValidationMsg(){
+    return this.validationMessage(this.email_field);
+  }
+
 }

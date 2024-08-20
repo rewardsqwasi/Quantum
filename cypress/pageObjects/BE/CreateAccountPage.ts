@@ -61,6 +61,10 @@ export default class CreateAccountPage extends BasePage {
   enterEmailErrorElement(){
     return this.element(this.enter_email_error);
   }
+
+  getEmailFieldValidationMsg(){
+    return this.validationMessage(this.email_field);
+  }
   
   mobileFieldLabel(){
     return this.inner_text(this.label_mobile_field);
