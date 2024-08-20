@@ -142,8 +142,11 @@ describe('BE (NL lang) Region - Create Account Tests', () => {
   });
 
   it('Verify the email address is in the correct format. Username, @,mail server & domain.', () => {
-    app.createAccountPage.submitCreateAccountForm("test", member.password);
-    app.createAccountPage.enterEmailErrorElement().should('have.text', 'Gelieve een geldig e-mailadres in te geven');
+    let email = "test";
+    app.createAccountPage.submitCreateAccountForm(email, member.password);
+    let message = "Please include an \'@\' in the email address. \'"+email+"\' is missing an \'@\'.";
+    app.createAccountPage.getEmailFieldValidationMsg().should('eq', message);
+    //app.createAccountPage.enterEmailErrorElement().should('have.text', 'Gelieve een geldig e-mailadres in te geven');
   });
 
 })
