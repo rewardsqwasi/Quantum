@@ -1,4 +1,5 @@
-import App from '../../pageObjects/BE/AppPage';
+import App from '../../pageObjects/BE-NL/AppPage';
+import App2 from '../../pageObjects/BE/AppPage';
 
 const IS_PROD = Cypress.env('IS_PROD');
 const member = {
@@ -6,18 +7,15 @@ const member = {
   "password": Cypress.env('MEMBER_PASSWORD_BE')
 };
 let app = new App();
+let app2 = new App2();
 let region = 'be';
 
 describe('Sanity Test Belgium Region', () => {
   
   it('Sanity Test Belgium Region', () => {
-    //app.loginPage.open(region);
-    //if(IS_PROD==="true"){
-      app.loginPage.allowCookie();
-      //app.getURL().should('contain', '?consent=preferences,statistics,marketing&ref-original=');
-    //}
-    app.loginPage.open(region);
-    app.loginPage.login(member.email, member.password);
+    app2.loginPage.allowCookie();
+    app2.loginPage.open(region);
+    app2.loginPage.login(member.email, member.password);
     let url = Cypress.env('BASE_URL') + '/'+region+'/home';
     app.getURL().should('contain', url);
     app.getPageTitle().should('eq','VELUX Club - Startpagina');
@@ -27,30 +25,10 @@ describe('Sanity Test Belgium Region', () => {
     app.getURL().should('contain', addPurUrl);
     app.getPageTitle().should('eq','VELUX Club - Aankoop toevoegen - Eén factuur per aanvraag');
 
-    //app.homePage.clickDSPBtn();
-    //let dspUrl = Cypress.env('BASE_URL') + '/'+region+'/dsp-points';
-    //app.getURL().should('contain', dspUrl);
-    //app.getPageTitle().should('eq','VELUX Rewards - DSP Points');
-
-    //app.homePage.clickAddReplaceBtn();
-    //let addReplUrl = Cypress.env('BASE_URL') + '/'+region+'/add-replacement';
-    //app.getURL().should('contain', addReplUrl);
-    //app.getPageTitle().should('eq','VELUX Rewards - Add Replacement');
-
     app.homePage.clickPointsHistoryBtn();
     let pointHistUrl = Cypress.env('BASE_URL') + '/'+region+'/purchase-status';
     app.getURL().should('contain', pointHistUrl);
     app.getPageTitle().should('eq','VELUX Club - Aankoopstatus');
-
-    //app.homePage.clickTrainingPointBtn();
-    //let trainPointUrl = Cypress.env('BASE_URL') + '/'+region+'/training-points';
-    //app.getURL().should('contain', trainPointUrl);
-    //app.getPageTitle().should('eq','VELUX Rewards - Trainingspunten');
-
-    //app.homePage.clickELearningBtn();
-    //let eLearningUrl = Cypress.env('BASE_URL') + '/'+region+'/e-learning/home';
-    //app.getURL().should('contain', eLearningUrl);
-    //app.getPageTitle().should('eq','VELUX Rewards - E-learning');
     
     app.homePage.clickSpendPointsBtn();
     let claimRewardUrl = Cypress.env('BASE_URL') + '/'+region+'/claim-rewards';
@@ -61,11 +39,6 @@ describe('Sanity Test Belgium Region', () => {
     let rewardHistoryUrl = Cypress.env('BASE_URL') + '/'+region+'/rewards-history';
     app.getURL().should('contain', rewardHistoryUrl);
     app.getPageTitle().should('eq','VELUX Club - Puntenhistoriek');
-
-    //app.homePage.clickOrderHistoryBtn();
-    //let orderHistoryUrl = Cypress.env('BASE_URL') + '/'+region+'/new_shop/orders-history';
-    //app.getURL().should('contain', orderHistoryUrl);
-    //app.getPageTitle().should('eq','VELUX Rewards - Order History');
 
     app.homePage.clickRewardsCalculatorBtn();
     let rewardsCalculatorUrl = Cypress.env('BASE_URL') + '/'+region+'/rewards-calculator';
