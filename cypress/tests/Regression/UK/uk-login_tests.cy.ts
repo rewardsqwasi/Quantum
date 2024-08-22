@@ -118,22 +118,22 @@ describe('UK Region - Login Tests', () => {
 
   it('Verify Enter Valid Email, No Password', () => {
     app.loginPage.login(member.email, "");
-    app.loginPage.getPasswordFieldValidationMsg().should('eq', 'Please fill in this field.');
+    app.loginPage.getPasswordFieldValidationMsg().should('eq', 'Please fill out this field.');
   });
 
   it('Verify Enter Valid Password, No Email', () => {
     app.loginPage.login("", member.password);
-    app.loginPage.getEmailFieldValidationMsg().should('eq', 'Please fill in this field.');
+    app.loginPage.getEmailFieldValidationMsg().should('eq', 'Please fill out this field.');
   });
 
   it('Verify Leave email and password fields empty and  tick "Remember me" check box and click Login button.', () => {
     app.loginPage.login("", "", true);
-    app.loginPage.getEmailFieldValidationMsg().should('eq', 'Please fill in this field.');
+    app.loginPage.getEmailFieldValidationMsg().should('eq', 'Please fill out this field.');
   });
 
   it('Verify Press Enter key without adding any field values for email and password.', () => {
     app.loginPage.pressEnter();
-    app.loginPage.getEmailFieldValidationMsg().should('eq', 'Please fill in this field.');
+    app.loginPage.getEmailFieldValidationMsg().should('eq', 'Please fill out this field.');
   });
 
   it('Verify Enter Invalid Credentails (Email and Password)', () => {
