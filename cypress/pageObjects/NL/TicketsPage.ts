@@ -5,8 +5,8 @@ export default class TicketsPage extends BasePage {
   private url = '/tickets';
   private section_breadcrumb = '//li[contains(text(),"VELUX Rewards - Wissel mijn punten in")]/parent::ul/parent::div[contains(@class,"breadcrumb-section")]';
   private section_div = '.shop-section';
-  private future_event_heading = '//h1[contains(text(),"Upcoming Events")]';
-  private past_event_heading = '//h1[contains(text(),"Past Events")]';
+  private future_event_heading = '//h1[contains(text(),"Aankomende evenementen")]';
+  private past_event_heading = '//h1[contains(text(),"Gebeurtenissen uit het verleden")]';
   private events_div = '//div[contains(@class,"products-1-section")]//div[contains(@class,"card-container")]';
 
   sectionBreadcrumbElement(){
