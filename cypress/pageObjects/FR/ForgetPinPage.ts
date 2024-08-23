@@ -12,7 +12,6 @@ export default class ForgetPinPage extends BasePage {
   private enter_email_error = '//span[@id="emailStatus" and text()=" Veuillez saisir une adresse e-mail valide"]';
   private re_captcha_error = '//div[@id="g-recaptcha-error" and ./span[text()="reCaptcha est requis"]]';
 
-
   reqNewPassword(email: string){
     this.removeCaptchaDiv();
     this.type(this.email_field, email);
