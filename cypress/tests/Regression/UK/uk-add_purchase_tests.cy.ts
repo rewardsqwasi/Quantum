@@ -78,7 +78,7 @@ describe('UK Region - Add Purchase Tests', () => {
     app.addPurchasePage.uploadInvoiceFormSectionElement().should('be.visible');
     app.addPurchasePage.viewUploadInvoiceSection();
     app.addPurchasePage.uploadInvoice('testInvoice.pdf').should('be.visible');
-    app.addPurchasePage.selectAddPurchaseCheckBox();
+    //app.addPurchasePage.selectAddPurchaseCheckBox();
     app.addPurchasePage.clickFinishBtn();
     //app.addPurchasePage.successPurchaseToastElement().should('be.visible');
     app.addPurchasePage.getHeadingText().should('contain', "Thanks for uploading your invoice!");
@@ -99,7 +99,7 @@ describe('UK Region - Add Purchase Tests', () => {
     app.addPurchasePage.uploadInvoiceFormSectionElement().should('be.visible');
     app.addPurchasePage.viewUploadInvoiceSection();
     app.addPurchasePage.uploadInvoice('testInvoice.pdf').should('be.visible');
-    app.addPurchasePage.selectAddPurchaseCheckBox();
+    //app.addPurchasePage.selectAddPurchaseCheckBox();
     app.addPurchasePage.clickFinishBtn();
     //app.addPurchasePage.successPurchaseToastElement().should('be.visible');
     app.addPurchasePage.getHeadingText().should('contain', "Thanks for uploading your invoice!");
@@ -118,7 +118,7 @@ describe('UK Region - Add Purchase Tests', () => {
     app.addPurchasePage.uploadInvoiceFormSectionElement().should('be.visible');
     app.addPurchasePage.viewUploadInvoiceSection();
     app.addPurchasePage.uploadInvoice('testInvoice.pdf').should('be.visible');
-    app.addPurchasePage.selectAddPurchaseCheckBox();
+    //app.addPurchasePage.selectAddPurchaseCheckBox();
     app.addPurchasePage.clickFinishBtn();
     //app.addPurchasePage.successPurchaseToastElement().should('be.visible');
     app.addPurchasePage.getHeadingText().should('contain', "Thanks for uploading your invoice!");
