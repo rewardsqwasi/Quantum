@@ -5,7 +5,7 @@ export default class AddUserPage extends BasePage {
   private url = '/create-team-member';
   private section_breadcrumb = '//li[contains(text(),"VELUX Rewards - Edit Profile")]/parent::ul/parent::div[contains(@class,"breadcrumb-section")]';
   private section = '//div[contains(@class,"sign-up-section")]';
-  private sectionHeading = '//div[contains(@class,"sign-up-section")]//h4[text()=" Add team members "]';
+  private sectionHeading = '//div[contains(@class,"sign-up-section")]//h4[contains(text(),"Add team members")]';
   private save_details_btn = '//span[text()="Save Details"]/parent::button';
   private cancel_btn = '//span[text()="Cancel"]/parent::a';
   private first_name_field = '//input[@placeholder="First Name"]';
