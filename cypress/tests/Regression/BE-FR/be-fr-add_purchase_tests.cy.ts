@@ -64,7 +64,6 @@ describe('BE (FR lang) Region - Add Purchase Tests', () => {
   });
 
   it('Verify 1 Property & Dont Know Installation Invoice Purchase', () => {
-    //app.homePage.clickAddPurchseBtn();
     app.addPurchasePage.selectHowManyProperty('1');
     app.addPurchasePage.describeInstallationSectionElement().should('be.visible');
     app.addPurchasePage.selectDescribeInstallation('Je ne sais pas');
