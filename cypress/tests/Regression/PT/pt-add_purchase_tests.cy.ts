@@ -62,14 +62,7 @@ describe('PT Region - Add Purchase Tests', () => {
     app.addPurchasePage.selectPropertyValidationMsg().should('eq', "Please select an item in the list.");
   });
 
-  it('Verify “Cancel” button is clickable and redirects to the home page.', () => {
-    app.addPurchasePage.clickCancelBtn();
-    let url = Cypress.env('BASE_URL') + '/'+region+'/home';
-    app.getURL().should('contain', url);
-  });
-
   it('Verify 1 Property & Dont Know Installation Invoice Purchase', () => {
-    app.homePage.clickAddPurchseBtn();
     app.addPurchasePage.selectHowManyProperty('1');
     app.addPurchasePage.describeInstallationSectionElement().should('be.visible');
     app.addPurchasePage.selectDescribeInstallation('Não sei responder.');
@@ -120,6 +113,13 @@ describe('PT Region - Add Purchase Tests', () => {
     app.purchaseStatusPage.dateOfPurchase().should('be.oneOf', Helper.currentDate());
     app.purchaseStatusPage.refOfPurchase().should('match',/^\n\d+\n$/);
     app.purchaseStatusPage.statusOfPurchase().should('eq', 'Pendente');
+  });
+
+  it('Verify “Cancel” button is clickable and redirects to the home page.', () => {
+    app.homePage.clickAddPurchseBtn();
+    app.addPurchasePage.clickCancelBtn();
+    let url = Cypress.env('BASE_URL') + '/'+region+'/home';
+    app.getURL().should('contain', url);
   });
 
 })
