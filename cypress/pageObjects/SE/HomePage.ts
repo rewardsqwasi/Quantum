@@ -31,7 +31,6 @@ export default class HomePage extends BasePage {
   private address_footer_text = '(//footer//div[contains(@class,"lg:col-span-3")])[1]//p';
   private footer_section = '//footer';
   private home_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[2]//a[contains(text(),"Hem")]';
-  
   private terms_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[2]//a[contains(text(),"Allmänna villkor")]';
   private contact_us_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[2]//a[contains(text(),"Kontakta oss")]';
   private velux_privacy_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[2]//a[contains(text(),"Integritetspolicy")]';
