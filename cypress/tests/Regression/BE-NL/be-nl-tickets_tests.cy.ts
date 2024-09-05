@@ -2,8 +2,8 @@ import App from 'cypress/pageObjects/BE-NL/AppPage';
 
 const IS_PROD = Cypress.env('IS_PROD');
 const member = {
-  "email": Cypress.env('MEMBER_EMAIL_BE'),
-  "password": Cypress.env('MEMBER_PASSWORD_BE')
+  "email": Cypress.env('MEMBER_EMAIL_BE-NL'),
+  "password": Cypress.env('MEMBER_PASSWORD_BE-NL')
 };
 let app = new App();
 let region = 'be';

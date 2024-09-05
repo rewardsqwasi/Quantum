@@ -2,8 +2,8 @@ import App from 'cypress/pageObjects/BE-NL/AppPage';
 
 const IS_PROD = Cypress.env('IS_PROD');
 const member = {
-  "email": Cypress.env('MEMBER_EMAIL_BE'),
-  "password": Cypress.env('MEMBER_PASSWORD_BE')
+  "email": Cypress.env('MEMBER_EMAIL_BE-NL'),
+  "password": Cypress.env('MEMBER_PASSWORD_BE-NL')
 };
 let app = new App();
 let region = 'be';
@@ -15,12 +15,12 @@ describe('BE (NL lang) Region - Basket Tests', () => {
     app.loginPage.open(region);
     app.loginPage.switchToNL();
     if(IS_PROD==="true"){
-      app.loadFixture('prod/be.json').then((d) => {
+      app.loadFixture('prod/be-nl.json').then((d) => {
         data = d;
       });
     }
     else{
-      app.loadFixture('stage/be.json').then((d) => {
+      app.loadFixture('stage/be-nl.json').then((d) => {
         data = d;
       });
     }
