@@ -43,7 +43,7 @@ describe('IT Region - Purchase Status Tests', () => {
       app.wrap(option).should('have.text', expectedText[index]); 
     });
   });
-/*
+
   it('Verify if user is able to select the status filter and results are displayed accordingly', () => {
     app.purchaseStatusPage.selectStatus('Rifiutato');
     let url = Cypress.env('BASE_URL') + '/'+region+'/purchase-status?perPage=25&status=All&allSubmissions=1&status=Rejected';
@@ -52,7 +52,7 @@ describe('IT Region - Purchase Status Tests', () => {
       app.wrap(element).should('have.text', 'Rifiutato');
     });
   });
-*/
+
   it('Verify the results quantity drop-down is displaying the values', () => {
     app.purchaseStatusPage.paginationSelectElement().find('option').should('have.length', 4)
     .each((option, index) => {
