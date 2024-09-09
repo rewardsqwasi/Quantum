@@ -5,16 +5,41 @@ export default class ForgetPinPage extends BasePage {
   private url = '/forget-pin';
   private captcha_div = '.g-recaptcha';
   private captcha_error_div = '#g-recaptcha-error';
-  private reset_password_heading = '//h1[text()="Reset Password"]';
-  private email_field = '#email';
-  private info_text_one = '//p[text()="You will shortly receive an email and SMS detailing instructions on how to reset your password."]';
+  private reset_password_heading = '//h1[text()="Nulstil PIN kode?"]';
+  private email_field = '//input[@id="email"]';
+  private info_text_one = '//p[text()="Dine login detaljer sendes til din email. Husk evt. at tjekke dit spam folder, hvis ikke du modtager mailen i din inbox."]';
   private info_text_two = '//p[text()="The SMS will also contain a verification code."]';
-  private request_new_pass_btn = '#submit';
+  private request_new_pass_btn = '//button[@id="submit"]';
   private toastMessage = '.toast-message';
+  private enter_email_error = '//span[@id="emailStatus" and text()="Indtast din virksomhedsemail"]';
+  private re_captcha_error = '//div[@id="g-recaptcha-error" and ./span[text()="reCaptcha er påkrævet."]]';
+
+
+
+
+
+
+  reqNewPassword(email: string){
+    this.removeCaptchaDiv();
+    this.type(this.email_field, email);
+    this.click(this.request_new_pass_btn);
+  }
+
 
   removeCaptchaDiv(){
     this.removeFromDom(this.captcha_div);
     this.removeFromDom(this.captcha_error_div);
+  }
+  captchaDivElement(){
+    return this.element(this.captcha_div);
+  }
+
+  reCaptchaErrorElement(){
+    return this.element(this.re_captcha_error);
+  }
+
+  enterEmailErrorElement(){
+    return this.element(this.enter_email_error);
   }
 
   resetPasswordHeadingElement(){
@@ -42,7 +67,6 @@ export default class ForgetPinPage extends BasePage {
   }
 
   enterEmail(email: string){
-    this.removeCaptchaDiv();
     this.type(this.email_field, email);
   }
 
