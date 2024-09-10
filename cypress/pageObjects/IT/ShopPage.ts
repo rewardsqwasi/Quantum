@@ -5,7 +5,7 @@ export default class ShopPage extends BasePage {
   private url = '/velux-shop';
   private section = '//div[contains(@class,"shop-section")]';
   private product_section = '//div[contains(@class,"products")]';
-  private product_section_heading = '//div[contains(@class,"products")]//h1[text()="Consiglia"]';
+  private product_section_heading = '//div[contains(@class,"products")]//h1[text()=" Prodotti "]';
   private product_div = '//div[contains(@class,"products")]/div[@id="GridView"]';
   private search_filter_form = '//h1[text()="Filtro di ricerca"]/parent::div/parent::form';
   private search_filter_checkboxes = '//div[@class="see-more-content"]';
