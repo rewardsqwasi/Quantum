@@ -54,8 +54,8 @@ describe('IT Region - Login Tests', () => {
     app.getPageTitle().should('eq','VELUX Premia - Contattaci');
     app.getURL().should('contain', contactUrl);
     app.loginPage.clickPrivacyBtnFooter();
-    app.getURL().should('contain', 'https://www.velux.it/informazioni-legali/privacy-policy');
     app.getPageTitle().should('eq','Informativa sulla Privacy | VELUX');
+    app.getURL().should('contain', 'https://www.velux.it/informazioni-legali/privacy-policy');
   });
 
   it('Verify Footer Contact Section', () => {
