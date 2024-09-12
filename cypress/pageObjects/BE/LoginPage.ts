@@ -33,8 +33,8 @@ export default class LoginPage extends BasePage {
   private password_error = '#loginPasswordStatus';
   private email_error = '#loginEmailStatus';
   private toast_message = '//div[@class="toast-message"]';
-  private french_lang_btn = '//span[text()="FR"]/parent::a';
-  private dutch_lang_btn = '//span[text()="NL"]/parent::a';
+  private french_lang_btn = '//ul[@id="top-menu"]//img/parent::a[@title="French"]';
+  private dutch_lang_btn = '//ul[@id="top-menu"]//img/parent::a[@title="Dutch"]';
 
   switchToFR(){
     this.click(this.french_lang_btn);
