@@ -223,11 +223,11 @@ export default class HomePage extends BasePage {
   }
 
   viewServicesSection(){
-    this.inView(this.stay_informed_heading);
+    this.inView(this.services_heading);
   }
 
   viewStayInformedSection(){
-    this.inView(this.services_heading);
+    this.inView(this.stay_informed_heading);
   }
 
   viewVeluxTipsSection(){
