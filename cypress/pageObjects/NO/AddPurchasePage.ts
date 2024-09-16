@@ -4,29 +4,43 @@ export default class AddPurchasePage extends BasePage {
 
   private url = '/add-purchase';
   private add_purchase_section = '//section';
-  private heading = '//section//h4[contains(text(),"Add Purchase")]';
-  private headline_text = '//section//label[contains(text(),"Upload your invoices here to earn your Rewards. Submit your details and fill in the questionnaire below.")]';
-  private form_heading = '//section//h1[contains(text(),"Add Purchase")]';
+  private heading = '//section//h4[contains(text(),"Tjen poeng")]';
+  private headline_text = '//section//label[contains(text(),"Last opp fakturaene dine her for å få bonuskroner. Send inn dine opplysninger og fyll ut spørreskjemaet nedenfor.")]';
+  private form_heading = '//section//h1[contains(text(),"Last opp faktura")]';
   private form_section = '//form[@id="formQuestionsAnswers"]';
-  private cancel_btn = '//span[text()="Cancel"]/parent::a';
-  private continue_btn = '//span[text()="Continue"]/parent::button';
-  private how_many_property_select = '#question-1';
+  private cancel_btn = '//span[text()="Avbryt"]/parent::a';
+  private continue_btn = '//span[text()="Last opp bilde av kvittering"]/parent::button';
+  private how_many_property_select = '//select[@name="questions[1]"]';
   private describe_installation_radio_btn: string;
   private in_which_room_installation_checkbox: string;
-  private describe_installation_section = '#container-2';
+  private describe_installation_section = '//div[@id="container-2" and .//label[contains(text(), "Hvordan vil du beskrive dette prosjektet?")]]';
   private in_which_project_type_section = '#container-3';
   private in_which_room_installation_section = '#container-6';
   private upload_invoice_form_section = '//form[contains(@action,"/add-purchase-invoice/")]';
-  private upload_invoice_input = '#uploaded_file';
-  
-  //private upload_invoice_input = '//input[@value="Choose File"]';
-  
-  private add_purchase_checkbox = '#terms';
-  private finish_btn = '//span[text()="Finish"]/parent::button';
-  private success_purchase_toast = '//div[@class="toast-message" and text()="Your purchase has been added successfully"]';
+  private upload_invoice_input = '//input[@class="purchase-invoice-file w-full" and @name="uploaded_file"]';  
+  private add_purchase_checkbox = '//input[@id="acceptTerms"]';
+  private finish_btn = '//span[text()="Send inn fakturaen"]/parent::button';
+  private success_purchase_toast = '//div[@class="toast-message" and text()="Ditt nye kjøp er lagt til. Den er foreløpig under behandling og vil bli gjennomført iløpet av 7 arbeidsdager."]';
   private page_heading = '//h1';
-  private dont_know_installation_checkbox = '//span[text()="Don\'t know"]/preceding-sibling::input[contains(@name,"questions[3]")]';
+  private dont_know_installation_checkbox = '//span[text()="Vet ikke"]/preceding-sibling::input[contains(@name,"questions[3]")]';
   private upload_invoice_label: string;
+  private section_breadcrumb = '//li[contains(text(),"VELUX Bonus - Last opp faktura")]/parent::ul/parent::div[contains(@class,"breadcrumb-section")]';
+
+  sectionBreadcrumbElement(){
+    return this.element(this.section_breadcrumb);
+  }
+
+  selectHowManyPropertyDropdown(){
+    return this.element(this.how_many_property_select);
+  }
+
+  selectPropertyValidationMsg(){
+    return this.validationMessage(this.how_many_property_select);
+  }
+
+  clickCancelBtn(){
+    this.click(this.cancel_btn);
+  }
 
   inWhichRoomInstallationSectionElement(){
     return this.element(this.in_which_room_installation_section);
