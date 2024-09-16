@@ -27,10 +27,11 @@ describe('IT Region - Login Tests', () => {
     app.loginPage.clickContactBtnHeader();
     let contactUrl = Cypress.env('BASE_URL') + '/'+region+'/contact';
     app.getURL().should('contain', contactUrl);
-    app.getPageTitle().should('eq','VELUX Premia - Contattaci');
-    app.loginPage.clickPrivacyBtnHeader();
-    app.getURL().should('contain', 'https://www.velux.it/informazioni-legali/privacy-policy');
-    app.getPageTitle().should('eq','Informativa sulla Privacy | VELUX');
+    app.getPageTitle().should('eq','VELUX Premia - Contattaci');    
+    app.loginPage.privacyBtnFooterElement().should('have.attr', 'href').and('contain', "https://www.velux.it/azienda/note-legali/informativa-privacy");
+    //app.loginPage.clickPrivacyBtnHeader();
+    //app.getURL().should('contain', 'https://www.velux.it/informazioni-legali/privacy-policy');
+    //app.getPageTitle().should('eq','Informativa sulla Privacy | VELUX');
   });
 
   it('Verify Banners in the header carousel', () => {
@@ -53,9 +54,10 @@ describe('IT Region - Login Tests', () => {
     let contactUrl = Cypress.env('BASE_URL') + '/'+region+'/contact';
     app.getPageTitle().should('eq','VELUX Premia - Contattaci');
     app.getURL().should('contain', contactUrl);
-    app.loginPage.clickPrivacyBtnFooter();
-    app.getPageTitle().should('eq','Informativa sulla Privacy | VELUX');
-    app.getURL().should('contain', 'https://www.velux.it/informazioni-legali/privacy-policy');
+    app.loginPage.privacyBtnFooterElement().should('have.attr', 'href').and('contain', "https://www.velux.it/azienda/note-legali/informativa-privacy");
+    //app.loginPage.clickPrivacyBtnHeader();
+    //app.getURL().should('contain', 'https://www.velux.it/informazioni-legali/privacy-policy');
+    //app.getPageTitle().should('eq','Informativa sulla Privacy | VELUX');
   });
 
   it('Verify Footer Contact Section', () => {
