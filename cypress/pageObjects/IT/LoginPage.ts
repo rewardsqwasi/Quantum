@@ -116,6 +116,10 @@ export default class LoginPage extends BasePage {
     this.forceClick(this.privacy_btn_footer);
   }
 
+  privacyBtnFooterElement(){
+    return this.element(this.privacy_btn_footer);
+  }
+
   clickContactBtnHeader(){
     this.click(this.contact_btn_header);
   }
