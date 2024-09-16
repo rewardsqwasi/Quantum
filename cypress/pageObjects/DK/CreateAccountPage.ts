@@ -12,7 +12,7 @@ export default class CreateAccountPage extends BasePage {
   private address_2_field = '#address2';
   private postcode_field = '#postcode';
   private town_field = '#town';
-  private mobile_field = '//label[text()="Indtast mobilnummer på virksomhedens kontaktperson *"]/following-sibling::div//input[@id="mobile"]';
+  private mobile_field = '#mobile';
   private verify_mobile_field = '#mobile_verify';
   private your_company_heading = '//h2[text()=" Lidt om dig og din virksomhed"]/parent::div';
   private how_many_people_ques = '//div[@id="q3CoreWrapper"]/select';
