@@ -52,7 +52,7 @@ describe('Sanity Test Norway Region', () => {
     //app.getURL().should('contain', eLearningUrl);
     //app.getPageTitle().should('eq','VELUX Rewards - E-learning');
     
-    app.homePage.clickSpendPointsBtn();
+    app.homePage.clickClaimRewardsBtn();
     let claimRewardUrl = Cypress.env('BASE_URL') + '/'+region+'/claim-rewards';
     app.getURL().should('contain', claimRewardUrl);
     app.getPageTitle().should('eq','VELUX Bonus - Løs inn bonus');
