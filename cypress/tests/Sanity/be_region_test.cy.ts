@@ -15,6 +15,7 @@ describe('Sanity Test Belgium Region', () => {
   it('Sanity Test Belgium Region', () => {
     app2.loginPage.allowCookie();
     app2.loginPage.open(region);
+    app2.loginPage.switchToNL();
     app2.loginPage.login(member.email, member.password);
     let url = Cypress.env('BASE_URL') + '/'+region+'/home';
     app.getURL().should('contain', url);
