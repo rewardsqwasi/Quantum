@@ -7,7 +7,7 @@ const member = {
 let app = new App();
 let region = 'dk';
 
-describe('dK Region - Home Page Tests', () => {
+describe('DK Region - Home Page Tests', () => {
   
   before(() => {
     app.loginPage.allowCookie();
