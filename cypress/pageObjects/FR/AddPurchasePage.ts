@@ -21,7 +21,7 @@ export default class AddPurchasePage extends BasePage {
   private postal_code_field = '#question-7';
   private upload_invoice_input = '#uploaded_file';
   private add_purchase_checkbox = '#terms';
-  private finish_btn = '//span[text()="Envoyer votre facture"]/parent::button';
+  private finish_btn = '//span[text()="Envoyer"]/parent::button';
   private success_purchase_toast = '//div[@class="toast-message" and text()="Votre facture a été prise en compte. Elle est en cours de traitement et sera créditée à votre compte sous 7 jours ouvrés."]';
   private page_heading = '//h1';
   private dont_know_installation_checkbox = '//span[text()="Je ne sais pas"]/preceding-sibling::input[contains(@name,"questions[3]")]';
