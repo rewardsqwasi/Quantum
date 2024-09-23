@@ -14,6 +14,7 @@ export class Helper {
   static currentDate(): string[] {
     const date = new Date();
     const dateString = date.toLocaleDateString("en-GB", {
+      timeZone: 'Europe/London',
       year: "numeric",
       month: "2-digit",
       day: "2-digit",
