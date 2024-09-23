@@ -171,7 +171,6 @@ export default class LoginPage extends BasePage {
     return this.element(this.email_field);
   }
 
-
   headerLinksSectionElement(){
     return this.element(this.header_links_section);
   }
