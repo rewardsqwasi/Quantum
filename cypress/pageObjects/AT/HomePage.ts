@@ -3,65 +3,61 @@ import BasePage from "../BasePage";
 export default class HomePage extends BasePage {
  
   private url = '/home';
-  private main_btn = '(//span[contains(text(),"Startpagina")]/parent::a)[1]';
+  private edit_profile_link = '//ul[@id="top-menu"]//span[text()="Profil / Konto bearbeiten"]/parent::a';
+  private main_btn = '//ul[@id="menu"]//a[contains(text(),"Startseite")]';
   private add_purchase_btn = '//ul[@id="menu"]//a[text()="Fügen Sie Ihren Einkauf hinzu"]';
-  private dsp_btn = '//span[contains(text(),"DSP")]/parent::a';
-  private add_replace_btn = '//span[contains(text(),"Add Replacement")]/parent::a';
-  private upload_invoice_btn = '//span[contains(text(),"Upload Invoice")]/parent::a';
   private points_history_btn = '//ul[@id="menu"]//a[text()="Einreichstatus"]';
-  private training_point_btn = '//span[contains(text(),"Trainingspunten")]/parent::a';
-  private e_learning_btn = '//span[contains(text(),"E-learning")]/parent::a';
-  private spend_points_btn = '//ul[@id="menu"]//a[text()="Punkte einlösen"]';
-  private clain_rewards_btn = '//span[contains(text(),"Claim Rewards")]/parent::a';
+  private partners_btn = '//ul[@id="menu"]//a[text()="Punkte einlösen"]';
   private rewards_history_btn = '//ul[@id="menu"]//a[text()="Eingelöste Punkte überprüfen"]';
-  private order_history_btn = '//span[contains(text(),"Order History") or contains(text(),"Orders History")]/parent::a';
-  private rewards_calculator_btn = '(//span[contains(text(),"Poängkalkylator")]/parent::a)[1]';
-  private dashboard_btn = '//a[@href="dashboard"]';
-  private basket_btn = '//i[contains(@class,"fa-shopping-cart")]/parent::a';
-  private banner_section_div = '//div[contains(@class,"banners-section")]';
-  private swiper_banner_dev = '//div[contains(@class,"banners-section")]//div[contains(@class,"swiper-container")]';
-  private mini_dashboard_banner_div = '//div[contains(@onclick,"/store-mini-dashboard-click")]';
-  private goto_mini_dashboard_slide = '//div[contains(@onclick,"/store-mini-dashboard-click")]//following::span[contains(@class,"swiper-pagination-bullet") and @aria-label="Go to slide 2"]';
-  private goto_mini_dashboard_slide2 = '(//div[contains(@onclick,"/store-mini-dashboard-click")]/following::div[@aria-label="Next slide"])[1]';
-  private current_point_div = '(//div[contains(@onclick,"/store-mini-dashboard-click")]//div[text()="Current Points"])[1]';
-  private points_earned_div = '(//div[contains(@onclick,"/store-mini-dashboard-click")]//div[text()="Points earned"])[1]';
-  private points_spent_div = '(//div[contains(@onclick,"/store-mini-dashboard-click")]//div[text()="Points spent"])[1]';
-  private total_points_div = '(//div[contains(@onclick,"/store-mini-dashboard-click")]//div[contains(text(),"Total Points")])[1]';
-  private bonus_level_chart = '(//canvas[@id="bonusLevelChart"])[1]';
-  private add_purchase_CTA = '//h6[contains(text(),"Add Purchase")]//ancestor::a';
-  private spend_points_CTA = '//h6[contains(text(),"Spend Points")]//ancestor::a';
-  private reward_calculator_CTA = '//h6[contains(text(),"Reward Calculator")]//ancestor::a';
-  private claim_rewards_div = '(//h1[contains(text(),"Claim Rewards")]/parent::div//following-sibling::div[contains(@class,"grid")])[1]';
-  private stay_informed_div = '(//h1[contains(text(),"Stay Informed")]/parent::div//following-sibling::div[contains(@class,"grid")])[1]';
-  private services_div = '(//h1[contains(text(),"Services")]/parent::div//following-sibling::div[contains(@class,"grid")])[1]';
-  private velux_tips_div = '(//h1[contains(text(),"VELUX Tips & Tricks Videos")]/parent::div//following-sibling::div[contains(@class,"grid")])[1]';
-  private claim_rewards_heading = '//h1[contains(text(),"Claim Rewards")]/parent::div';
-  private stay_informed_heading = '//h1[contains(text(),"Stay Informed")]/parent::div';
-  private services_heading = '//h1[contains(text(),"Services")]/parent::div';
-  private velux_tips_heading = '//h1[contains(text(),"VELUX Tips & Tricks Videos")]/parent::div';
-  private contact_us_btn = '//span[text()="Contact Us"]//parent::a';
-  private contact_us_banner_div = '//span[text()="Contact Us"]//ancestor::div[contains(@class,"banners-section-2")]';
-  private contact_email_footer_text = '(//footer//div[contains(@class,"lg:col-span-3")])[1]//span[text()="myrewards@velux.co.uk"]';
-  private contact_number_footer_text = '(//footer//div[contains(@class,"lg:col-span-3")])[1]//span[text()="01592778293"]';
-  private address_footer_text = '(//footer//div[contains(@class,"lg:col-span-3")])[1]//p';
-  private altaterra_email_footer_text = '(//footer//div[contains(@class,"lg:col-span-3")])[2]//span[text()="cs@altaterra.eu"]';
-  private altaterra_number_footer_text = '(//footer//div[contains(@class,"lg:col-span-3")])[2]//span[text()="Tel: 020 3970 5080"]';
+  private banner_section_div = '//div[@id="banner"]//img';
+  private banner_img = '//div[@id="banner"]//img';
+  private add_purchase_CTA = '//div[@id="member-items"]//a[@href="add-purchase"]';
+  private purchase_status_CTA = '//div[@id="member-items"]//a[@href="purchase-status"]';
+  private partners_CTA = '//div[@id="member-items"]//a[@href="partners"]';
+  private reward_history_CTA = '//div[@id="member-items"]//a[@href="rewards-history"]';
+  private marketing_panel_div = '//div[@id="marketing-panel"]';
+  private marketing_panel_img = '//div[@id="marketing-panel"]//img';
+  private marketing_panel_faq_btn = '//div[@id="marketing-panel"]//a[contains(text(),"zu den FAQ")]';
   private footer_section = '//footer';
-  private terms_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[3]//a[contains(text(),"Term and Conditions") or contains(text(),"Terms and Conditions") and not(contains(text(),"Promotional"))]';
-  private promotional_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[3]//a[contains(text(),"Promotional Terms and Conditions")]';
-  private altaterra_privacy_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[3]//a[contains(text(),"Altaterra Privacy Policy")]';
-  private contact_us_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[3]//a[contains(text(),"Contact Us")]';
-  private faq_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[3]//a[contains(text(),"FAQ")]';
-  private earn_points_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[3]//a[contains(text(),"How to Earn Points")]';
-  private velux_privacy_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[3]//a[contains(text(),"VELUX Privacy Policy")]';
-  private velux_facebook_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[4]//a[contains(@href,"facebook.com/VELUXGBI")]';
-  private velux_twitter_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[4]//a[contains(@href,"twitter.com/veluxgbi")]';
-  private velux_pinterest_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[4]//a[contains(@href,"pinterest.com/VELUXGroup")]';
-  private velux_youtube_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[4]//a[contains(@href,"www.youtube.com/channel/UC57bJX1nvVM94JR66LoXhJQ")]';
-  private dakea_facebook_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[4]//a[contains(@href,"facebook.com/HelloDakea")]';
-  private dakea_linkedin_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[4]//a[contains(@href,"linkedin.com/showcase/dakeauk")]';
-  private dakea_youtube_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[4]//a[contains(@href,"youtube.com/user/DakeaChannel")]';
+  private footer_links_section = '//footer//h6[text()="Links"]/parent::div';
+  private home_link_footer = '//footer//h6[text()="Links"]/parent::div//span[text()="Startseite"]/parent::a';
+  private terms_link_footer = '//footer//h6[text()="Links"]/parent::div//span[text()="Teilnahmebedingungen"]/parent::a';
+  private velux_privacy_link_footer = '//footer//h6[text()="Links"]/parent::div//span[text()="Datenschutz-Bestimmungen"]/parent::a';
+  private contact_us_link_footer = '//footer//h6[text()="Links"]/parent::div//span[text()="VELUX Kontaktformular"]/parent::a';
+  private contact_email_footer_text = '(//footer//div[@class="grid_3"])[1]//a[text()="werbung.v-a@velux.com"]';
+  private contact_number_footer_text = '(//footer//div[@class="grid_3"])[1]//p[text()="Tel: 0720105285"]';
+  private address_footer_text = '(//footer//div[@class="grid_3"])[1]//p[1]';
+  private footer_social_link_section = '(//footer//div[@class="grid_3"])[3]';
+  private velux_facebook_link_footer = '(//footer//div[@class="grid_3"])[3]//a[contains(@href,"www.facebook.com/VELUXAustria")]';
+  private velux_twitter_link_footer = '(//footer//div[@class="grid_3"])[3]//a[contains(@href,"twitter.com/VELUX")]';
+  private velux_pinterest_link_footer = '(//footer//div[@class="grid_3"])[3]//a[contains(@href,"www.pinterest.at/VELUXAustria")]';
+  private velux_youtube_link_footer = '(//footer//div[@class="grid_3"])[3]//a[contains(@href,"www.youtube.com/user/VeluxAustria")]';
+  private velux_instagram_link_footer = '(//footer//div[@class="grid_3"])[3]//a[contains(@href,"www.instagram.com/veluxdach")]';
+  private logout_btn = '//ul[@id="top-menu"]//span[text()="Ausloggen"]/parent::a';
+  private points_panel = '//div[@id="points-panel"]';
+  private current_points = '(//div[@id="points-panel"]//p)[1]'
+  private outstanding_invoices = '//div[@id="points-panel"]//p/small';
 
+  outstandingInvoicesElement(){
+    return this.element(this.outstanding_invoices);
+  }
+
+  currentPointsElement(){
+    return this.element(this.current_points);
+  }
+
+  pointsPanelDivElement(){
+    return this.element(this.points_panel);
+  }
+
+  clickLogout(){
+    this.forceClick(this.logout_btn);
+  }
+
+  clickEditProfileLink(){
+    this.click2(this.edit_profile_link);
+  }
+  
   open(region: string){
     this.url = '/'+region+this.url;
     this.goToUrl(this.url);
@@ -72,187 +68,79 @@ export default class HomePage extends BasePage {
   }
 
   clickMainBtn(){
-    this.click(this.main_btn);
+    this.click2(this.main_btn);
   }
 
   clickAddPurchseBtn(){
-    this.click(this.add_purchase_btn);
-  }
-
-  clickDSPBtn(){
-    this.forceClick(this.dsp_btn);
-  }
-
-  clickAddReplaceBtn(){
-    this.forceClick(this.add_replace_btn);
-  }
-
-  clickUploadInvoiceBtn(){
-    this.forceClick(this.upload_invoice_btn);
+    this.click2(this.add_purchase_btn);
   }
 
   clickPointsHistoryBtn(){
-    this.forceClick(this.points_history_btn);
-  }
-
-  clickTrainingPointBtn(){
-    this.forceClick(this.training_point_btn);
-  }
-
-  clickELearningBtn(){
-    this.forceClick(this.e_learning_btn);
-  }
+    this.click2(this.points_history_btn);
+  } 
   
-  clickSpendPointsBtn(){
-    this.click(this.spend_points_btn);
-  }
-
-  clickClaimRewardsBtn(){
-    this.forceClick(this.clain_rewards_btn);
+  clickPartnersBtn(){
+    this.click2(this.partners_btn);
   }
 
   clickRewardsHistoryBtn(){
-    this.forceClick(this.rewards_history_btn);
-  }
-
-  clickOrderHistoryBtn(){
-    this.forceClick(this.order_history_btn);
-  }
-
-  clickRewardsCalculatorBtn(){
-    this.click(this.rewards_calculator_btn);
-  }
-
-  clickDashboardBtn(){
-    this.forceClick(this.dashboard_btn);
-  }
-
-  clickBasketBtn(){
-    this.click(this.basket_btn);
+    this.click2(this.rewards_history_btn);
   }
 
   bannerSectionDivElement(){
     return this.element(this.banner_section_div);
   }
 
-  swiperBannerDivElement(){
-    return this.element(this.swiper_banner_dev);
-  }
-
-  miniDashboardBannerDivElement(){
-    return this.element(this.mini_dashboard_banner_div);
-  }
-
-  currentPointDivElement(){
-    return this.element(this.current_point_div);
-  }
-
-  pointsEarnedDivElement(){
-    return this.element(this.points_earned_div);
-  }
-
-  pointsSpentDivElement(){
-    return this.element(this.points_spent_div);
-  }
-
-  totalPointsDivElement(){
-    return this.element(this.total_points_div);
-  }
-
-  bonusLevelChartElement(){
-    return this.element(this.bonus_level_chart);
-  }
-
-  clickBonusLevelChart(){
-    this.forceClick(this.bonus_level_chart);
-  }
-
-  clickGotoMiniDashboardChart(){
-    this.forceClick(this.goto_mini_dashboard_slide2);
+  bannerImageElement(){
+    return this.element(this.banner_img);
   }
 
   clickAddPurchaseCTA(){
-    this.click(this.add_purchase_CTA);
+    this.click2(this.add_purchase_CTA);
   }
 
-  clickSpendPointsCTA(){
-    this.click(this.spend_points_CTA);
+  clickPurhaseStatusCTA(){
+    this.click2(this.purchase_status_CTA);
   }
 
-  clickRewardCalculatorCTA(){
-    this.click(this.reward_calculator_CTA);
+  clickPartnersCTA(){
+    this.click2(this.partners_CTA);
   }
 
-  rewardCalculatorCTAElement(){
-    return this.element(this.reward_calculator_CTA);
+  clickRewardHistoryCTA(){
+    this.click2(this.reward_history_CTA);
   }
 
-  spendPointsCTAElement(){
-    return this.element(this.spend_points_CTA);
+  rewardHistoryCTAElement(){
+    return this.element(this.reward_history_CTA);
+  }
+
+  purhaseStatusCTAElement(){
+    return this.element(this.purchase_status_CTA);
   }
 
   addPurchaseCTAElement(){
     return this.element(this.add_purchase_CTA);
   }
 
-  contactUsBannerDivElement(){
-    return this.element(this.contact_us_banner_div);
+  marketingPanelDivElement(){
+    return this.element(this.marketing_panel_div);
   }
 
-  contactUsBtnElement(){
-    return this.element(this.contact_us_btn);
+  viewMarketingPanelSection(){
+    this.inView(this.marketing_panel_div);
   }
 
-  clickContactUsBtn(){
-    this.forceClick(this.contact_us_btn);
+  marketingPanelImageElement(){
+    return this.element(this.marketing_panel_img);
   }
 
-  veluxTipsHeadingElement(){
-    return this.element(this.velux_tips_heading);
+  clickMarketingPanelFaqBtn(){
+    this.click2(this.marketing_panel_faq_btn);
   }
 
-  serviceHeadingElement(){
-    return this.element(this.services_heading);
-  }
-
-  stayInformedHeadingElement(){
-    return this.element(this.stay_informed_heading);
-  }
-
-  claimRewardsHeadingElement(){
-    return this.element(this.claim_rewards_heading);
-  }
-
-  veluxTipsDivElement(){
-    return this.element(this.velux_tips_div);
-  }
-
-  servicesDivElement(){
-    return this.element(this.services_div);
-  }
-
-  stayInformedDivElement(){
-    return this.element(this.stay_informed_div);
-  }
-
-  claimRewardsDivElement(){
-    return this.element(this.claim_rewards_div);
-  }
-
-  viewClaimRewardsSection(){
-    this.inView(this.claim_rewards_heading);
-  }
-
-  viewServicesSection(){
-    this.inView(this.stay_informed_heading);
-  }
-
-  viewStayInformedSection(){
-    this.inView(this.services_heading);
-  }
-
-  viewVeluxTipsSection(){
-    this.inView(this.velux_tips_heading);
+  marketingPanelFaqBtnElement(){
+    return this.element(this.marketing_panel_faq_btn);
   }
 
   contactEmailFooterTextElement(){
@@ -267,14 +155,6 @@ export default class HomePage extends BasePage {
     return this.inner_text(this.address_footer_text);
   }
 
-  altaterraEmailFooterTextElement(){
-    return this.element(this.altaterra_email_footer_text);
-  }
-
-  altaterraNumberFooterTextElement(){
-    return this.element(this.altaterra_number_footer_text);
-  }
-
   footerSectionElement(){
     return this.element(this.footer_section);
   }
@@ -287,24 +167,8 @@ export default class HomePage extends BasePage {
     this.click(this.terms_link_footer);
   }
 
-  clickPromotionalLinkFooter(){
-    this.click(this.promotional_link_footer);
-  }
-
-  clickAltaterraPrivacyLinkFooter(){
-    this.click(this.altaterra_privacy_link_footer);
-  }
-
   clickContactUsLinkFooter(){
     this.click(this.contact_us_link_footer);
-  }
-
-  clickFAQLinkFooter(){
-    this.click(this.faq_link_footer);
-  }
-
-  clickEarnPointsLinkFooter(){
-    this.click(this.earn_points_link_footer);
   }
 
   clickVeluxPrivacyLinkFooter(){
@@ -327,16 +191,20 @@ export default class HomePage extends BasePage {
     return this.element(this.velux_facebook_link_footer);
   }
 
-  dakeaFacebookLinkElement(){
-    return this.element(this.dakea_facebook_link_footer);
+  veluxInstagramLinkElement(){
+    return this.element(this.velux_instagram_link_footer);
   }
 
-  dakeaLinkedinLinkElement(){
-    return this.element(this.dakea_linkedin_link_footer);
+  clickHomeLinkFooter(){
+    this.click(this.home_link_footer);
   }
 
-  dakeaYoutubeLinkElement(){
-    return this.element(this.dakea_youtube_link_footer);
+  footerSocialLinkElement(){
+    return this.element(this.footer_social_link_section);
+  }
+
+  footerLinksElement(){
+    return this.element(this.footer_links_section);
   }
 
 }
