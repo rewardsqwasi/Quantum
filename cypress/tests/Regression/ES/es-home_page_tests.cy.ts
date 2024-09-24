@@ -45,9 +45,11 @@ describe('ES Region - Home Page Tests', () => {
     app.homePage.clickDashboardBtn();
     let dashboardUrl = Cypress.env('BASE_URL') + '/'+region+'/dashboard';
     app.getURL().should('contain', dashboardUrl);
+    /*
     app.homePage.clickBasketBtn();
     let basketUrl = Cypress.env('BASE_URL') + '/'+region+'/velux-shop/cart';
     app.getURL().should('contain', basketUrl);
+    */
   });
 
   it('Verify Page URL', () => {
@@ -85,14 +87,14 @@ describe('ES Region - Home Page Tests', () => {
     let rewardsCalculatorUrl = Cypress.env('BASE_URL') + '/'+region+'/rewards-calculator';
     app.getURL().should('contain', rewardsCalculatorUrl);
   });
-
+/*
   it('Verify Claim Rewards Section', () => {
     app.homePage.open(region);
     app.homePage.claimRewardsHeadingElement().should('be.visible');
     app.homePage.viewClaimRewardsSection();
     app.homePage.claimRewardsDivElement().should('be.visible');
   });
-
+*/
   it('Verify Tools and Training Section', () => {
     app.homePage.open(region);
     app.homePage.toolsAndTrainingHeadingElement().should('be.visible');

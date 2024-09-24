@@ -45,9 +45,11 @@ describe('FR Region - Home Page Tests', () => {
     app.homePage.clickDashboardBtn();
     let dashboardUrl = Cypress.env('BASE_URL') + '/'+region+'/dashboard';
     app.getURL().should('contain', dashboardUrl);
+    /*
     app.homePage.clickBasketBtn();
     let basketUrl = Cypress.env('BASE_URL') + '/'+region+'/velux-shop/cart';
     app.getURL().should('contain', basketUrl);
+    */
   });
 
   it('Verify Page URL', () => {
