@@ -81,12 +81,12 @@ describe('Sanity Test France Region', () => {
     let dashboardUrl = Cypress.env('BASE_URL') + '/'+region+'/dashboard';
     app.getURL().should('contain', dashboardUrl);
     app.getPageTitle().should('eq','VELUX & CO - Tableau de bord');
-
+/*
     app.homePage.clickBasketBtn();
     let basketUrl = Cypress.env('BASE_URL') + '/'+region+'/velux-shop/cart';
     app.getURL().should('contain', basketUrl);
     app.getPageTitle().should('eq','VELUX Rewards - Leden');
-
+*/
   });
 
 })

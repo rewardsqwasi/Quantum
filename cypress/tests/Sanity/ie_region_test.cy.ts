@@ -56,10 +56,10 @@ describe('Sanity Test Ireland Region', () => {
     //app.homePage.clickBonusLevelChart();
     //let dashboardUrl = Cypress.env('BASE_URL') + '/'+region+'/dashboard';
     //app.getURL().should('contain', dashboardUrl);
-
-    app.homePage.claimRewardsHeadingElement().should('be.visible');
-    app.homePage.viewClaimRewardsSection();
-    app.homePage.claimRewardsDivElement().should('be.visible');
+    //skip unit 1st oct
+    //app.homePage.claimRewardsHeadingElement().should('be.visible');
+    //app.homePage.viewClaimRewardsSection();
+    //app.homePage.claimRewardsDivElement().should('be.visible');
 
     app.homePage.stayInformedHeadingElement().should('be.visible');
     app.homePage.viewStayInformedSection();

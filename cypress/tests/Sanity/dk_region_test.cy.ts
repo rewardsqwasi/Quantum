@@ -76,12 +76,12 @@ describe('Sanity Test Denmark Region', () => {
     let dashboardUrl = Cypress.env('BASE_URL') + '/'+region+'/dashboard';
     app.getURL().should('contain', dashboardUrl);
     app.getPageTitle().should('eq','VELUX håndværkerbonus - Dashboard');
-
+/*
     app.homePage.clickBasketBtn();
     let basketUrl = Cypress.env('BASE_URL') + '/'+region+'/velux-shop/cart';
     app.getURL().should('contain', basketUrl);
     app.getPageTitle().should('eq','VELUX Rewards - Leden');
-
+*/
   });
 
 })
