@@ -84,6 +84,7 @@ describe('DK Region - Home Page Tests', () => {
     app.homePage.clickRewardCalculatorCTA();
     let rewardsCalculatorUrl = Cypress.env('BASE_URL') + '/'+region+'/rewards-calculator';
     app.getURL().should('contain', rewardsCalculatorUrl);
+    app.homePage.open(region);
   });
 /*
   it('Verify Claim Rewards Section', () => {
