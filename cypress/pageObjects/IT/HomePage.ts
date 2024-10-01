@@ -3,7 +3,7 @@ import BasePage from "../BasePage";
 export default class HomePage extends BasePage {
  
   private url = '/home';
-  private main_btn = '(//span[contains(text(),"Home page")]/parent::a)[1]';
+  private main_btn = '(//span[contains(text(),"Pagina iniziale")]/parent::a)[1]';
   private add_purchase_btn = '(//span[contains(text(),"Accumula punti")]/parent::a)[1]';
   private points_history_btn = '(//span[contains(text(),"Status Richieste")]/parent::a)[1]';
   private spend_points_btn = '(//span[contains(text(),"Spendi punti")]/parent::a)[1]';
@@ -32,7 +32,7 @@ export default class HomePage extends BasePage {
   private contact_number_footer_text = '(//footer//div[contains(@class,"lg:col-span-3")])[1]//span[text()="0456173666"]';
   private address_footer_text = '(//footer//div[contains(@class,"lg:col-span-3")])[1]//p';
   private footer_section = '//footer';
-  private home_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[2]//a[contains(text(),"Home page")]';
+  private home_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[2]//a[contains(text(),"Pagina iniziale")]';
   private terms_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[2]//a[contains(text(),"Regolamento")]';
   private contact_us_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[2]//a[contains(text(),"Contattaci")]';
   private velux_privacy_link_footer = '(//footer//div[contains(@class,"lg:col-span-3")])[2]//a[contains(text(),"Privacy")]';
