@@ -65,7 +65,7 @@ describe('Sanity Test France Region', () => {
     app.homePage.clickProjectsBtn();
     let projectsUrl = Cypress.env('BASE_URL') + '/'+region+'/projects';
     app.getURL().should('contain', projectsUrl);
-    app.getPageTitle().should('eq','VELUX & CO - Mon Projet');
+    app.getPageTitle().should('eq','VELUX & CO - Projects');
 
     //app.homePage.clickOrderHistoryBtn();
     //let orderHistoryUrl = Cypress.env('BASE_URL') + '/'+region+'/new_shop/orders-history';
