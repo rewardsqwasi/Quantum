@@ -28,7 +28,7 @@ describe('FR Region - My Project Tests', () => {
   });
 
   it('Verify Page Title', () => {
-    app.getPageTitle().should('eq','VELUX & CO - Projects');
+    app.getPageTitle().should('eq','VELUX & CO - Mon Projet');
   });
 
   it('Verify My Project Section', () => {
