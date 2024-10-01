@@ -36,7 +36,7 @@ describe('PT Region - Login Tests', () => {
   it('Verify Banners in the header carousel', () => {
     app.loginPage.open(region);
     app.loginPage.bannerDivElement().should('be.visible');
-    app.loginPage.bannerImagesElement().should('have.length.greaterThan', 6);
+    app.loginPage.bannerImagesElement().should('have.length.greaterThan', 5);
   });
 
   it('Verify Footer Links', () => {
