@@ -18,9 +18,9 @@ describe('AT Region - Footer Section Tests', () => {
   it('Verify Footer Contact Section', () => {
     app.homePage.footerSectionElement().should('be.visible');
     app.homePage.viewFooterSection();
-    app.loginPage.contactEmailFooterTextElement().should('be.visible');
-    app.loginPage.contactNumberFooterTextElement().should('be.visible');
-    app.loginPage.getAddressFooterText().should('eq', 'VELUX Österreich GmbHVeluxstraße 12120 Wolkersdorf');
+    app.homePage.contactEmailFooterTextElement().should('be.visible');
+    app.homePage.contactNumberFooterTextElement().should('be.visible');
+    app.homePage.getAddressFooterText().should('eq', 'VELUX Österreich GmbHVeluxstraße 12120 Wolkersdorf');
   });
 
   it('Verify Footer Links Section', () => {
