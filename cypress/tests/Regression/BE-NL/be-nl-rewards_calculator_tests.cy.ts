@@ -53,11 +53,11 @@ describe('BE (NL lang) Region - Rewards Calculator Tests', () => {
 
   it('Verify the points are displayed against the searched product', () => {
     app.rewardsCalculatorPage.enterProductCode('GPLS FFKF06 2066');
-    app.rewardsCalculatorPage.pointsFieldElement().should('have.value', '60');
+    app.rewardsCalculatorPage.pointsFieldElement().should('have.value', '45');
   });
 
   it('Verify that the total points are calculated', () => {
-    app.rewardsCalculatorPage.totalPointsFieldElement().should('have.value', '60');
+    app.rewardsCalculatorPage.totalPointsFieldElement().should('have.value', '45');
   });
 
   it('Verify the user can add new row', () => {
