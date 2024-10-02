@@ -24,7 +24,7 @@ describe('Sanity Test Switzerland Region', () => {
     app.getURL().should('contain', url);
     app.getPageTitle().should('eq','VELUX PRIMA Portal - Startseite');
 
-    app.homePage.clickSpendPointsBtn();
+    app.homePage.clickClaimRewardsCTA();
     let claimRewardUrl = Cypress.env('DACH_BASE_URL')+'.'+region+'/'+region+'/claim-rewards';
     app.getURL().should('contain', claimRewardUrl);
     app.getPageTitle().should('eq','VELUX PRIMA Portal - Punkte einlösen');
@@ -33,7 +33,7 @@ describe('Sanity Test Switzerland Region', () => {
     app.getURL().should('contain', url);
     app.getPageTitle().should('eq','VELUX PRIMA Portal - Startseite');
 
-    app.homePage.clickRewardsHistoryBtn();
+    app.homePage.clickRewardsHistoryCTA();
     let rewardHistoryUrl = Cypress.env('DACH_BASE_URL')+'.'+region+'/'+region+'/rewards-history';
     app.getURL().should('contain', rewardHistoryUrl);
     app.getPageTitle().should('eq','VELUX PRIMA Portal - Gutscheinübersicht');
