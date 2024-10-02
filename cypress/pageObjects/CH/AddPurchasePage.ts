@@ -3,29 +3,24 @@ import BasePage from "../BasePage";
 export default class AddPurchasePage extends BasePage {
 
   private url = '/add-purchase';
-  private add_purchase_section = '//section';
-  private heading = '//section//h4[contains(text(),"Add Purchase")]';
-  private headline_text = '//section//label[contains(text(),"Upload your invoices here to earn your Rewards. Submit your details and fill in the questionnaire below.")]';
-  private form_heading = '//section//h1[contains(text(),"Add Purchase")]';
+  private add_purchase_section = '//div[@id="content"]/section';
+  private heading = '//section//h1[contains(text(),"Rechnung einreichen")]';
   private form_section = '//form[@id="formQuestionsAnswers"]';
-  private cancel_btn = '//span[text()="Cancel"]/parent::a';
-  private continue_btn = '//span[text()="Continue"]/parent::button';
+  private cancel_btn = '//a[text()="Vorgang abbrechen"]';
+  private continue_btn = '//button[text()="Fortfahren"]';
   private how_many_property_select = '#question-1';
   private describe_installation_radio_btn: string;
   private in_which_room_installation_checkbox: string;
   private describe_installation_section = '#container-2';
-  private in_which_project_type_section = '#container-3';
+  private in_which_project_type_section = '//div[@id="container-3"]/label[@for="question-3"]';
   private in_which_room_installation_section = '#container-6';
-  private upload_invoice_form_section = '//form[contains(@action,"/add-purchase-invoice/")]';
+  private upload_invoice_form_section = '//form[contains(@action,"/add-purchase-invoice/")]/parent::section';
   private upload_invoice_input = '#uploaded_file';
-  
-  //private upload_invoice_input = '//input[@value="Choose File"]';
-  
   private add_purchase_checkbox = '#terms';
-  private finish_btn = '//span[text()="Finish"]/parent::button';
-  private success_purchase_toast = '//div[@class="toast-message" and text()="Your purchase has been added successfully"]';
+  private finish_btn = '//input[@value="Rechnung einreichen" and @id="finish"]';
+  private success_purchase_toast = '//div[@class="toast-message" and text()="Wir haben Ihre Daten erhalten und werden diese schnellstmöglich verarbeiten. Sie erhalten Ihre Gutschrift direkt nach der Prüfung und Freigabe der Daten."]';
   private page_heading = '//h1';
-  private dont_know_installation_checkbox = '//span[text()="Don\'t know"]/preceding-sibling::input[contains(@name,"questions[3]")]';
+  private dont_know_installation_checkbox = '//span[contains(text(),"unbekannt")]/preceding-sibling::input[contains(@name,"questions[3]")]';
   private upload_invoice_label: string;
 
   inWhichRoomInstallationSectionElement(){
@@ -72,16 +67,8 @@ export default class AddPurchasePage extends BasePage {
     return this.element(this.heading);
   }
 
-  headlineTextElement(){
-    return this.element(this.headline_text);
-  }
-
   viewSection(){
     this.inView(this.add_purchase_section);
-  }
-
-  formHeadingElement(){
-    return this.element(this.form_heading);
   }
 
   formSectionElement(){
@@ -96,6 +83,14 @@ export default class AddPurchasePage extends BasePage {
     return this.element(this.continue_btn);
   }
 
+  selectHowManyPropertyDropdown(){
+    return this.element(this.how_many_property_select);
+  }
+
+  selectPropertyValidationMsg(){
+    return this.validationMessage(this.how_many_property_select);
+  }
+
   open(region: string){
     this.url = '/'+region+this.url;
     this.goToUrl(this.url);
@@ -106,7 +101,7 @@ export default class AddPurchasePage extends BasePage {
   }
 
   selectDescribeInstallation(option: string){
-    this.describe_installation_radio_btn = '//span[text()="'+option+'"]/preceding-sibling::input[@name="questions[2]"]';
+    this.describe_installation_radio_btn = '//span[contains(text(),"'+option+'")]/preceding-sibling::input[@name="questions[2]"]';
     this.check(this.describe_installation_radio_btn);
   }
 
@@ -123,9 +118,13 @@ export default class AddPurchasePage extends BasePage {
     this.click(this.continue_btn);
   }
 
+  clickCancelBtn(){
+    this.click(this.cancel_btn);
+  }
+
   uploadInvoice(file: string){
     this.selectFile2(this.upload_invoice_input, file);
-    this.upload_invoice_label = '//div[@class="purchase-invoice-fileinputs"]//label[text()="'+file+'"]'
+    this.upload_invoice_label = '//button[text()="Weitere Seite hinzufügen"]';
     return this.element(this.upload_invoice_label);
   }
 
