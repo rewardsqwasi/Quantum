@@ -8,7 +8,7 @@ import ProfilePage from './ProfilePage';
 import AddPurchasePage from './AddPurchasePage';
 import PurchaseStatusPage from './PurchaseStatusPage';
 import RewardsHistoryPage from './RewardsHistoryPage';
-import ClaimRewardsPage from '../CH-IT/ClaimRewardsPage';
+import ClaimRewardsPage from './ClaimRewardsPage';
 import ContactUsPage from './ContactUsPage';
 import TermsPage from './TermsPage';
 
