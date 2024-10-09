@@ -43,25 +43,11 @@ describe('CH (DE lang) Region - Purchase Status Tests', () => {
 
   it('Verify if user is able to select the status filter and results are displayed accordingly', () => {
     app.purchaseStatusPage.selectStatus('Abgelehnt').should('have.attr', 'class').and('contain', "responsive-tabs__list__item--active");;
-    //app.purchaseStatusPage.statusColumnElement().each((element) => {
-    //  app.wrap(element).should('have.text', 'Abgelehnt');
-   // });
+    app.purchaseStatusPage.statusColumnElement().each((element) => {
+      app.wrap(element).should('have.text', 'Abgelehnt');
+   });
   });
-/*
-  it('Verify the results quantity drop-down is displaying the values', () => {
-    app.purchaseStatusPage.paginationSelectElement().find('option').should('have.length', 4)
-    .each((option, index) => {
-      const expectedValue = ['25', '50', '75', '100'];
-      app.wrap(option).should('have.value', expectedValue[index]);
-      app.wrap(option).should('have.text', expectedValue[index]); 
-    });
-  });
-  
-  it('Verify if user is displayed the results when the quantity is selected from the dropdown', () => {
-    app.purchaseStatusPage.selectPerPage('25');
-    app.purchaseStatusPage.columnElement().should('have.length', 26);
-  });
-*/
+
   it('Verify the edit pencil icon is appearing at the right place', () => {
     app.purchaseStatusPage.open(region);
     app.purchaseStatusPage.firstDataViewElement().should('be.visible');

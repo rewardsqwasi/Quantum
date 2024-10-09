@@ -61,12 +61,12 @@ describe('IT Region - Purchase Status Tests', () => {
       app.wrap(option).should('have.text', expectedValue[index]); 
     });
   });
-/*
+
   it('Verify if user is displayed the results when the quantity is selected from the dropdown', () => {
     app.purchaseStatusPage.selectPerPage('25');
     app.purchaseStatusPage.columnElement().should('have.length', 26);
   });
-*/
+
   it('Verify the edit pencil icon is appearing at the right place', () => {
     app.purchaseStatusPage.firstDataViewElement().should('be.visible');
   });
