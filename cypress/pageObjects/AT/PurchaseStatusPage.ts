@@ -14,7 +14,7 @@ export default class PurchaseStatusPage extends BasePage {
   private firstDataPoints = '(//section//table//tr[2]/td[3])[1]';
   private firstDataStatus = '(//section//table//tr[2]/td[5]/span)[1]';
   private firstDataView = '(//section//table//tr[./td//i[@class="fa fa-pencil"]])[1]/td[7]/a';
-  private status_column = '//section//table//tr/td[4]/span';
+  private status_column = '//section//table//tr/td[5]/span';
   private column = '(//section//table)[1]//td/parent::tr';
   private firstDataInvNumber = '//section//table//tr[2]/td[5]';
 
