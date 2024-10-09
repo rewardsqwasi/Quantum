@@ -24,7 +24,7 @@ describe('Sanity Test Germany Region', () => {
     app.getURL().should('contain', url);
     app.getPageTitle().should('eq','VELUX PLUS - Startseite');
 
-    app.homePage.clickDashboardBtn();
+    app.homePage.clickDashboardCTA();
     let dashboardUrl = Cypress.env('DACH_BASE_URL')+'.'+region+'/'+region+'/dashboard';
     app.getURL().should('contain', dashboardUrl);
     app.getPageTitle().should('eq','VELUX PLUS - Übersicht Kennzahlen');
