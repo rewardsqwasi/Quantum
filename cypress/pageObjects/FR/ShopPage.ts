@@ -11,7 +11,7 @@ export default class ShopPage extends BasePage {
   private search_filter_checkboxes = '//div[@class="see-more-content"]';
   private filter_button = '//button/span[contains(text(),"Filtrer")]';
   private reset_button = '//button/span[contains(text(),"Réinitialiser")]';
-  private first_product_link = '((//div[@id="GridView"]//div[contains(@class,"card-container")])[1]//a)[1]';
+  private first_product_link = '((//div[@id="GridView"]//div[contains(@class,"card-container")])[3]//a)[1]';
   private product_name = '//div[contains(@class,"product-details")]//h2';
   private product_code = '//div[contains(@class,"product-details")]//span[text()="Référence article: "]/following-sibling::b';
   private product_points = '//div[contains(@class,"product-details")]//span[contains(text(),"Points")]';
