@@ -5,7 +5,7 @@ export default class ClaimRewardsPage extends BasePage {
   private url = '/claim-rewards';
   private product_section_div = '//h1[text()="Wissel uw punten in bij de VELUX Club"]//ancestor::div[@id="product_list_view"]';
   private heading = '//div[@id="product_list_view"]//h1[text()="Wissel uw punten in bij de VELUX Club"]';
-  private velux_rewards_shop_div = '//div[contains(@class,"col-span-12")]//a/b[contains(text(),\'In de "VELUX & Me" online shop\')]';
+  private velux_rewards_shop_div = '//div[contains(@class,"col-span-12")]//a/b/p[contains(text(),\'In de "VELUX & Me" online shop\')]';
   private chasing_daylight_div = '//div[contains(@class,"col-span-12")]//a//b[contains(text(),"Chasing Daylight")]';
   private partners_div = '//div[contains(@class,"col-span-12")]//a/b/p[contains(text(),"Bij één van onze partners")]';
   private partner_select_btn = '//span[contains(text(),"Kies")]/parent::a[contains(@href,"/partner")]';
