@@ -31,7 +31,7 @@ describe('BE (NL lang) Region - Claim Rewards Tests', () => {
     app.claimRewardsPage.productSectionDivElement().should('be.visible');
     app.claimRewardsPage.viewSection();
     app.claimRewardsPage.headingElement().should('be.visible');
-    //app.claimRewardsPage.veluxRewardsShopDivElement().should('be.visible');
+    app.claimRewardsPage.veluxRewardsShopDivElement().should('be.visible');
     app.claimRewardsPage.chasingDaylightDivElement().should('be.visible');
     app.claimRewardsPage.partnersDivElement().should('be.visible');
   });
