@@ -37,11 +37,9 @@ describe('DK Region - Home Page Tests', () => {
     app.homePage.clickDashboardBtn();
     let dashboardUrl = Cypress.env('BASE_URL') + '/'+region+'/dashboard';
     app.getURL().should('contain', dashboardUrl);
-    /*
     app.homePage.clickBasketBtn();
     let basketUrl = Cypress.env('BASE_URL') + '/'+region+'/velux-shop/cart';
     app.getURL().should('contain', basketUrl);
-    */
   });
 
   it('Verify Page URL', () => {
@@ -105,7 +103,6 @@ describe('DK Region - Home Page Tests', () => {
     app.homePage.viewServicesSection();
     app.homePage.servicesDivElement().should('be.visible');
   });
-
 
   it('Verify Contact Us Section', () => {
     app.homePage.contactUsBannerDivElement().should('be.visible');
