@@ -9,13 +9,13 @@ export default class PurchaseStatusPage extends BasePage {
   private table_heading = '//section//h1[text()="Einreichstatus"]';
   private filterStatuslist = '//ul[@role="tablist"]';
   private paginationSelect = '//select[@id="pagination"]';
-  private firstDataDate = '(//section//table//tr[2]/td[1])[1]';
-  private firstDataRef = '(//section//table//tr[2]/td[2])[1]';
-  private firstDataPoints = '(//section//table//tr[2]/td[3])[1]';
-  private firstDataStatus = '(//section//table//tr[2]/td[5]/span)[1]';
-  private firstDataView = '(//section//table//tr[./td//i[@class="fa fa-pencil"]])[1]/td[7]/a';
-  private status_column = '//section//table//tr/td[5]/span';
-  private column = '(//section//table)[1]//td/parent::tr';
+  private firstDataDate = '(//div[not(contains(@style,"display: none;"))]/table/tbody/tr[2]/td[1])[1]';
+  private firstDataRef = '(//div[not(contains(@style,"display: none;"))]/table/tbody/tr[2]/td[2])[1]';
+  private firstDataPoints = '(//div[not(contains(@style,"display: none;"))]/table/tbody/tr[2]/td[4])[1]';
+  private firstDataStatus = '(//div[not(contains(@style,"display: none;"))]/table/tbody/tr[2]/td[5])[1]';
+  private firstDataView = '(//div[not(contains(@style,"display: none;"))]/table/tbody/tr[./td//i[@class="fa fa-pencil"]])[1]/td[7]/a';
+  private status_column = '//div[not(contains(@style,"display: none;"))]/table/tbody/tr/td[5]/span';
+  private column = '//div[not(contains(@style,"display: none;"))]/table/tbody/tr';
   private firstDataInvNumber = '//section//table//tr[2]/td[5]';
 
   refOfPurchase(){
