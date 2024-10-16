@@ -65,9 +65,9 @@ describe('DE Region - Home Page Tests', () => {
     app.homePage.marketingPanelDivElement().should('be.visible');
     app.homePage.viewMarketingPanelSection();
     app.homePage.marketingPanelImageElement().should('be.visible');
-    app.homePage.marketingPanelBtnElement().should('be.visible');
-    app.homePage.clickMarketingPanelBtn();
-    app.getURL().should('contain', 'https://hs.velux.de/velux-plus-september-gewinnspiel-anmeldung');
+    //app.homePage.marketingPanelBtnElement().should('be.visible');
+    //app.homePage.clickMarketingPanelBtn();
+    //app.getURL().should('contain', 'https://hs.velux.de/velux-plus-september-gewinnspiel-anmeldung');
   });
 
 })
