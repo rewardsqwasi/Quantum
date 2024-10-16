@@ -2,7 +2,6 @@ import BasePage from "../BasePage";
 
 export default class HomePage extends BasePage {
  
-
   private url = '/home';
   private edit_profile_link = '//ul[@id="top-menu"]//span[text()="Profil bearbeiten"]/parent::a';
   private main_btn = '//ul[@id="menu"]//a[text()="Startseite"]';
