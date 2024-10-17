@@ -8,6 +8,7 @@ import AddPurchasePage from './AddPurchasePage';
 import ProfilePage from './ProfilePage';
 import ContactUsPage from './ContactUsPage';
 import TermsPage from './TermsPage';
+import PurchaseStatusPage from './PurchaseStatusPage';
 
 export default class App extends BasePage {
    
@@ -42,5 +43,9 @@ export default class App extends BasePage {
     public get termsPage(): TermsPage {
         return new TermsPage();
     }
+
+    public get purchaseStatusPage(): PurchaseStatusPage {
+        return new PurchaseStatusPage();
+    }  
     
 }
