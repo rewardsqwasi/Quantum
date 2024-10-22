@@ -10,7 +10,7 @@ export default class ProjectPage extends BasePage {
   private filterStatusSelect = '//select[@id="FilterStatus"]';
   private paginationSelect = '//select[@id="pagination"]';
   private column = '//section//table//tr';
-  private section_breadcrumb = '//li[contains(text(),"VELUX & CO - Projects")]/parent::ul/parent::div[contains(@class,"breadcrumb-section")]';
+  private section_breadcrumb = '//li[contains(text(),"VELUX & CO - Projets")]/parent::ul/parent::div[contains(@class,"breadcrumb-section")]';
 
   sectionBreadcrumbElement(){
     return this.element(this.section_breadcrumb);
