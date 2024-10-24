@@ -6,7 +6,7 @@ export default class ProjectPage extends BasePage {
   private section = '//section';
   private table = '//section//table';
   private table_header_column = '//th[contains(text(),"Code postal")]/preceding::th[1][contains(text(),"Statut")]/preceding::th[1][contains(text(),"Nom")]/preceding::th[1][contains(text(),"Réf.")]/preceding::th[1][contains(text(),"Date")]/parent::tr';
-  private table_heading = '//section//p[text()="Your QR Projects History"]';
+  private table_heading = '//section//p[text()="Historique de votre projet QR"]';
   private filterStatusSelect = '//select[@id="FilterStatus"]';
   private paginationSelect = '//select[@id="pagination"]';
   private column = '//section//table//tr';
